@@ -1,0 +1,4 @@
+review_id,problem_id,cycle,added_date,due_date,status,review_date,review_result,review_time_min,review_help_level,notes
+rev-0001,icpc-la-2023-e,1,2026-09-26,2026-10-03,COMPLETED,2026-09-26,AC,20,0,Teste de revisão com sucesso solo
+rev-0002,cses-1671,1,2026-09-24,2026-10-01,COMPLETED,2026-09-26,AC,20,0,Teste de revisão com sucesso solo
+rev-0003,cses-1635,1,2026-09-15,2026-09-22,COMPLETED,2026-09-22,AC,18,1,Evolução: tentativa inicial help 3 -> revisão 7 dias help 1

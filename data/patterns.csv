@@ -1,0 +1,2 @@
+pattern_id,title,topic_id,related_problems,triggers,key_idea,common_mistakes,complexity,tags
+pat-0001,Binary Search on Answer,search_binary_answer,cses-1620,"1. Resposta numérica; 2. Otimização (mínimo/máximo); 3. Predicado check(X) é monotônico (se X é válido, X+1 também é)",Procurar a resposta fazendo busca binária no intervalo [low; high] testando viabilidade com função booleana check(mid),"1. Overflow no cálculo de mid = (low + high)/2; 2. Condição do while e atualização de low/high errada",O(log(Range) * T_check),binary_search;monotonic;optimization

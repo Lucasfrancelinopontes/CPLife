@@ -1,0 +1,14 @@
+problem_id,title,platform,source,link,difficulty_value,difficulty_source,main_topic,subtopics,created_at
+cses-1633,Dice Combinations,CSES,CSES - Dynamic Programming,https://cses.fi/problemset/task/1633,Easy,CSES,dp_1d,counting;dp_1d,2026-09-26
+cses-1634,Minimizing Coins,CSES,CSES - Dynamic Programming,https://cses.fi/problemset/task/1634,Easy,CSES,dp_knapsack,unbounded_knapsack,2026-09-26
+cses-1635,Coin Combinations I,CSES,CSES - Dynamic Programming,https://cses.fi/problemset/task/1635,Medium,CSES,dp_1d,permutations;counting,2026-09-26
+cses-1666,Building Roads,CSES,CSES - Graph Algorithms,https://cses.fi/problemset/task/1666,Easy,CSES,graphs_dfs,connected_components;graphs_bfs,2026-09-26
+cses-1667,Message Route,CSES,CSES - Graph Algorithms,https://cses.fi/problemset/task/1667,Easy,CSES,graphs_bfs,shortest_path_unweighted,2026-09-26
+cses-1671,Shortest Routes I,CSES,CSES - Graph Algorithms,https://cses.fi/problemset/task/1671,Medium,CSES,graphs_dijkstra,priority_queue;dijkstra,2026-09-26
+cses-1674,Subordinates,CSES,CSES - Tree Algorithms,https://cses.fi/problemset/task/1674,Easy,CSES,dp_tree,tree_traversal;dfs,2026-09-26
+cses-1620,Factory Machines,CSES,CSES - Sorting and Searching,https://cses.fi/problemset/task/1620,Medium,CSES,search_binary_answer,monotonicity;binary_search,2026-09-26
+cses-1646,Static Range Sum Queries,CSES,CSES - Range Queries,https://cses.fi/problemset/task/1646,Easy,CSES,ds_fenwick,prefix_sums;range_queries,2026-09-26
+cses-1648,Dynamic Range Sum Queries,CSES,CSES - Range Queries,https://cses.fi/problemset/task/1648,Medium,CSES,ds_fenwick,fenwick_tree;point_update,2026-09-26
+icpc-la-2023-e,Extracting Pollen,ICPC Latin America,Sub-regional ICPC Brasil 2023,https://judge.beecrowd.com/en/problems/view/3468,1600,Codeforces,greedy_general,priority_queue;simulation,2026-09-26
+icpc-la-2023-f,Fatiguemon,ICPC Latin America,Sub-regional ICPC Brasil 2023,https://judge.beecrowd.com/en/problems/view/3469,1400,Codeforces,greedy_general,ad_hoc,2026-09-26
+icpc-la-2024-k,K-Doku,ICPC Latin America,Sub-regional ICPC Brasil 2024,https://judge.beecrowd.com/en/problems/view/3480,1800,Codeforces,graphs_bipartite,max_flow;matching,2026-09-26

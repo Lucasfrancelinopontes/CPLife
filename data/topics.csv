@@ -1,0 +1,35 @@
+topic_id,category,name,icpc_weight,notes
+graphs_bfs,Graphs,BFS,2.5,Caminhos mínimos em grafos não-ponderados e busca em largura
+graphs_dfs,Graphs,DFS,2.5,Componentes conexos e travessia geral
+graphs_dijkstra,Graphs,Dijkstra,3.0,Menor caminho com pesos não-negativos usando priority_queue
+graphs_bellman_ford,Graphs,Bellman-Ford,1.8,Menor caminho com pesos negativos e detecção de ciclos negativos
+graphs_floyd_warshall,Graphs,Floyd-Warshall,1.8,Menor caminho entre todos os pares O(V^3)
+graphs_mst,Graphs,MST (Kruskal / Prim),2.2,Árvore geradora mínima
+graphs_dsu,Graphs,DSU (Disjoint Set Union),2.8,Union-Find com compressão de caminho e união por rank
+graphs_topological_sort,Graphs,Topological Sort,2.2,Ordenação topológica em DAGs (Kahn / DFS)
+graphs_scc,Graphs,SCC (Tarjan / Kosaraju),2.0,Componentes fortemente conexos em grafos direcionados
+graphs_tree_lca,Graphs,Tree LCA & Binary Lifting,2.6,Menor ancestral comum e subidas em potências de 2
+dp_1d,DP,DP 1D,2.7,Programação dinâmica linear e transições básicas
+dp_2d,DP,DP 2D / Grid,2.8,DP em matrizes e estados com duas variáveis
+dp_knapsack,DP,Knapsack (Mochila),2.8,Mochila 0-1 e ilimitada com otimização de espaço
+dp_lis,DP,LIS (Longest Increasing Subsequence),2.3,Subsequência crescente máxima O(N log N)
+dp_tree,DP,Tree DP,2.7,DP em árvores (de baixo para cima e re-rooting)
+dp_bitmask,DP,Bitmask DP,2.5,DP com estados em máscara de bits (N <= 20)
+dp_digit,DP,Digit DP,2.2,Contagem de inteiros em intervalos com restrições de dígitos
+ds_fenwick,Data Structures,Fenwick Tree (BIT),2.8,Árvore binária indexada para consultas de prefixo e atualizações pontuais
+ds_segment_tree,Data Structures,Segment Tree,3.0,Árvore de segmentos com atualizações pontuais e de intervalo (Lazy Propagation)
+ds_sparse_table,Data Structures,Sparse Table,2.2,Range Minimum Query (RMQ) estático em O(1) com pré-processamento O(N log N)
+ds_monotonic_stack,Data Structures,Monotonic Stack / Queue,2.4,Próximo elemento maior/menor em O(N)
+greedy_general,Greedy,Greedy Básico,2.8,Estratégias gulosas com prova por troca ou matróides
+greedy_two_pointers,Greedy,Two Pointers,2.7,Técnica de dois ponteiros em sequências ordenadas ou janelas
+greedy_sweep_line,Greedy,Sweep Line,2.5,Linha de varredura para intervalos e geometria
+search_binary_answer,Search,Binary Search on Answer,3.0,Busca binária sobre a resposta com função de viabilidade monotônica
+math_modular,Math,Modular Arithmetic & Exponentiation,2.8,Aritmética modular e exponenciação rápida O(log N)
+math_primes_sieve,Math,Sieve of Eratosthenes & Primes,2.4,Crivo de Eratóstenes e fatoração rápida
+math_combinatorics,Math,Combinatorics,2.6,Fatoriais modulares e inversos para nCr em O(1)
+math_game_theory,Math,Game Theory (Nim / Grundy),1.8,Jogos imparciais e teorema de Sprague-Grundy
+strings_hashing,Strings,String Hashing,2.7,Hashing polinomial com múltiplos módulos
+strings_trie,Strings,Trie,2.5,Árvore de prefixos para strings e bits
+strings_kmp,Strings,KMP / Z-Algorithm,2.2,Casamento de padrões lineares
+geometry_primitives,Geometry,Geometry 2D Primitives,2.0,Vetores, produto vetorial, produto escalar e orientação
+geometry_convex_hull,Geometry,Convex Hull,1.8,Envoltória convexa de pontos 2D (Monotone Chain / Graham Scan)

@@ -1,0 +1,2 @@
+week_number,year,start_date,end_date,solved_count,solo_count,independence_rate,best_topic,worst_topic,most_frequent_error,highlight_problem_id,next_week_goals
+38,2026,2026-09-20,2026-09-26,6,4,66.7%,graphs_bfs,icpc-la-2023-e,B,cses-1620,Consolidar Dijkstra e iniciar DP 1D no CSES

@@ -1,0 +1,10 @@
+attempt_id,problem_id,session_id,date,result,total_time_min,help_level,errors,time_complexity,space_complexity,notes
+att-0001,cses-1633,,2026-09-20,AC,25,0,,O(N),O(N),Resolvido solo de primeira. Cuidado com mod 1e9+7 na soma
+att-0002,cses-1634,,2026-09-21,AC,35,1,G,O(N*X),O(X),Esqueci do caso base quando x=0; dica rápida resolveu
+att-0003,cses-1666,,2026-09-22,AC,20,0,,O(V+E),O(V),DFS para encontrar componentes conexos e ligar representantes
+att-0004,cses-1667,,2026-09-23,AC,22,0,,O(V+E),O(V),BFS padrão recuperando o caminho via array parent
+att-0005,cses-1671,,2026-09-24,AC,45,2,H;I,O(E log V),O(V+E),Overflow no array de distancias (precisa long long) e sintaxe do priority_queue invertido
+att-0006,cses-1620,,2026-09-25,AC,30,0,,O(N log(max_time)),O(1),Busca binária na resposta com teste monotônico. Cuidado com overflow na multiplicação
+att-0007,icpc-la-2023-e,,2026-09-26,WA,55,3,B;C,O(N log N),O(N),Não percebi a simulação eficiente; recorri ao editorial. Precisa revisar
+att-0008,cses-1646,,2026-09-26,AC,15,0,,,,Prefix sums direto em O(1) query e O(N) build
+att-0009,cses-1646,,2026-09-26,AC,15,0,,,,Prefix sums direto em O(1) query e O(N) build

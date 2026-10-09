@@ -1,0 +1,2 @@
+template_id,name,category,code_filename,complexity_time,complexity_space,when_to_use,pitfalls,related_problems
+tpl-0001,Binary Search on Answer,Search,search/binary_search_answer.cpp,O(log(Range) * cost(check)),O(1),Quando a função de checagem é monotônica e busca-se o mínimo/máximo viável,"1. Overflow em low + high (usar low + (high-low)/2); 2. Loop infinito por divisão truncada; 3. Definir low e high com limites seguros",cses-1620

@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICPC 2027 — Painel Pessoal de Treinamento</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-badge">ICPC '27</div>
+      <div class="logo-subtitle">CSV Master Engine</div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <button class="nav-item active" onclick="app.navigate('dashboard')" id="nav-dashboard">
+        <span class="nav-icon">🏠</span> Dashboard
+      </button>
+      <button class="nav-item" onclick="app.navigate('training')" id="nav-training">
+        <span class="nav-icon">💻</span> Treinamento
+      </button>
+      <button class="nav-item" onclick="app.navigate('reviews')" id="nav-reviews">
+        <span class="nav-icon">🔄</span> Revisões
+      </button>
+      <button class="nav-item" onclick="app.navigate('contests')" id="nav-contests">
+        <span class="nav-icon">🏆</span> Contests
+      </button>
+      <button class="nav-item" onclick="app.navigate('upsolving')" id="nav-upsolving">
+        <span class="nav-icon">🔧</span> Upsolving
+      </button>
+      <button class="nav-item" onclick="app.navigate('skills')" id="nav-skills">
+        <span class="nav-icon">🎯</span> Habilidades
+      </button>
+      <button class="nav-item" onclick="app.navigate('patterns')" id="nav-patterns">
+        <span class="nav-icon">🧠</span> Patterns
+      </button>
+      <button class="nav-item" onclick="app.navigate('templates')" id="nav-templates">
+        <span class="nav-icon">📘</span> Templates
+      </button>
+      <button class="nav-item" onclick="app.navigate('analysis')" id="nav-analysis">
+        <span class="nav-icon">📊</span> Análises
+      </button>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-title" id="topbar-title">Dashboard Executivo</div>
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm" onclick="app.refreshData()">
+          ↻ Atualizar
+        </button>
+        <button class="btn btn-secondary" onclick="app.openContestModal()">
+          <span>🏆 + Registrar Contest</span>
+        </button>
+        <button class="btn btn-primary" onclick="app.openLogModal()">
+          <span>+ Registrar Tentativa</span>
+          <span class="hotkey-badge">N</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="container scrollable-container">
+
+      <!-- ============================================== -->
+      <!-- VIEW: DASHBOARD -->
+      <!-- ============================================== -->
+      <div id="view-dashboard" class="app-view active">
+        <!-- KPI Summary Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Problemas Resolvidos</div>
+            <div class="stat-value" id="stat-solved">0</div>
+            <div class="stat-sub" id="stat-total-catalog">de 0 no catálogo mestre</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Taxa Solo Estrita</div>
+            <div class="stat-value" id="stat-solo-rate" style="color: var(--accent-green);">0%</div>
+            <div class="stat-sub" id="stat-solo-count">0 resolvidos 100% sem ajuda</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Autonomia Ponderada</div>
+            <div class="stat-value" id="stat-autonomy" style="color: var(--accent-cyan);">0%</div>
+            <div class="stat-sub">Média dos níveis de ajuda</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Bases Principais</div>
+            <div class="stat-value" id="stat-bases" style="font-size: 1.4rem;">0 CSES / 0 ICPC</div>
+            <div class="stat-sub" id="stat-time">0h de treino registradas</div>
+          </div>
+          <div class="stat-card" style="border-left: 3px solid var(--accent-yellow); cursor: pointer;" onclick="app.navigate('reviews')">
+            <div class="stat-label">Revisões Espaçadas</div>
+            <div class="stat-value" id="stat-reviews-due" style="color: var(--accent-yellow);">0</div>
+            <div class="stat-sub" id="stat-reviews-total">0 na fila de retenção</div>
+          </div>
+          <div class="stat-card" style="border-left: 3px solid var(--accent-purple); cursor: pointer;" onclick="app.navigate('contests')">
+            <div class="stat-label">Contests / Simulados</div>
+            <div class="stat-value" id="stat-contests-count" style="color: var(--accent-purple);">0</div>
+            <div class="stat-sub" id="stat-contests-sub">Média: 0.0 AC • 0 pendentes upsolve</div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid" style="margin-top: 28px;">
+          <div class="left-col">
+            <div class="section-box" style="cursor: pointer;" onclick="app.navigate('skills')">
+              <div class="section-header">
+                <div>
+                  <div class="section-title"><span>🎯 O que treinar agora? (Pontos Fracos)</span></div>
+                  <div class="section-subtitle">Tópicos sugeridos baseados no domínio atual</div>
+                </div>
+              </div>
+              <div id="dash-weak-topics" class="topic-categories">
+                 <div style="color: var(--text-dim); padding: 20px 0;">Carregando sugestões...</div>
+              </div>
+            </div>
+            
+            <div class="section-box" style="cursor: pointer;" onclick="app.navigate('upsolving')">
+              <div class="section-header">
+                <div>
+                  <div class="section-title"><span>🔧 Resumo de Upsolving</span></div>
+                </div>
+              </div>
+              <div id="dash-upsolve-summary" style="padding: 10px 0;">
+                <span id="dash-up-pending" style="color: var(--accent-yellow); font-weight: bold; font-size: 1.2rem;">0</span> pendentes | 
+                <span id="dash-up-progress" style="color: var(--accent-cyan); font-weight: bold; font-size: 1.2rem;">0</span> em progresso
+              </div>
+            </div>
+          </div>
+          <div class="right-col">
+            <div class="section-box" style="cursor: pointer;" onclick="app.navigate('training')">
+              <div class="section-header">
+                <div>
+                  <div class="section-title"><span>⚡ Últimas 5 Tentativas</span></div>
+                </div>
+              </div>
+              <div style="overflow-x: auto;">
+                <table class="data-table">
+                  <thead><tr><th>Data</th><th>Problema</th><th>Res</th><th>Tempo</th><th>Ajuda</th><th>Tópico</th></tr></thead>
+                  <tbody id="dash-recent-attempts-body">
+                    <tr><td colspan="6" style="color: var(--text-dim); text-align: center;">Carregando...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: TRAINING -->
+      <!-- ============================================== -->
+      <div id="view-training" class="app-view" style="display: none;">
+        <div class="section-box">
+          <div class="section-header">
+            <div>
+              <div class="section-title"><span>💻 Histórico Completo de Treinamento</span></div>
+              <div class="section-subtitle">Todas as tentativas de problemas, ACs, WAs, TLEs</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="app.openLogModal()">+ Nova Tentativa</button>
+          </div>
+          
+          <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+            <input type="text" id="train-search" class="form-input" placeholder="Buscar problema..." onkeyup="app.filterTraining()">
+            <select id="train-filter-result" class="form-select" onchange="app.filterTraining()">
+              <option value="">Todos Resultados</option>
+              <option value="AC">AC</option>
+              <option value="WA">WA/TLE/RE</option>
+            </select>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Problema</th>
+                  <th>Tópico</th>
+                  <th>Plataforma</th>
+                  <th>Res</th>
+                  <th>Tempo</th>
+                  <th>Ajuda</th>
+                  <th>Obs</th>
+                </tr>
+              </thead>
+              <tbody id="training-history-body">
+                <tr><td colspan="8" style="color: var(--text-dim);">Carregando histórico...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: REVIEWS -->
+      <!-- ============================================== -->
+      <div id="view-reviews" class="app-view" style="display: none;">
+        <div class="section-box">
+          <div class="section-header">
+            <div>
+              <div class="section-title"><span>🔄 Fila de Retenção e Revisão Espaçada</span></div>
+              <div class="section-subtitle">Ciclos 7 dias → 30 dias → 90 dias para consolidar aprendizado</div>
+            </div>
+            <span class="badge badge-cycle" id="queue-badge-count-full">0 pendentes</span>
+          </div>
+
+          <div style="overflow-x: auto;">
+            <table class="data-table" id="table-reviews-pending-full">
+              <thead>
+                <tr>
+                  <th>Problema</th>
+                  <th>Ciclo</th>
+                  <th>Vencimento</th>
+                  <th>Dificuldade</th>
+                  <th>Motivo / Notas</th>
+                  <th style="text-align: right;">Ação</th>
+                </tr>
+              </thead>
+              <tbody id="reviews-pending-body-full">
+                <tr><td colspan="6" style="color: var(--text-dim);">Nenhuma revisão pendente no momento.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top: 32px;">
+            <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 12px;">Histórico de Retenção Concluído</div>
+            <div style="overflow-x: auto;">
+              <table class="data-table" id="table-reviews-completed-full">
+                <thead>
+                  <tr>
+                    <th>Problema</th>
+                    <th>Data Revisão</th>
+                    <th>Ciclo</th>
+                    <th>Resultado</th>
+                    <th>Tempo</th>
+                    <th>Nível de Ajuda</th>
+                    <th>Observação</th>
+                  </tr>
+                </thead>
+                <tbody id="reviews-completed-body-full">
+                  <tr><td colspan="7" style="color: var(--text-dim);">Nenhuma revisão concluída ainda.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: CONTESTS -->
+      <!-- ============================================== -->
+      <div id="view-contests" class="app-view" style="display: none;">
+        <div class="section-box" >
+      <div class="section-header">
+        <div>
+          <div class="section-title">
+            <span>🏆 Competições e Simulados (Contests)</span>
+          </div>
+          <div class="section-subtitle">
+            Histórico de provas oficiais, tempos, penalidades e relação direta com problemas do catálogo mestre
+          </div>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="app.openContestModal()">
+          + Novo Contest
+        </button>
+      </div>
+
+      <!-- Contest KPI Bar -->
+      <div class="contest-kpi-bar">
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Total Realizados:</span>
+          <span class="kpi-val" id="ckpi-total">0</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Média Resolvidos:</span>
+          <span class="kpi-val" id="ckpi-avg">0.0</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Melhor Desempenho:</span>
+          <span class="kpi-val" id="ckpi-best">-</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Pendentes Upsolving:</span>
+          <span class="kpi-val" id="ckpi-pending" style="color: var(--accent-yellow);">0</span>
+        </div>
+      </div>
+
+      <!-- Tabela de Histórico de Contests -->
+      <div style="overflow-x: auto; margin-top: 14px;">
+        <table class="data-table" id="table-contests">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Contest / Prova</th>
+              <th>Plataforma</th>
+              <th>Scorecard</th>
+              <th>Penalidade</th>
+              <th>Erros (WA/TLE/RE)</th>
+              <th>Problemas Vinculados</th>
+              <th>Observações</th>
+            </tr>
+          </thead>
+          <tbody id="contests-history-body">
+            <tr><td colspan="8" style="color: var(--text-dim); text-align: center; padding: 18px;">Nenhum contest registrado ainda. Clique em "+ Novo Contest" para cadastrar seu primeiro simulado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: UPSOLVING -->
+      <!-- ============================================== -->
+      <div id="view-upsolving" class="app-view" style="display: none;">
+        <div class="section-box"  id="section-upsolving">
+      <div class="section-header">
+        <div>
+          <div class="section-title">
+            <span>🎯 Central de Upsolving (Pós-Contest)</span>
+          </div>
+          <div class="section-subtitle">
+            Análise aprofundada pós-prova: diagnóstico de falhas, registro de técnicas aprendidas e evolução em direção à resolução autônoma
+          </div>
+        </div>
+        <div class="upsolve-filter-pills" id="upsolve-filter-pills">
+          <button type="button" class="filter-tab active" data-filter="ALL" onclick="app.setUpsolveFilter('ALL')">Todos (<span id="ufilter-all">0</span>)</button>
+          <button type="button" class="filter-tab" data-filter="PENDING" onclick="app.setUpsolveFilter('PENDING')">⏳ Pendentes (<span id="ufilter-pending">0</span>)</button>
+          <button type="button" class="filter-tab" data-filter="IN_PROGRESS" onclick="app.setUpsolveFilter('IN_PROGRESS')">⚙️ Em Progresso (<span id="ufilter-progress">0</span>)</button>
+          <button type="button" class="filter-tab" data-filter="AC" onclick="app.setUpsolveFilter('AC')">✅ Resolvidos (<span id="ufilter-ac">0</span>)</button>
+          <button type="button" class="filter-tab" data-filter="STILL_FAILED" onclick="app.setUpsolveFilter('STILL_FAILED')">❌ Falharam (<span id="ufilter-failed">0</span>)</button>
+        </div>
+      </div>
+
+      <!-- Upsolving KPI Bar -->
+      <div class="contest-kpi-bar" style="margin-bottom: 16px;">
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Pendentes:</span>
+          <span class="kpi-val" id="ukpi-pending" style="color: var(--accent-yellow);">0</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Em Progresso:</span>
+          <span class="kpi-val" id="ukpi-progress" style="color: var(--accent-cyan);">0</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Resolvidos (AC):</span>
+          <span class="kpi-val" id="ukpi-solved" style="color: var(--accent-green);">0</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Taxa Resolução:</span>
+          <span class="kpi-val" id="ukpi-rate">0%</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Tempo Médio:</span>
+          <span class="kpi-val" id="ukpi-avg-time">0m</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">Ajuda Média:</span>
+          <span class="kpi-val" id="ukpi-avg-help">0.0</span>
+        </div>
+        <div class="contest-kpi-item">
+          <span class="kpi-label">ACs Solo Pós-Prova:</span>
+          <span class="kpi-val" id="ukpi-solo" style="color: var(--accent-green);">0</span>
+        </div>
+      </div>
+
+      <!-- Containers com Comparação Contest × Upsolve -->
+      <div id="upsolving-cards-container" class="upsolve-cards-list">
+        <div style="color: var(--text-dim); text-align: center; padding: 24px; font-size: 0.9rem;">
+          Nenhum problema pendente ou registrado para upsolving no momento. Ao cadastrar contests com problemas não resolvidos, eles aparecerão aqui automaticamente.
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: SKILLS (Topics Mastery) -->
+      <!-- ============================================== -->
+      <div id="view-skills" class="app-view" style="display: none;">
+        <div class="section-box">
+          <div class="section-header">
+            <div>
+              <div class="section-title"><span>🎯 Domínio de Habilidades por Tópico</span></div>
+              <div class="section-subtitle">Escala explicável 0.0 a 5.0 (Volume Base até 3.5 × Autonomia até 1.4x − Penalidade de Erros)</div>
+            </div>
+          </div>
+          <div id="topics-container-full" class="topic-categories">
+            <div style="color: var(--text-dim); padding: 20px 0;">Carregando tópicos...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: PATTERNS -->
+      <!-- ============================================== -->
+      <div id="view-patterns" class="app-view" style="display: none;">
+        <div class="section-box">
+           <div class="section-title"><span>🧠 Caderno de Patterns</span></div>
+           <div style="color: var(--text-dim); margin-top: 10px;">Em breve: Crie, edite e relacione padrões comuns encontrados nos problemas.</div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: TEMPLATES -->
+      <!-- ============================================== -->
+      <div id="view-templates" class="app-view" style="display: none;">
+        <div class="section-box">
+           <div class="section-title"><span>📘 Handbook & Templates</span></div>
+           <div style="color: var(--text-dim); margin-top: 10px;">Em breve: Códigos e estruturas prontas para copiar.</div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: ANALYSIS -->
+      <!-- ============================================== -->
+      <div id="view-analysis" class="app-view" style="display: none;">
+        <div class="section-box">
+          <div class="section-header">
+            <div>
+              <div class="section-title"><span>⚠️ Taxonomia de Erros & Análises</span></div>
+              <div class="section-subtitle">Frequência de erros padronizados (A até J) em todo o histórico</div>
+            </div>
+          </div>
+          <div class="error-list" id="errors-container-full">
+            <div style="color: var(--text-dim);">Carregando erros...</div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end .container scrollable-container -->
+  </main>
+</div>
+
+<!-- ================= MODALS (Preserved exactly as is) ================= -->
+<!-- Modal: Registro Rápido -->
+<div class="modal-overlay" id="modal-log">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">⚡ Registrar Resolução de Problema</div>
+        <button class="modal-close" onclick="app.closeLogModal()">&times;</button>
+      </div>
+
+      <form id="form-log-attempt" onsubmit="app.submitAttempt(event)">
+        <!-- Problema Selector / Input & Link -->
+        <div class="form-row">
+          <div class="form-group" style="flex: 1.2;">
+            <label class="form-label">Problema <span class="req">*</span></label>
+            <input 
+              type="text" 
+              id="log-problem-id" 
+              class="form-input" 
+              list="problems-datalist"
+              placeholder="Digite o ID ou selecione (ex: cses-1633)" 
+              required
+              autocomplete="off"
+              onchange="app.onProblemSelected(this.value)"
+            >
+            <datalist id="problems-datalist"></datalist>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Link do Enunciado</label>
+            <input 
+              type="url" 
+              id="log-problem-link" 
+              class="form-input" 
+              placeholder="https://... (carregado auto se já existir)"
+            >
+          </div>
+        </div>
+
+        <!-- Título e Plataforma (Preenchido auto se já existir) -->
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label class="form-label">Título do Problema</label>
+            <input type="text" id="log-problem-title" class="form-input" placeholder="Nome do problema">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Plataforma</label>
+            <select id="log-platform" class="form-select">
+              <option value="CSES">CSES</option>
+              <option value="ICPC Latin America">ICPC Latin America</option>
+              <option value="CP4">CP4</option>
+              <option value="Codeforces">Codeforces</option>
+              <option value="Beecrowd">Beecrowd</option>
+              <option value="AtCoder">AtCoder</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tópico e Dificuldade -->
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label class="form-label">Tópico Principal <span class="req">*</span></label>
+            <select id="log-main-topic" class="form-select" required>
+              <option value="">Selecione um tópico...</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Dificuldade</label>
+            <input type="text" id="log-diff-val" class="form-input" placeholder="ex: 1400, Medium, B">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Fonte Dificuldade</label>
+            <input type="text" id="log-diff-src" class="form-input" placeholder="ex: Codeforces, CSES">
+          </div>
+        </div>
+
+        <!-- Resultado e Tempo (Obrigatórios) -->
+        <div class="form-row" style="margin-top: 6px;">
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Resultado <span class="req">*</span></label>
+            <select id="log-result" class="form-select" required onchange="app.onResultChange(this.value)">
+              <option value="AC" selected>AC (Accepted)</option>
+              <option value="WA">WA (Wrong Answer)</option>
+              <option value="TLE">TLE (Time Limit Exceeded)</option>
+              <option value="MLE">MLE (Memory Limit Exceeded)</option>
+              <option value="RE">RE (Runtime Error)</option>
+              <option value="GIVE_UP">GIVE_UP (Desisti)</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Tempo Gasto (minutos) <span class="req">*</span></label>
+            <input type="number" id="log-time" class="form-input" placeholder="ex: 35" min="1" required>
+          </div>
+        </div>
+
+        <!-- Nível de Ajuda (0 a 4) em Botões Rápidos -->
+        <div class="form-group" style="margin-top: 10px;">
+          <label class="form-label">Nível de Ajuda Necessário <span class="req">*</span></label>
+          <div class="pill-selector" id="help-level-selector">
+            <div class="pill-option active" data-level="0" onclick="app.setHelpLevel(0)">
+              <strong>0</strong><br>Solo Total
+            </div>
+            <div class="pill-option" data-level="1" onclick="app.setHelpLevel(1)">
+              <strong>1</strong><br>Pequena Dica
+            </div>
+            <div class="pill-option" data-level="2" onclick="app.setHelpLevel(2)">
+              <strong>2</strong><br>Ideia / Técnica
+            </div>
+            <div class="pill-option" data-level="3" onclick="app.setHelpLevel(3)">
+              <strong>3</strong><br>Editorial
+            </div>
+            <div class="pill-option" data-level="4" onclick="app.setHelpLevel(4)">
+              <strong>4</strong><br>Adaptei Código
+            </div>
+          </div>
+          <input type="hidden" id="log-help-level" value="0">
+        </div>
+
+        <!-- Erros Cometidos (Taxonomia A-J) -->
+        <div class="form-group" style="margin-top: 14px;">
+          <label class="form-label">Erros Cometidos na Resolução (opcional)</label>
+          <div class="error-badge-grid" id="error-badges-grid">
+            <!-- Badges renderizados via JS -->
+          </div>
+        </div>
+
+        <!-- Fila de Revisão Toggle -->
+        <div class="form-group" style="margin-top: 14px; background: rgba(30, 41, 59, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.86rem;">
+            <input type="checkbox" id="log-add-review" style="width: 18px; height: 18px;">
+            <span><strong>Agendar Revisão em 7 dias</strong> (recomendado para retenção se precisou de ajuda ou errou)</span>
+          </label>
+        </div>
+
+        <!-- Observações Rápidas -->
+        <div class="form-group">
+          <label class="form-label">Observações / Insight Rápido</label>
+          <input type="text" id="log-notes" class="form-input" placeholder="ex: Cuidado com overflow em N*N, transição de estado">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 22px;">
+          <button type="button" class="btn btn-secondary" onclick="app.closeLogModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-log">
+            Salvar Resolução (Enter)
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Concluir Revisão Espaçada -->
+  <div class="modal-overlay" id="modal-review">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <div class="modal-title">🔄 Concluir Revisão de Problema</div>
+        <button class="modal-close" onclick="app.closeReviewModal()">&times;</button>
+      </div>
+
+      <form id="form-complete-review" onsubmit="app.submitReviewCompletion(event)">
+        <input type="hidden" id="rev-item-id">
+        <div style="margin-bottom: 16px; padding: 12px; background: #0f172a; border-radius: 8px; border: 1px solid #23314f;">
+          <div id="rev-modal-problem-title" style="font-weight: 700; font-size: 1rem; color: var(--accent-cyan);"></div>
+          <div id="rev-modal-sub" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;"></div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Resultado da Revisão <span class="req">*</span></label>
+            <select id="rev-result" class="form-select" required>
+              <option value="AC" selected>AC (Accepted)</option>
+              <option value="WA">WA (Wrong Answer)</option>
+              <option value="TLE">TLE</option>
+              <option value="RE">RE</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Tempo na Revisão (min) <span class="req">*</span></label>
+            <input type="number" id="rev-time" class="form-input" placeholder="ex: 15" min="1" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nível de Ajuda na Revisão <span class="req">*</span></label>
+          <div class="pill-selector" id="rev-help-selector">
+            <div class="pill-option active" data-rev-level="0" onclick="app.setRevHelpLevel(0)">
+              <strong>0</strong><br>Solo Total
+            </div>
+            <div class="pill-option" data-rev-level="1" onclick="app.setRevHelpLevel(1)">
+              <strong>1</strong><br>Dica
+            </div>
+            <div class="pill-option" data-rev-level="2" onclick="app.setRevHelpLevel(2)">
+              <strong>2</strong><br>Ideia
+            </div>
+            <div class="pill-option" data-rev-level="3" onclick="app.setRevHelpLevel(3)">
+              <strong>3</strong><br>Editorial
+            </div>
+          </div>
+          <input type="hidden" id="rev-help-level" value="0">
+        </div>
+
+        <div class="form-group" style="background: rgba(30, 41, 59, 0.5); padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.86rem;">
+            <input type="checkbox" id="rev-schedule-next" checked style="width: 18px; height: 18px;">
+            <span><strong>Avançar para o próximo ciclo</strong> (Ciclo 1 → 30 dias; Ciclo 2 → 90 dias)</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Observações de Retenção</label>
+          <input type="text" id="rev-notes" class="form-input" placeholder="ex: Consegui implementar direto sem pestanejar">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+          <button type="button" class="btn btn-secondary" onclick="app.closeReviewModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Registrar Revisão</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Registrar Contest / Simulado (Módulo 2A) -->
+  <div class="modal-overlay" id="modal-contest">
+    <div class="modal-card" style="max-width: 860px;">
+      <div class="modal-header">
+        <div class="modal-title">🏆 Registrar Contest / Simulado</div>
+        <button class="modal-close" onclick="app.closeContestModal()">&times;</button>
+      </div>
+
+      <form id="form-log-contest" onsubmit="app.submitContest(event)">
+        <!-- Dados Principais -->
+        <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label class="form-label">Nome do Contest / Prova <span class="req">*</span></label>
+            <input type="text" id="contest-name" class="form-input" placeholder="ex: Sub-regional ICPC Brasil 2024" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Plataforma <span class="req">*</span></label>
+            <select id="contest-platform" class="form-select" required>
+              <option value="BOCA" selected>BOCA</option>
+              <option value="Codeforces">Codeforces</option>
+              <option value="Beecrowd">Beecrowd</option>
+              <option value="AtCoder">AtCoder</option>
+              <option value="CSES">CSES</option>
+              <option value="VJudge">VJudge</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Data do Contest <span class="req">*</span></label>
+            <input type="date" id="contest-date" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Duração (minutos) <span class="req">*</span></label>
+            <input type="number" id="contest-duration" class="form-input" value="300" min="1" required>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">Penalidade Total (min)</label>
+            <input type="number" id="contest-penalty" class="form-input" value="0" min="0">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">WAs na Prova</label>
+            <input type="number" id="contest-wa" class="form-input" value="0" min="0">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">TLEs na Prova</label>
+            <input type="number" id="contest-tle" class="form-input" value="0" min="0">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label class="form-label">REs na Prova</label>
+            <input type="number" id="contest-re" class="form-input" value="0" min="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Observações da Prova / Post-Mortem</label>
+          <input type="text" id="contest-notes" class="form-input" placeholder="ex: Gestão de tempo falhou na última hora, boa escolha de problemas na primeira metade">
+        </div>
+
+        <!-- Seção: Problemas do Contest vinculados ao Catálogo -->
+        <div style="margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <strong style="font-size: 0.95rem;">Problemas da Prova</strong>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">
+                Relacione cada letra ao <code>problem_id</code> do catálogo. Problemas não resolvidos entrarão automaticamente na fila de upsolving.
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="app.generateContestLetters(13)">
+                + Gerar A–M (13 Probs)
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="app.addContestProblemRow()">
+                + Adicionar Problema
+              </button>
+            </div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; max-height: 280px; overflow-y: auto;">
+            <table class="data-table" style="font-size: 0.82rem;">
+              <thead>
+                <tr>
+                  <th style="width: 70px;">Letra</th>
+                  <th>ID do Problema no Catálogo (existente ou novo)</th>
+                  <th style="width: 170px;">Resultado no Contest</th>
+                  <th style="width: 40px;"></th>
+                </tr>
+              </thead>
+              <tbody id="contest-problems-list">
+                <!-- Linhas dinâmicas -->
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display: flex; gap: 20px; margin-top: 10px; font-size: 0.84rem; color: var(--text-muted);">
+            <span>Total na Prova: <strong id="contest-calc-total" style="color: var(--text-main);">0</strong></span>
+            <span>Resolvidos (AC): <strong id="contest-calc-solved" style="color: var(--accent-green);">0</strong></span>
+            <span>Tentados: <strong id="contest-calc-attempted" style="color: var(--accent-cyan);">0</strong></span>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+          <button type="button" class="btn btn-secondary" onclick="app.closeContestModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-contest">
+            Salvar Contest
+          </button>
+        </div>
+      </form>
+    </div>
+  <!-- Modal: Resolver / Atualizar Upsolving (Módulo 2B) -->
+  <div class="modal-overlay" id="modal-upsolve">
+    <div class="modal-card" style="max-width: 840px;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">🎯 Upsolving Pós-Contest</div>
+          <div id="upsolve-modal-subtitle" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 3px;"></div>
+        </div>
+        <button class="modal-close" onclick="app.closeUpsolveModal()">&times;</button>
+      </div>
+
+      <form id="form-upsolve" onsubmit="app.submitUpsolve(event)">
+        <input type="hidden" id="upsolve-id">
+        <input type="hidden" id="upsolve-prob-id">
+        <input type="hidden" id="upsolve-contest-id">
+        <input type="hidden" id="upsolve-help-level" value="0">
+
+        <!-- Bloco 1: Diagnóstico da Prova -->
+        <div class="form-section-box">
+          <div class="form-section-title">1. Diagnóstico do Contest</div>
+          <div class="form-row">
+            <div class="form-group" style="flex: 1.5;">
+              <label class="form-label">Motivo da Falha no Contest <span class="req">*</span></label>
+              <select id="upsolve-failure-reason" class="form-select" required>
+                <option value="não tentei">não tentei</option>
+                <option value="tentei e não consegui">tentei e não consegui</option>
+                <option value="WA">WA (Wrong Answer)</option>
+                <option value="TLE">TLE (Time Limit Exceeded)</option>
+                <option value="RE">RE (Runtime Error / Crash)</option>
+                <option value="fiquei sem tempo">fiquei sem tempo</option>
+                <option value="sabia a técnica mas não consegui implementar">sabia a técnica mas não consegui implementar</option>
+                <option value="outro">outro</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1.5;">
+              <label class="form-label">Erro Original na Prova (Taxonomia A–J)</label>
+              <select id="upsolve-original-error" class="form-select">
+                <option value="">Nenhum / Não categorizado</option>
+                <option value="A">A — Interpretação incorreta do enunciado</option>
+                <option value="B">B — Casos de borda não tratados</option>
+                <option value="C">C — Complexidade de tempo excessiva (TLE)</option>
+                <option value="D">D — Complexidade de memória ou overflow (MLE/RE)</option>
+                <option value="E">E — Erro de implementação / bug de índice</option>
+                <option value="F">F — Não conhecia o algoritmo / técnica necessária</option>
+                <option value="G">G — Técnica conhecida aplicada incorretamente</option>
+                <option value="H">H — Falta de tempo / má gestão de prova</option>
+                <option value="I">I — Submissão apressada sem stress test</option>
+                <option value="J">J — Outro erro</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Tempo na Prova (min)</label>
+              <input type="number" id="upsolve-contest-time" class="form-input" placeholder="ex: 45" min="0">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco 2: Resolução Pós-Contest (Upsolve) -->
+        <div class="form-section-box">
+          <div class="form-section-title">2. Resolução no Upsolving</div>
+          <div class="form-row">
+            <div class="form-group" style="flex: 1.2;">
+              <label class="form-label">Status do Upsolve <span class="req">*</span></label>
+              <select id="upsolve-status" class="form-select" required onchange="app.onUpsolveStatusChange(this.value)">
+                <option value="AC" selected>AC (Resolvido com sucesso)</option>
+                <option value="IN_PROGRESS">IN_PROGRESS (Em estudo / tentativa)</option>
+                <option value="STILL_FAILED">STILL_FAILED (Não consegui resolver)</option>
+                <option value="PENDING">PENDING (Pendente)</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Resultado Obtido <span class="req">*</span></label>
+              <select id="upsolve-result" class="form-select" required>
+                <option value="AC" selected>AC (Accepted)</option>
+                <option value="WA">WA (Wrong Answer)</option>
+                <option value="TLE">TLE</option>
+                <option value="MLE">MLE</option>
+                <option value="RE">RE</option>
+                <option value="GIVE_UP">GIVE_UP</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Tempo no Upsolve (min) <span class="req">*</span></label>
+              <input type="number" id="upsolve-time-min" class="form-input" placeholder="ex: 35" min="1" required>
+            </div>
+          </div>
+
+          <!-- Nível de Ajuda (0 a 4) -->
+          <div class="form-group">
+            <label class="form-label">Nível de Ajuda Necessário no Upsolve <span class="req">*</span></label>
+            <div class="pill-selector" id="upsolve-help-selector">
+              <div class="pill-option active" data-upsolve-level="0" onclick="app.setUpsolveHelpLevel(0)">
+                <strong>0</strong><br>Solo Total
+              </div>
+              <div class="pill-option" data-upsolve-level="1" onclick="app.setUpsolveHelpLevel(1)">
+                <strong>1</strong><br>Pequena Dica
+              </div>
+              <div class="pill-option" data-upsolve-level="2" onclick="app.setUpsolveHelpLevel(2)">
+                <strong>2</strong><br>Ideia / Técnica
+              </div>
+              <div class="pill-option" data-upsolve-level="3" onclick="app.setUpsolveHelpLevel(3)">
+                <strong>3</strong><br>Editorial
+              </div>
+              <div class="pill-option" data-upsolve-level="4" onclick="app.setUpsolveHelpLevel(4)">
+                <strong>4</strong><br>Adaptei Código
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Técnica Faltante / Aprendida</label>
+              <input type="text" id="upsolve-technique" class="form-input" placeholder="ex: Two Pointers com Multiset, DP com Bitmask, LCA">
+            </div>
+            <div class="form-group" style="flex: 1.5;">
+              <label class="form-label">Key Insight / O que lembrar desse problema?</label>
+              <input type="text" id="upsolve-insight" class="form-input" placeholder="ex: A ordem das operações não altera o custo ótimo; transição f(i, mask)">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Anotações / Post-Mortem Pessoal</label>
+            <input type="text" id="upsolve-notes" class="form-input" placeholder="ex: Entendi a lógica após ler o editorial; fraqueza recorrente em grafos">
+          </div>
+        </div>
+
+        <!-- Bloco 3: Integrações (Revisão Espaçada e Patterns) -->
+        <div class="form-section-box">
+          <div class="form-section-title">3. Ações e Integrações Complementares</div>
+
+          <!-- Checkbox Revisão Espaçada -->
+          <div style="background: rgba(30, 41, 59, 0.5); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+              <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.86rem;">
+                <input type="checkbox" id="upsolve-schedule-review" checked style="width: 18px; height: 18px;">
+                <span><strong>Agendar na Fila de Retenção Espaçada</strong> (recomendado pós-upsolving)</span>
+              </label>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Ciclo Inicial:</span>
+                <select id="upsolve-review-cycle" class="form-select" style="width: 120px; padding: 4px 8px; font-size: 0.8rem;">
+                  <option value="1" selected>7 dias (C1)</option>
+                  <option value="2">30 dias (C2)</option>
+                  <option value="3">90 dias (C3)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkbox Pattern Reutilizável -->
+          <div style="background: rgba(30, 41, 59, 0.5); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color);">
+            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.86rem; margin-bottom: 6px;">
+              <input type="checkbox" id="upsolve-create-pattern" onchange="app.togglePatternFields(this.checked)" style="width: 18px; height: 18px;">
+              <span><strong>💡 Este problema gerou um novo Pattern reutilizável?</strong> (Caderno de Padrões)</span>
+            </label>
+            <div id="upsolve-pattern-fields" style="display: none; padding-top: 10px; border-top: 1px dashed var(--border-color); margin-top: 6px;">
+              <div class="form-row">
+                <div class="form-group" style="flex: 2;">
+                  <label class="form-label">Nome do Pattern</label>
+                  <input type="text" id="pat-title" class="form-input" placeholder="ex: Busca Binária na Resposta com Verificação Gulosa">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                  <label class="form-label">Tópico</label>
+                  <select id="pat-topic" class="form-select">
+                    <!-- Preenchido via JS com tópicos -->
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group" style="flex: 1;">
+                  <label class="form-label">Gatilhos de Identificação (Quando usar?)</label>
+                  <input type="text" id="pat-triggers" class="form-input" placeholder="ex: Maximizar o mínimo, função monotônica f(x)">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                  <label class="form-label">Ideia Central de Resolução</label>
+                  <input type="text" id="pat-idea" class="form-input" placeholder="ex: Definir espaço de busca [low, high] e testar se mid é viável">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+          <button type="button" class="btn btn-secondary" onclick="app.closeUpsolveModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-upsolve">Salvar Upsolving</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
