@@ -1,102 +1,122 @@
-# ICPC 2027 — Painel Pessoal de Treinamento Adaptativo
+# CP Life — Painel de Treinamento Adaptativo para Programação Competitiva
 
-Sistema pessoal construído sob medida para acompanhar sua preparação para a ICPC 2027 (início em setembro de 2026).
-Todos os dados residem estritamente em **arquivos CSV** na pasta `data/`, permitindo edição direta no Excel, Google Sheets ou VS Code, sem dependência de banco de dados proprietário ou bibliotecas externas pesadas.
+Painel local para acompanhar treino de programação competitiva: registro rápido de tentativas, cálculo auditável de domínio por tópico (0 a 5), fila de revisão espaçada e distribuição de erros. Todos os dados ficam em **arquivos CSV** editáveis em Excel, Google Sheets ou qualquer editor de texto — sem banco de dados, sem dependências externas.
 
----
-
-## 1. Estrutura de Pastas
-
-```text
-C:\Users\lucas\Documents\CP\
-├── data/                       # Arquivos CSV mestre (persistência central)
-│   ├── problems.csv            # Catálogo mestre de problemas (fonte da verdade)
-│   ├── attempts.csv            # Histórico de todas as tentativas e resoluções
-│   ├── topics.csv              # Taxonomia hierárquica e relevância ICPC
-│   ├── review_queue.csv        # Fila de retenção espaçada (7, 30, 90 dias)
-│   ├── training_sessions.csv   # Estrutura preparada para blocos de treino
-│   ├── contests.csv            # Competições e simulados
-│   ├── upsolving.csv           # Rastreamento de upsolving
-│   ├── patterns.csv            # Caderno de Patterns (Gatilho → Ideia)
-│   ├── templates.csv           # Handbook de Templates (C++ → Armadilhas)
-│   └── weekly_reviews.csv      # Retrospectiva semanal
-├── templates/                  # Arquivos reais de código C++ (ex: search/binary_search_answer.cpp)
-├── engine/                     # Núcleo Python em biblioteca padrão (zero dependências)
-│   ├── storage.py              # Leitor/escritor CSV com garantia de integridade
-│   ├── metrics.py              # Cálculo de autonomia, domínio 0-5 e erros A-J
-│   └── server.py               # Servidor HTTP leve e API REST
-├── web/                        # Interface Web Local (Dark Theme ICPC)
-│   ├── index.html              # Dashboard responsivo
-│   ├── app.js                  # Lógica de interface, preenchimento auto e atalhos
-│   └── style.css               # Estilo visual de alto contraste
-├── scripts/                    # Scripts utilitários e testes
-│   └── test_engine.py          # Validador automatizado das métricas e persistência
-├── run.py                      # Iniciador de 1 clique (abre o navegador automaticamente)
-└── README.md                   # Esta documentação
-```
+> **Status**: projeto pessoal em uso ativo, funcional mas em evolução. Veja [Limitações e Roadmap](#6-limitações-e-roadmap) antes de adotar.
 
 ---
 
-## 2. Como Executar
+## 1. Por que existe
 
-No terminal ou PowerShell, dentro de `C:\Users\lucas\Documents\CP`:
+Ferramentas de treino para maratonas de programação (ICPC, CSES, etc.) costumam ser planilhas soltas ou nada. Este projeto tenta um meio-termo: interface de uso rápido (< 15s por registro), mas com os dados sempre em formato aberto e auditável — nenhuma métrica é uma caixa-preta, cada score vem com a explicação do cálculo.
 
-```powershell
+## 2. Pré-requisitos
+
+- **Python 3.9+** (usa apenas a biblioteca padrão — testado em 3.12)
+- Um navegador moderno
+- Nenhuma instalação de pacotes é necessária (`pip install` não é usado)
+
+## 3. Instalação e Execução
+
+```bash
+git clone <url-do-repositorio> cp-Life
+cd cp-Life
 python run.py
 ```
-*(Caso use o Python do MSYS2/UCRT64 instalado na máquina: `c:\msys64\ucrt64\bin\python.exe run.py`)*
 
-O sistema iniciará o servidor local em `http://localhost:8080` e abrirá automaticamente seu navegador padrão.
+O servidor sobe em `http://localhost:8080` e o navegador abre automaticamente. Para usar outra porta:
 
----
+```bash
+python run.py 9000
+```
 
-## 3. Funcionalidades do MVP (Fase 1)
+> ⚠️ **Uso estritamente local.** O servidor não tem autenticação nem HTTPS. Não exponha a porta à internet nem rode em rede compartilhada sem um proxy com autenticação na frente.
 
-### A. Registro Ultrarrápido (< 15 segundos)
-* Pressione a tecla **`N`** em qualquer tela para abrir o modal de registro.
-* **Auto-preenchimento**: Se você selecionar um problema já existente no catálogo mestre (ex: `cses-1633`), o sistema preenche automaticamente o **Título, Plataforma, Tópico e Dificuldade**.
-* **Campos Obrigatórios Mínimos**:
-  1. Problema (`problem_id`)
-  2. Resultado (`AC`, `WA`, `TLE`, etc.)
-  3. Tempo gasto (em minutos)
-  4. Nível de Ajuda (`0` a `4`)
-* **Badges de Erro A–J**: Seleção rápida dos erros cometidos.
-* **Fila de Retenção Automática**: Se o nível de ajuda for $\ge 2$ ou o resultado for diferente de `AC`, o sistema já marca automaticamente para agendar a primeira revisão em **7 dias**.
+### Começando com dados vazios
 
-### B. Cálculo Transparente de Domínio por Tópico ($0.0$ a $5.0$)
-A nota de domínio é puramente descritiva e 100% auditável na tela (basta clicar no tópico para abrir o painel de auditoria):
+O repositório vem com os arquivos CSV em `data/` já com cabeçalho mas sem conteúdo real de exemplo (um `data_backup_ficticios/` com dados fictícios está incluído como referência de formato). Para começar do zero:
 
-$$\text{Domínio}(T) = \max\Big(0.0, \; \min\big(5.0, \; \text{Base} \times \text{Multiplicador de Autonomia} - \text{Penalidade}\big)\Big)$$
+1. Abra `data/topics.csv` e cadastre os tópicos que você quer acompanhar (coluna `category` agrupa visualmente, `icpc_weight` pondera a métrica geral).
+2. Use o atalho **N** no dashboard para registrar sua primeira tentativa — se o `problem_id` ainda não existir no catálogo, o formulário permite cadastrá-lo na hora.
+3. As métricas (`/api/metrics`) são recalculadas a cada carregamento da página a partir dos CSVs — não há cache nem necessidade de "importar" nada.
 
-1. **Volume & Dificuldade (Base até 3.5 pts)**:
-   * Problema Difícil ($\ge 1800$ / Hard): $+0.8$ pts
-   * Problema Médio ($\ge 1400$ / Medium): $+0.5$ pts
-   * Problema Básico: $+0.3$ pts
-2. **Multiplicador de Autonomia (Escala estritamente entre 0.3x e 1.4x)**:
-   * $\text{Multiplicador} = 0.3 + 1.1 \times \frac{4 - \text{Ajuda Média}}{4}$
-   * Média de ajuda 0 (100% solo) = **1.4x** *(alcança o topo de 5.0)*
-   * Média de ajuda 2 = **0.85x**
-   * Média de ajuda 4 (só copiou) = **0.3x**
-3. **Penalidade de Erros Recentes**:
-   * Desconta $0.1$ pt por erro conceitual recente (`B — não reconheceu técnica`, `C — estratégia errada`, `D — raciocínio errado`), com teto de $0.5$ pts.
-4. **Rótulos Descritivos**:
-   * `0.0 - 0.9`: Sem Prática
-   * `1.0 - 1.9`: Contato Inicial
-   * `2.0 - 2.9`: Básico
-   * `3.0 - 3.9`: Funcional
-   * `4.0 - 4.9`: Sólido
-   * `5.0`: Domínio Elevado
+## 4. Estrutura do Projeto
 
-### C. Fila de Retenção e Revisão Espaçada (Evolução Histórica)
-Ao clicar em **"Revisar Agora"** em um problema pendente:
-* Você registra o tempo da revisão, o novo nível de ajuda e o resultado.
-* Se resolver com `AC`, o sistema avança automaticamente para o próximo ciclo (**Ciclo 2: 30 dias** e depois **Ciclo 3: 90 dias**).
-* A tabela inferior registra a evolução histórica (ex: *tentativa inicial ajuda 3 $\rightarrow$ revisão 7d ajuda 1 $\rightarrow$ revisão 30d ajuda 0*).
+```text
+cp-Life/
+├── data/                       # CSVs mestre (persistência central)
+│   ├── problems.csv            # Catálogo de problemas (fonte da verdade)
+│   ├── attempts.csv            # Histórico de tentativas e resoluções
+│   ├── topics.csv              # Taxonomia de tópicos e peso ICPC
+│   ├── review_queue.csv        # Fila de retenção espaçada (7, 30, 90 dias)
+│   ├── training_sessions.csv   # Estrutura para blocos de treino
+│   ├── contests.csv            # Competições e simulados
+│   ├── upsolving.csv           # Rastreamento de upsolving
+│   ├── patterns.csv            # Caderno de padrões (gatilho → ideia)
+│   ├── templates.csv           # Catálogo de templates de código
+│   └── weekly_reviews.csv      # Retrospectiva semanal
+├── templates/                  # Código-fonte real dos templates (ex.: search/binary_search_answer.cpp)
+├── engine/                     # Backend Python (biblioteca padrão apenas)
+│   ├── storage.py              # Leitura/escrita CSV com escrita atômica
+│   ├── metrics.py              # Cálculo de autonomia, domínio 0–5 e distribuição de erros
+│   └── server.py               # Servidor HTTP e rotas da API REST
+├── web/                        # Frontend (HTML/CSS/JS puro, sem build step)
+│   ├── index.html
+│   ├── app.js
+│   └── style.css
+├── scripts/
+│   └── test_engine.py          # Testes automatizados (rodam em diretório isolado, não tocam data/)
+├── run.py                      # Ponto de entrada
+└── README.md
+```
 
----
+## 5. Funcionalidades
 
-## 4. Limitações Atuais do MVP e Próximos Passos
+### Registro de tentativas
+- Atalho **`N`** em qualquer tela abre o modal de registro.
+- Autocompletar: selecionar um `problem_id` já cadastrado preenche título, plataforma, tópico e dificuldade.
+- Campos mínimos: problema, resultado (`AC`/`WA`/`TLE`/...), tempo em minutos, nível de ajuda (0–4).
+- Erros classificados por código A–J (ex.: `B` = não reconheceu a técnica, `D` = raciocínio errado).
+- Se o nível de ajuda for ≥ 2 ou o resultado não for `AC`, o problema entra automaticamente na fila de revisão em 7 dias.
 
-1. **Contests e Upsolving**: As tabelas `contests.csv` e `upsolving.csv` já estão criadas e estruturadas na arquitetura, mas a interface dedicada de registro de contest entrará na Fase 2.
-2. **Handbook e Patterns**: As estruturas `patterns.csv` e `templates.csv` estão inicializadas e com exemplos reais em `templates/`, mas a visualização de código in-browser será incorporada na Fase 2.
-3. **Recomendações Adaptativas Complexas**: Conforme alinhado, evitamos regras mágicas no MVP; primeiro estamos coletando dados de treino reais para que o motor sugira sessões com alta precisão na Fase 3.
+### Domínio por tópico (0.0 a 5.0)
+
+```
+Domínio(T) = max(0, min(5, Base × Multiplicador_Autonomia − Penalidade))
+```
+
+- **Base** (até 3.5 pts): soma por problema resolvido, ponderada pela dificuldade (+0.8 difícil, +0.5 médio, +0.3 básico); tentativas de upsolving contam 60% do peso de uma resolução direta.
+- **Multiplicador de autonomia** (0.3x a 1.4x): `0.3 + 1.1 × (4 − ajuda_média) / 4`. Resolver sozinho (ajuda 0) dá 1.4x; copiar a solução (ajuda 4) dá 0.3x.
+- **Penalidade**: −0.1 pt por erro conceitual recente (códigos B/C/D), até um teto de −0.5 pt.
+- Cada score é clicável e mostra a auditoria completa do cálculo (quantas resoluções, qual ajuda média, qual penalidade foi aplicada).
+
+Rótulos: `0–0.9` Sem Prática · `1–1.9` Contato Inicial · `2–2.9` Básico · `3–3.9` Funcional · `4–4.9` Sólido · `5.0` Domínio Elevado.
+
+### Revisão espaçada
+Ao concluir uma revisão com `AC`, o item avança de ciclo automaticamente (7 → 30 → 90 dias), registrando o histórico de evolução (ex.: ajuda 3 na tentativa inicial → ajuda 1 aos 7 dias → ajuda 0 aos 30 dias).
+
+## 6. Limitações e Roadmap
+
+O projeto está funcional para uso diário, mas algumas partes são deliberadamente simples:
+
+| Área | Status atual |
+|---|---|
+| Contests e Upsolving | Estrutura de dados (`contests.csv`, `upsolving.csv`) pronta; interface dedicada de registro ainda não existe — hoje é editável só via CSV direto |
+| Patterns e Templates | `patterns.csv`/`templates.csv` funcionam e têm exemplos reais em `templates/`, mas não há visualização de código *in-browser* — é preciso abrir o `.cpp` separadamente |
+| Recomendações adaptativas | O painel mostra os tópicos mais fracos por score, mas não sugere sequências de treino automaticamente — decisão deliberada até haver volume de dados suficiente |
+| Autenticação / multiusuário | Inexistente, por design — é uma ferramenta de uso individual e local |
+| Testes automatizados | Cobrem o fluxo principal da engine (`scripts/test_engine.py`); não cobrem o frontend |
+
+Contribuições, issues e forks são bem-vindos. Antes de abrir um PR grande, abra uma issue descrevendo a mudança proposta.
+
+## 7. Testando
+
+```bash
+python scripts/test_engine.py
+```
+
+Os testes criam um diretório temporário isolado e não alteram os dados em `data/`.
+
+## 8. Licença
+
+Defina a licença do projeto aqui (ex.: MIT, Apache 2.0) antes de publicar — atualmente não há nenhuma declarada, o que legalmente restringe uso e redistribuição por terceiros.
