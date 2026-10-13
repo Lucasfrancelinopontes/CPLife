@@ -1,0 +1,3 @@
+pattern_id,title,topic_id,related_problems,triggers,key_idea,common_mistakes,complexity,tags
+demo-pat-0001,Estado extra em menor caminho,graphs_dijkstra,demo-flight-discount,Existe uma operação especial única,Adicionar dimensão usada ao estado,Esquecer transições com e sem desconto,O((V+E)logV),shortest-path;state
+demo-pat-0002,Janela com dois ponteiros,greedy_two_pointers,demo-two-sum,Intervalo contínuo com condição monotônica,Mover a borda que viola a condição,Atualizar a soma no ponteiro errado,O(N),sliding-window

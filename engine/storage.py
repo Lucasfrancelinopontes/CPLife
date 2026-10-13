@@ -1,16 +1,30 @@
-"""
-Módulo de persistência e manipulação de arquivos CSV em Documentos/CP/data.
-Garante leitura, escrita e integridade referencial com problem_id como catálogo mestre.
-"""
+"""Persistência local em CSV, configurável e compatível com instalações beta."""
 
 import csv
 import os
+import shutil
 from pathlib import Path
 from typing import List, Dict, Optional, Any
 from datetime import datetime
+from . import taxonomy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data"
+
+
+def default_data_root() -> Path:
+    """Retorna um diretório de dados por usuário, sem depender do checkout."""
+    override = os.environ.get("CPLIFE_DATA_DIR")
+    if override:
+        return Path(override).expanduser()
+    if os.name == "nt":
+        root = os.environ.get("LOCALAPPDATA") or (Path.home() / "AppData" / "Local")
+        return Path(root) / "CPLife"
+    if os.name == "darwin":
+        return Path.home() / "Library" / "Application Support" / "CPLife"
+    return Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local" / "share")) / "CPLife"
+
+
+DATA_DIR = default_data_root() / "personal-data"
 
 PROBLEMS_FILE = DATA_DIR / "problems.csv"
 ATTEMPTS_FILE = DATA_DIR / "attempts.csv"
@@ -22,6 +36,112 @@ UPSOLVING_FILE = DATA_DIR / "upsolving.csv"
 PATTERNS_FILE = DATA_DIR / "patterns.csv"
 TEMPLATES_FILE = DATA_DIR / "templates.csv"
 WEEKLY_REVIEWS_FILE = DATA_DIR / "weekly_reviews.csv"
+FEEDBACK_FILE = DATA_DIR / "feedback.csv"
+TAXONOMY_FILE = DATA_DIR / "taxonomy.csv"
+PROBLEM_TOPICS_FILE = DATA_DIR / "problem_topics.csv"
+PERSONAL_TAGS_FILE = DATA_DIR / "personal_tags.csv"
+EXTERNAL_TAGS_FILE = DATA_DIR / "external_problem_tags.csv"
+
+
+def configure_data_dir(path: Path) -> Path:
+    """Redireciona todos os arquivos CSV para *path*."""
+    global DATA_DIR, PROBLEMS_FILE, ATTEMPTS_FILE, TOPICS_FILE
+    global REVIEW_QUEUE_FILE, TRAINING_SESSIONS_FILE, CONTESTS_FILE
+    global UPSOLVING_FILE, PATTERNS_FILE, TEMPLATES_FILE, WEEKLY_REVIEWS_FILE
+    global FEEDBACK_FILE, TAXONOMY_FILE, PROBLEM_TOPICS_FILE
+    global PERSONAL_TAGS_FILE, EXTERNAL_TAGS_FILE
+    DATA_DIR = Path(path).expanduser().resolve()
+    PROBLEMS_FILE = DATA_DIR / "problems.csv"
+    ATTEMPTS_FILE = DATA_DIR / "attempts.csv"
+    TOPICS_FILE = DATA_DIR / "topics.csv"
+    REVIEW_QUEUE_FILE = DATA_DIR / "review_queue.csv"
+    TRAINING_SESSIONS_FILE = DATA_DIR / "training_sessions.csv"
+    CONTESTS_FILE = DATA_DIR / "contests.csv"
+    UPSOLVING_FILE = DATA_DIR / "upsolving.csv"
+    PATTERNS_FILE = DATA_DIR / "patterns.csv"
+    TEMPLATES_FILE = DATA_DIR / "templates.csv"
+    WEEKLY_REVIEWS_FILE = DATA_DIR / "weekly_reviews.csv"
+    FEEDBACK_FILE = DATA_DIR / "feedback.csv"
+    TAXONOMY_FILE = DATA_DIR / "taxonomy.csv"
+    PROBLEM_TOPICS_FILE = DATA_DIR / "problem_topics.csv"
+    PERSONAL_TAGS_FILE = DATA_DIR / "personal_tags.csv"
+    EXTERNAL_TAGS_FILE = DATA_DIR / "external_problem_tags.csv"
+    return DATA_DIR
+
+
+def initialize_empty_data(path: Optional[Path] = None) -> Path:
+    """Cria um espaço pessoal vazio com os cabeçalhos conhecidos."""
+    if path is not None:
+        configure_data_dir(path)
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    schemas = {
+        PROBLEMS_FILE: PROBLEM_FIELDS,
+        ATTEMPTS_FILE: ATTEMPT_FIELDS,
+        TOPICS_FILE: TOPIC_FIELDS,
+        REVIEW_QUEUE_FILE: REVIEW_FIELDS,
+        TRAINING_SESSIONS_FILE: ["session_id", "date", "duration_min", "notes"],
+        CONTESTS_FILE: CONTEST_FIELDS,
+        UPSOLVING_FILE: UPSOLVING_FIELDS,
+        PATTERNS_FILE: PATTERN_FIELDS,
+        TEMPLATES_FILE: ["template_id", "title", "language", "path", "tags", "notes"],
+        WEEKLY_REVIEWS_FILE: ["review_id", "week_start", "summary", "next_focus"],
+        FEEDBACK_FILE: FEEDBACK_FIELDS,
+        TAXONOMY_FILE: taxonomy.TAXONOMY_FIELDS,
+        PROBLEM_TOPICS_FILE: taxonomy.PROBLEM_TOPIC_FIELDS,
+        PERSONAL_TAGS_FILE: taxonomy.PERSONAL_TAG_FIELDS,
+        EXTERNAL_TAGS_FILE: taxonomy.EXTERNAL_TAG_FIELDS,
+    }
+    for filepath, fields in schemas.items():
+        if not filepath.exists():
+            _write_csv(filepath, fields, [])
+    return DATA_DIR
+
+
+def copy_data_directory(source: Path, destination: Path, replace: bool = False) -> Path:
+    """Copia uma coleção de CSVs para um espaço de execução separado."""
+    source = Path(source)
+    destination = Path(destination)
+    if not source.exists():
+        raise FileNotFoundError(f"Dataset não encontrado: {source}")
+    destination.mkdir(parents=True, exist_ok=True)
+    if replace:
+        for item in destination.glob("*.csv"):
+            item.unlink()
+    for item in source.glob("*.csv"):
+        shutil.copy2(item, destination / item.name)
+    return destination
+
+
+def ensure_taxonomy() -> List[Dict[str, str]]:
+    """Inicializa a fonte canônica sem alterar topics.csv legado."""
+    if TAXONOMY_FILE.exists():
+        return _read_csv(TAXONOMY_FILE)
+    legacy = _read_csv(TOPICS_FILE)
+    topics = taxonomy.build_taxonomy(legacy)
+    _write_csv(TAXONOMY_FILE, taxonomy.TAXONOMY_FIELDS, topics)
+    return topics
+
+
+def migrate_topics_to_taxonomy() -> Dict[str, int]:
+    """Migra topics.csv para taxonomy.csv de forma idempotente e não destrutiva."""
+    before = _read_csv(TOPICS_FILE)
+    existing = _read_csv(TAXONOMY_FILE) if TAXONOMY_FILE.exists() else []
+    by_id = {item.get("topic_id"): item for item in existing if item.get("topic_id")}
+    for item in taxonomy.build_taxonomy(before):
+        by_id[item["topic_id"]] = {**by_id.get(item["topic_id"], {}), **item}
+    result = list(by_id.values())
+    _write_csv(TAXONOMY_FILE, taxonomy.TAXONOMY_FIELDS, result)
+    return {"legacy_topics": len(before), "taxonomy_topics": len(result)}
+
+
+def backup_data_directory(source: Path, backup_root: Path) -> Path:
+    """Cria uma cópia timestamped antes de substituir um dataset."""
+    source = Path(source)
+    if not source.exists():
+        return Path(backup_root)
+    target = Path(backup_root) / datetime.now().strftime("%Y%m%d-%H%M%S")
+    shutil.copytree(source, target)
+    return target
 
 
 def _read_csv(filepath: Path) -> List[Dict[str, str]]:
@@ -166,11 +286,101 @@ def migrate_attempts_type() -> int:
 TOPIC_FIELDS = ["topic_id", "category", "name", "icpc_weight", "notes"]
 
 def get_topics() -> List[Dict[str, str]]:
-    return _read_csv(TOPICS_FILE)
+    return ensure_taxonomy()
 
 def get_topics_dict() -> Dict[str, Dict[str, str]]:
     topics = get_topics()
     return {t["topic_id"]: t for t in topics}
+
+
+def add_custom_topic(topic_data: Dict[str, Any]) -> Dict[str, str]:
+    topic_id = str(topic_data.get("topic_id", "")).strip()
+    name = str(topic_data.get("name", "")).strip()
+    if not topic_id or not name:
+        raise ValueError("topic_id e name são obrigatórios.")
+    topics = get_topics()
+    if any(topic.get("topic_id") == topic_id for topic in topics):
+        raise ValueError(f"O tópico {topic_id} já existe.")
+    topic = {
+        "topic_id": topic_id,
+        "parent_id": str(topic_data.get("parent_id", "root")).strip() or "root",
+        "name": name,
+        "category": str(topic_data.get("category", "Custom")).strip() or "Custom",
+        "description": str(topic_data.get("description", "")).strip(),
+        "aliases": str(topic_data.get("aliases", "")).strip(),
+        "external_tags": str(topic_data.get("external_tags", "")).strip(),
+        "icpc_weight": str(topic_data.get("icpc_weight", "2.0")),
+        "is_builtin": "false",
+        "status": "proposed",
+    }
+    topics.append(topic)
+    _write_csv(TAXONOMY_FILE, taxonomy.TAXONOMY_FIELDS, topics)
+    return topic
+
+
+def get_problem_topics() -> List[Dict[str, str]]:
+    return _read_csv(PROBLEM_TOPICS_FILE)
+
+
+def get_problem_topic_ids(problem_id: str, problem: Optional[Dict[str, str]] = None) -> List[str]:
+    """Retorna relações múltiplas e mantém fallback para o formato legado."""
+    relations = [
+        row["topic_id"]
+        for row in get_problem_topics()
+        if row.get("problem_id") == problem_id and row.get("topic_id")
+    ]
+    if relations:
+        return list(dict.fromkeys(relations))
+    problem = problem or get_problem(problem_id) or {}
+    legacy = [problem.get("main_topic", "")]
+    legacy.extend((problem.get("subtopics", "") or "").split(";"))
+    return list(dict.fromkeys(topic for topic in legacy if topic))
+
+
+def set_problem_topics(problem_id: str, topic_ids: List[str], source: str = "manual") -> List[Dict[str, str]]:
+    topics = get_topics_dict()
+    unknown = [topic_id for topic_id in topic_ids if topic_id not in topics]
+    if unknown:
+        raise ValueError("Tópicos desconhecidos: " + ", ".join(unknown))
+    rows = [row for row in get_problem_topics() if row.get("problem_id") != problem_id]
+    for index, topic_id in enumerate(dict.fromkeys(topic_ids)):
+        rows.append({
+            "problem_id": problem_id,
+            "topic_id": topic_id,
+            "source": source,
+            "confidence": "manual" if source == "manual" else "high",
+            "is_primary": "true" if index == 0 else "false",
+        })
+    _write_csv(PROBLEM_TOPICS_FILE, taxonomy.PROBLEM_TOPIC_FIELDS, rows)
+    return [row for row in rows if row["problem_id"] == problem_id]
+
+
+def get_personal_tags(problem_id: Optional[str] = None) -> List[Dict[str, str]]:
+    rows = _read_csv(PERSONAL_TAGS_FILE)
+    return [row for row in rows if not problem_id or row.get("problem_id") == problem_id]
+
+
+def add_personal_tag(problem_id: str, tag: str) -> Dict[str, str]:
+    tag = str(tag).strip()
+    if not tag:
+        raise ValueError("A etiqueta pessoal não pode ser vazia.")
+    rows = get_personal_tags()
+    row = {"problem_id": problem_id, "tag": tag}
+    if row not in rows:
+        rows.append(row)
+        _write_csv(PERSONAL_TAGS_FILE, taxonomy.PERSONAL_TAG_FIELDS, rows)
+    return row
+
+
+def get_external_tags(problem_id: Optional[str] = None) -> List[Dict[str, str]]:
+    rows = _read_csv(EXTERNAL_TAGS_FILE)
+    return [row for row in rows if not problem_id or row.get("problem_id") == problem_id]
+
+
+def set_external_tags(problem_id: str, tags: List[str]) -> None:
+    rows = [row for row in get_external_tags() if row.get("problem_id") != problem_id]
+    rows.extend({"problem_id": problem_id, "tag": tag, "source": "codeforces"} for tag in dict.fromkeys(tags) if tag)
+    _write_csv(EXTERNAL_TAGS_FILE, taxonomy.EXTERNAL_TAG_FIELDS, rows)
 
 
 # ==========================================
@@ -304,3 +514,26 @@ def get_weekly_reviews() -> List[Dict[str, str]]:
     return _read_csv(WEEKLY_REVIEWS_FILE)
 
 
+# ==========================================
+# 7. Feedback exportável
+# ==========================================
+FEEDBACK_FIELDS = [
+    "feedback_id", "created_at", "feedback_type", "module", "title",
+    "description", "reproduction_steps", "expected_result",
+    "observed_result", "severity"
+]
+
+
+def get_feedback() -> List[Dict[str, str]]:
+    return _read_csv(FEEDBACK_FILE)
+
+
+def add_feedback(feedback_data: Dict[str, Any]) -> Dict[str, str]:
+    feedback = get_feedback()
+    if not feedback_data.get("feedback_id"):
+        feedback_data["feedback_id"] = f"feedback-{len(feedback) + 1:04d}"
+    if not feedback_data.get("created_at"):
+        feedback_data["created_at"] = datetime.now().isoformat(timespec="seconds")
+    feedback.append(feedback_data)
+    _write_csv(FEEDBACK_FILE, FEEDBACK_FIELDS, feedback)
+    return feedback_data

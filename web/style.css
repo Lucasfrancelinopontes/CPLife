@@ -92,6 +92,33 @@ header {
   align-items: center;
 }
 
+.mode-badge {
+  color: var(--accent-cyan);
+  border: 1px solid var(--accent-cyan);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mode-badge.demo {
+  color: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+}
+
+.setup-choice {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.setup-choice small {
+  color: var(--text-muted);
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -1001,4 +1028,3 @@ header {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
 }
-

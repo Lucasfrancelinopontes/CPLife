@@ -1,0 +1,8 @@
+attempt_id,problem_id,session_id,date,result,total_time_min,help_level,errors,time_complexity,space_complexity,notes,attempt_type
+demo-att-0001,demo-grid-path,,2026-02-01,AC,28,0,,,O(NM),Resolvido sozinho com DP simples,PRACTICE
+demo-att-0002,demo-labyrinth,,2026-02-02,WA,35,1,B,O(V+E),O(V),Esqueci de marcar a origem,PRACTICE
+demo-att-0003,demo-labyrinth,,2026-02-03,AC,18,0,,O(V+E),O(V),Corrigi o caso de borda após revisar,PRACTICE
+demo-att-0004,demo-flight-discount,,2026-02-04,TLE,62,2,C,O(VE),O(V),Primeira solução tinha complexidade alta,PRACTICE
+demo-att-0005,demo-flight-discount,,2026-02-05,AC,44,2,F,O(E log V),O(V),Entendi a técnica com uma dica,PRACTICE
+demo-att-0006,demo-production,,2026-02-06,AC,31,0,,O(N log X),O(1),Teste de viabilidade monotônico,PRACTICE
+demo-att-0007,demo-two-sum,,2026-02-07,WA,20,3,D,,,Usei a condição errada na janela,PRACTICE

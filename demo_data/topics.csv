@@ -1,0 +1,6 @@
+topic_id,category,name,icpc_weight,notes
+graphs_bfs,Graphs,BFS,2.5,Busca em largura e caminhos mínimos sem pesos
+graphs_dijkstra,Graphs,Dijkstra,3.0,Menor caminho com pesos não negativos
+dp_1d,DP,DP 1D,2.7,Estados lineares e transições básicas
+search_binary_answer,Search,Binary Search on Answer,3.0,Busca binária sobre uma resposta monotônica
+greedy_two_pointers,Greedy,Two Pointers,2.7,Janelas e sequências ordenadas

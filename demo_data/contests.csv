@@ -1,0 +1,2 @@
+contest_id,name,platform,contest_date,duration_min,problems_count,solved_count,attempted_count,wa_count,tle_count,re_count,penalty_min,notes,problem_ids
+demo-contest-001,Demo Spring Challenge,Codeforces,2026-02-08,180,5,2,4,2,1,0,245,Primeiro contest de demonstração,demo-grid-path;demo-labyrinth;demo-flight-discount;demo-production;demo-two-sum

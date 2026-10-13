@@ -1,0 +1,6 @@
+problem_id,title,platform,source,link,difficulty_value,difficulty_source,main_topic,subtopics,created_at
+demo-grid-path,Grid Path,CSES,CPLife Demo,https://cses.fi/problemset/task/1638,1200,Platform,dp_1d,dp_2d,2026-01-10
+demo-labyrinth,Labyrinth,CSES,CPLife Demo,https://cses.fi/problemset/task/1193,1100,Platform,graphs_bfs,graphs_dfs,2026-01-11
+demo-flight-discount,Cheapest Flight Route,Codeforces,CPLife Demo,https://codeforces.com/problemset/problem/1473/E,1800,Rating,graphs_dijkstra,graphs_bfs,2026-01-12
+demo-production,Factory Production,AtCoder,CPLife Demo,https://atcoder.jp/,1400,Rating,search_binary_answer,,2026-01-13
+demo-two-sum,Two Sum,Codeforces,CPLife Demo,https://codeforces.com/,1000,Rating,greedy_two_pointers,,2026-01-14

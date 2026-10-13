@@ -1,5 +1,5 @@
 """
-Módulo de cálculo de métricas e diagnóstico do treinamento para ICPC 2027.
+Módulo de cálculo de métricas e diagnóstico do treinamento competitivo.
 Implementa métricas transparentes, auditáveis e explicáveis baseadas nos dados CSV.
 """
 
@@ -94,6 +94,7 @@ def compute_all_metrics() -> Dict[str, Any]:
     practice_solved_ids = set()   # AC em tentativa PRACTICE (1º contato real)
     cses_solved = set()
     icpc_solved = set()
+    platform_solved = {}
 
     for pid, p_attempts in attempts_by_problem.items():
         prob = problems_by_id.get(pid, {})
@@ -101,6 +102,8 @@ def compute_all_metrics() -> Dict[str, Any]:
         if has_ac:
             solved_problem_ids.add(pid)
             platform = prob.get("platform", "").upper()
+            platform_name = prob.get("platform", "").strip() or "Outros"
+            platform_solved[platform_name] = platform_solved.get(platform_name, 0) + 1
             if "CSES" in platform:
                 cses_solved.add(pid)
             if "ICPC" in platform:
@@ -161,6 +164,11 @@ def compute_all_metrics() -> Dict[str, Any]:
     #   PRACTICE     → conta integralmente na base e autonomia
     #   UPSOLVE      → conta 60% na base (confirmou competência pós-contest) e usa seu help_level no multiplicador
     #   SPACED_REVIEW → não conta na base (retenção), mas melhora o multiplicador de autonomia
+    problem_topics = {}
+    for problem in problems:
+        problem_id = problem.get("problem_id", "")
+        problem_topics[problem_id] = storage.get_problem_topic_ids(problem_id, problem)
+
     topic_metrics = []
     for topic in topics:
         tid = topic["topic_id"]
@@ -169,7 +177,10 @@ def compute_all_metrics() -> Dict[str, Any]:
         icpc_weight = float(topic.get("icpc_weight") or 2.0)
 
         # Problemas pertencentes a este tópico
-        topic_problems = [p for p in problems if p.get("main_topic") == tid]
+        topic_problems = [
+            p for p in problems
+            if tid in problem_topics.get(p.get("problem_id", ""), [])
+        ]
         t_problem_ids = {p["problem_id"] for p in topic_problems}
 
         t_attempts = [a for a in attempts if a.get("problem_id") in t_problem_ids]
@@ -426,6 +437,7 @@ def compute_all_metrics() -> Dict[str, Any]:
             "cses_solved": len(cses_solved),
             "icpc_solved": len(icpc_solved),
             "other_solved": max(0, solved_count - len(cses_solved) - len(icpc_solved)),
+            "platform_solved_counts": platform_solved,
             "pending_reviews_count": len(pending_reviews),
             "due_today_count": due_today_count,
             "contests_count": contests_count,
@@ -467,5 +479,3 @@ def compute_all_metrics() -> Dict[str, Any]:
             "items": list(reversed(enriched_upsolving))
         }
     }
-
-

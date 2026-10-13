@@ -239,7 +239,7 @@ def run_isolated_tests():
             storage.PATTERNS_FILE = orig_patterns
 
     print("\n[OK] TODOS OS TESTES ISOLADOS PASSARAM COM SUCESSO!")
-    print("[OK] Diretório real Documentos/CP/data permaneceu 100% intacto.")
+    print("[OK] Os dados reais permaneceram 100% intactos.")
 
 if __name__ == "__main__":
     run_isolated_tests()
