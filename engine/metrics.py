@@ -164,6 +164,11 @@ def compute_all_metrics() -> Dict[str, Any]:
     #   PRACTICE     → conta integralmente na base e autonomia
     #   UPSOLVE      → conta 60% na base (confirmou competência pós-contest) e usa seu help_level no multiplicador
     #   SPACED_REVIEW → não conta na base (retenção), mas melhora o multiplicador de autonomia
+    problem_topics = {}
+    for problem in problems:
+        problem_id = problem.get("problem_id", "")
+        problem_topics[problem_id] = storage.get_problem_topic_ids(problem_id, problem)
+
     topic_metrics = []
     for topic in topics:
         tid = topic["topic_id"]
@@ -172,7 +177,10 @@ def compute_all_metrics() -> Dict[str, Any]:
         icpc_weight = float(topic.get("icpc_weight") or 2.0)
 
         # Problemas pertencentes a este tópico
-        topic_problems = [p for p in problems if p.get("main_topic") == tid]
+        topic_problems = [
+            p for p in problems
+            if tid in problem_topics.get(p.get("problem_id", ""), [])
+        ]
         t_problem_ids = {p["problem_id"] for p in topic_problems}
 
         t_attempts = [a for a in attempts if a.get("problem_id") in t_problem_ids]

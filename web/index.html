@@ -26,6 +26,9 @@
       <button class="nav-item" onclick="app.navigate('training')" id="nav-training">
         <span class="nav-icon">💻</span> Treinamento
       </button>
+      <button class="nav-item" onclick="app.navigate('question-bank')" id="nav-question-bank">
+        <span class="nav-icon">📚</span> Banco de Questões
+      </button>
       <button class="nav-item" onclick="app.navigate('reviews')" id="nav-reviews">
         <span class="nav-icon">🔄</span> Revisões
       </button>
@@ -167,6 +170,7 @@
               <div class="section-title"><span>💻 Histórico Completo de Treinamento</span></div>
               <div class="section-subtitle">Todas as tentativas de problemas, ACs, WAs, TLEs</div>
             </div>
+
             <button class="btn btn-primary btn-sm" onclick="app.openLogModal()">+ Nova Tentativa</button>
           </div>
           
@@ -198,6 +202,38 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- VIEW: REVIEWS -->
+      <!-- ============================================== -->
+      <div id="view-question-bank" class="app-view" style="display: none;">
+        <div class="section-box">
+          <div class="section-header">
+            <div>
+              <div class="section-title">📚 Banco de Questões</div>
+              <div class="section-subtitle">Catálogo pessoal separado de problemas externos do Codeforces</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="app.refreshCodeforces()">Atualizar Codeforces</button>
+          </div>
+          <div id="cf-cache-status" class="section-subtitle">Cache ainda não carregado.</div>
+          <div class="form-row" style="margin-top: 16px;">
+            <div class="form-group"><label class="form-label">Tópico</label><select id="bank-topic" class="form-select"><option value="">Todos</option></select></div>
+            <div class="form-group"><label class="form-label">Rating mínimo</label><input id="bank-rating-min" class="form-input" type="number" step="100"></div>
+            <div class="form-group"><label class="form-label">Rating máximo</label><input id="bank-rating-max" class="form-input" type="number" step="100"></div>
+            <div class="form-group"><label class="form-label">Tag externa</label><input id="bank-tag" class="form-input" placeholder="ex: dp"></div>
+            <div class="form-group"><label class="form-label">Ordenar</label><select id="bank-sort" class="form-select"><option value="rating">Rating</option><option value="solved_count">Resolvidos</option></select></div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:14px;"><button class="btn btn-primary btn-sm" onclick="app.loadSuggestions()">Buscar sugestões</button></div>
+          <div id="question-bank-results"><div style="color:var(--text-dim);">Atualize o cache ou busque sugestões.</div></div>
+          <div class="section-header" style="margin-top:24px;">
+            <div>
+              <div class="section-title">Catálogo pessoal</div>
+              <div class="section-subtitle">Problemas já adicionados ao seu espaço, separados do banco externo.</div>
+            </div>
+          </div>
+          <div id="personal-question-catalog"><div style="color:var(--text-dim);">Nenhum problema carregado.</div></div>
         </div>
       </div>
 

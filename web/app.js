@@ -31,6 +31,7 @@ const app = {
     const titles = {
       'dashboard': 'Dashboard Executivo',
       'training': 'Treinamento',
+      'question-bank': 'Banco de Questões',
       'reviews': 'Fila de Revisões',
       'contests': 'Competições & Simulados',
       'upsolving': 'Central de Upsolving',
@@ -108,6 +109,7 @@ const app = {
     await this.fetchTopics();
     await this.fetchProblems();
     await this.fetchAttempts();
+    await this.loadPersonalQuestionCatalog();
     await this.refreshData();
   },
 
@@ -248,8 +250,114 @@ const app = {
       const res = await fetch("/api/topics");
       this.data.topics = await res.json();
       this.populateTopicSelect();
+      this.populateBankTopicSelect();
     } catch (err) {
       console.error("Erro ao carregar tópicos:", err);
+    }
+  },
+
+  populateBankTopicSelect() {
+    const select = document.getElementById("bank-topic");
+    if (!select) return;
+    select.innerHTML = '<option value="">Todos</option>' + this.data.topics
+      .map(topic => `<option value="${this.escapeHtml(topic.topic_id)}">${this.escapeHtml(topic.category)} / ${this.escapeHtml(topic.name)}</option>`)
+      .join("");
+  },
+
+  escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, char => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[char]));
+  },
+
+  async refreshCodeforces() {
+    const status = document.getElementById("cf-cache-status");
+    if (status) status.textContent = "Atualizando cache do Codeforces...";
+    try {
+      const response = await fetch("/api/codeforces/refresh", {method: "POST", headers: {"Content-Type": "application/json"}, body: "{}"});
+      const data = await response.json();
+      if (data.error) throw new Error(data.error);
+      if (status) status.textContent = `${data.problem_count} problemas no cache; atualização concluída.`;
+      await this.loadSuggestions();
+    } catch (err) {
+      if (status) status.textContent = "Não foi possível atualizar: " + err.message;
+    }
+  },
+
+  async loadSuggestions() {
+    const params = new URLSearchParams();
+    const values = {
+      topic_id: document.getElementById("bank-topic")?.value || "",
+      rating_min: document.getElementById("bank-rating-min")?.value || "",
+      rating_max: document.getElementById("bank-rating-max")?.value || "",
+      tag: document.getElementById("bank-tag")?.value || "",
+      sort: document.getElementById("bank-sort")?.value || "rating"
+    };
+    Object.entries(values).forEach(([key, value]) => { if (value) params.set(key, value); });
+    try {
+      const response = await fetch("/api/question-bank/suggestions?" + params.toString());
+      const data = await response.json();
+      if (data.error) throw new Error(data.error);
+      this.renderQuestionBank(data);
+    } catch (err) {
+      document.getElementById("question-bank-results").innerHTML = `<div style="color:var(--accent-red);">${this.escapeHtml(err.message)}</div>`;
+    }
+  },
+
+  async loadPersonalQuestionCatalog() {
+    try {
+      const response = await fetch("/api/question-bank/catalog");
+      const items = await response.json();
+      const container = document.getElementById("personal-question-catalog");
+      if (!container) return;
+      if (!items.length) {
+        container.innerHTML = '<div style="color:var(--text-dim);">Nenhum problema adicionado ao catálogo.</div>';
+        return;
+      }
+      container.innerHTML = items.map(item => `
+        <div style="padding:8px 0;border-bottom:1px solid var(--border-color);">
+          <strong>${this.escapeHtml(item.title || item.problem_id)}</strong>
+          <span class="section-subtitle">${this.escapeHtml(item.problem_id)} • ${this.escapeHtml(item.platform || "Sem plataforma")} • ${item.attempted ? "já praticado" : "ainda não tentado"}</span>
+        </div>`).join("");
+    } catch (err) {
+      const container = document.getElementById("personal-question-catalog");
+      if (container) container.innerHTML = `<div style="color:var(--accent-red);">${this.escapeHtml(err.message)}</div>`;
+    }
+  },
+
+  renderQuestionBank(items) {
+    const container = document.getElementById("question-bank-results");
+    if (!container) return;
+    if (!items.length) {
+      container.innerHTML = '<div style="color:var(--text-dim);">Nenhum problema externo corresponde aos filtros ou o cache está vazio.</div>';
+      return;
+    }
+    container.innerHTML = items.map(item => `
+      <div class="section-box" style="margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;">
+          <div><a href="${this.escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer"><strong>${this.escapeHtml(item.title)}</strong></a>
+          <div class="section-subtitle">${this.escapeHtml(item.external_id)} • Rating: ${item.rating ?? "sem rating"} • Resolvidos: ${item.solved_count ?? "não informado"}</div>
+          <div class="section-subtitle">${this.escapeHtml((item.tags || []).join(", "))} • ${this.escapeHtml(item.reason)}</div></div>
+          <button class="btn btn-primary btn-sm" onclick="app.addExternalProblem('${this.escapeHtml(item.external_id)}')">Adicionar ao catálogo</button>
+        </div>
+      </div>`).join("");
+  },
+
+  async addExternalProblem(externalId) {
+    try {
+      const response = await fetch("/api/question-bank/catalog", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({external_id: externalId})
+      });
+      const data = await response.json();
+      if (data.error) throw new Error(data.error);
+      alert("Problema adicionado ao catálogo pessoal sem criar tentativa.");
+      await this.loadSuggestions();
+      await this.fetchProblems();
+      await this.loadPersonalQuestionCatalog();
+    } catch (err) {
+      alert("Não foi possível adicionar o problema: " + err.message);
     }
   },
 

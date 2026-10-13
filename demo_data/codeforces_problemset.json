@@ -1,0 +1,30 @@
+{
+  "source": "codeforces-demo-fixture",
+  "updated_at": 0,
+  "problems": [
+    {
+      "external_id": "cf-1000-A",
+      "contest_id": 1000,
+      "index": "A",
+      "title": "Demo Shortest Path",
+      "type": "PROGRAMMING",
+      "rating": 1200,
+      "tags": ["shortest paths", "graphs"],
+      "solved_count": 3200,
+      "link": "https://codeforces.com/problemset/problem/1000/A",
+      "topic_mappings": [{"external_tag": "shortest paths", "topic_id": "graphs_shortest_paths", "confidence": "medium"}]
+    },
+    {
+      "external_id": "cf-1000-B",
+      "contest_id": 1000,
+      "index": "B",
+      "title": "Demo DSU",
+      "type": "PROGRAMMING",
+      "rating": 1400,
+      "tags": ["dsu", "graphs"],
+      "solved_count": 2100,
+      "link": "https://codeforces.com/problemset/problem/1000/B",
+      "topic_mappings": [{"external_tag": "dsu", "topic_id": "graphs_dsu", "confidence": "high"}]
+    }
+  ]
+}

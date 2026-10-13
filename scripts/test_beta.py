@@ -41,6 +41,7 @@ def run_beta_tests():
             assert request(base, "/api/status")["ready"] is False
             demo = request(base, "/api/setup", "POST", {"mode": "demo"})
             assert demo["mode"] == "demo"
+            assert len(request(base, "/api/codeforces/problems")) == 2
             demo_problems = request(base, "/api/problems")
             assert len(demo_problems) == 5
             metrics = request(base, "/api/metrics")
@@ -77,6 +78,7 @@ def run_beta_tests():
             assert personal["mode"] == "personal"
             assert request(base, "/api/problems") == []
             assert not (root / "other-runtime" / "demo-data" / "problems.csv").exists()
+            assert not (root / "other-runtime" / "demo-cache" / "codeforces-problemset.json").exists()
         finally:
             httpd.shutdown()
             thread.join(timeout=2)

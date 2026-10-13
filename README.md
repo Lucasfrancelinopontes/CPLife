@@ -85,6 +85,10 @@ recolocar os CSVs iniciais. Isso não toca no espaço pessoal.
 - feedback local com tipo, módulo, título, descrição, reprodução, resultados e
   gravidade;
 - exportação manual de feedback em JSON pelo botão **Salvar relatório JSON**.
+- Banco de Questões com cache local do Codeforces, filtros por tópico/rating/tag,
+  sugestões explicáveis e adição seletiva ao catálogo pessoal.
+- Taxonomia canônica hierárquica em `taxonomy.csv`, preservando os IDs legados
+  de `topics.csv`.
 
 O feedback exportado não inclui histórico de tentativas, conteúdo dos CSVs ou
 caminhos privados. Anexe informações adicionais somente por escolha explícita
@@ -102,6 +106,37 @@ Operações internas de restauração da demonstração sempre criam uma cópia 
 configuração inicial; eles são arquivos legados preservados e ignorados pelo
 Git.
 
+## Taxonomia e Banco de Questões
+
+`taxonomy.csv` é a fonte canônica da taxonomia. O arquivo legado `topics.csv`
+continua preservado para compatibilidade e não deve ser editado
+independentemente. Os IDs existentes, como `graphs_bfs`, `graphs_dijkstra` e
+`dp_1d`, permanecem estáveis.
+
+As relações complementares ficam separadas:
+
+- `problem_topics.csv`: um problema pode ter vários tópicos canônicos;
+- `external_problem_tags.csv`: tags originais do Codeforces;
+- `personal_tags.csv`: etiquetas privadas como `revisar-depois`.
+
+No Banco de Questões, problemas externos ficam somente no cache até que o
+usuário clique em **Adicionar ao catálogo**. A sugestão externa não conta como
+tentativa nem altera métricas. Ao adicionar, o registro recebe um ID estável
+como `cf-1700-C`; tentativas e revisões existentes são preservadas.
+
+O cache fica separado dos CSVs:
+
+```text
+%LOCALAPPDATA%\CPLife\personal-cache\codeforces-problemset.json
+%LOCALAPPDATA%\CPLife\demo-cache\codeforces-problemset.json
+```
+
+O modo demonstração inclui uma fixture local do Codeforces e funciona sem
+internet. Atualizações reais são manuais pelo botão **Atualizar Codeforces**,
+com timeout, tratamento de erro e intervalo mínimo de dois segundos entre
+consultas. Se o serviço estiver indisponível, o último cache continua
+pesquisável.
+
 ## Testes
 
 Os testes usam diretórios temporários e fixtures próprias:
@@ -109,11 +144,15 @@ Os testes usam diretórios temporários e fixtures próprias:
 ```powershell
 python scripts\test_engine.py
 python scripts\test_beta.py
+python scripts\test_taxonomy.py
+python scripts\test_codeforces.py
+python scripts\test_question_bank.py
 ```
 
-Eles cobrem leitura/escrita CSV, métricas, APIs principais, primeiro acesso
-demo/pessoal, isolamento entre modos, restauração, feedback e ausência de
-alteração dos dados reais.
+Eles cobrem leitura/escrita CSV, métricas, taxonomia, relações múltiplas,
+parsing e cache Codeforces, sugestões, adição ao catálogo, APIs principais,
+primeiro acesso demo/pessoal, isolamento entre modos, restauração, feedback e
+ausência de alteração dos dados reais.
 
 ## Limitações conhecidas
 

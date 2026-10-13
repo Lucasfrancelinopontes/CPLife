@@ -5,12 +5,13 @@ Serve a interface web estática e expõe a API RESTful para manipulação de CSV
 
 import http.server
 import json
+import logging
 import os
 import shutil
 import urllib.parse
 from pathlib import Path
 from datetime import datetime, timedelta
-from . import storage, metrics
+from . import cache, codeforces, recommendations, storage, metrics
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 WEB_DIR = BASE_DIR / "web"
@@ -18,6 +19,12 @@ DEMO_DIR = BASE_DIR / "demo_data"
 RUNTIME_ROOT = storage.default_data_root()
 CONFIG_FILE = RUNTIME_ROOT / "config.json"
 RUNTIME = {"ready": False, "mode": None, "goal": "", "season": "", "platforms": []}
+LOGGER = logging.getLogger(__name__)
+
+
+def external_cache_path() -> Path:
+    scope = "demo-cache" if RUNTIME.get("mode") == "demo" else "personal-cache"
+    return RUNTIME_ROOT / scope / "codeforces-problemset.json"
 
 
 def configure_runtime(mode=None, data_dir=None, goal="", season="", platforms=None):
@@ -40,6 +47,14 @@ def configure_runtime(mode=None, data_dir=None, goal="", season="", platforms=No
         active_dir = RUNTIME_ROOT / "personal-data"
         storage.configure_data_dir(active_dir)
         ready = False
+    storage.ensure_taxonomy()
+    if mode == "demo":
+        demo_cache = RUNTIME_ROOT / "demo-cache" / "codeforces-problemset.json"
+        if not demo_cache.exists():
+            fixture = DEMO_DIR / "codeforces_problemset.json"
+            if fixture.exists():
+                demo_cache.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(fixture, demo_cache)
     RUNTIME = {
         "ready": ready,
         "mode": mode if ready else None,
@@ -122,6 +137,55 @@ class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
             self._send_json(storage.get_feedback())
             return
 
+        if path == "/api/codeforces/status":
+            cache_path = external_cache_path()
+            payload = cache.read_json(cache_path) or {}
+            self._send_json({
+                "available": bool(payload.get("problems")),
+                "cache_path": str(cache_path),
+                "updated_at": payload.get("updated_at"),
+                "problem_count": len(payload.get("problems") or []),
+            })
+            return
+
+        if path == "/api/codeforces/problems":
+            self._send_json(codeforces.read_cached_problems(external_cache_path()))
+            return
+
+        if path == "/api/question-bank/catalog":
+            attempts = {row.get("problem_id") for row in storage.get_attempts()}
+            self._send_json([
+                {**problem, "attempted": problem.get("problem_id") in attempts}
+                for problem in storage.get_problems()
+            ])
+            return
+
+        if path == "/api/question-bank/suggestions":
+            params = urllib.parse.parse_qs(parsed.query)
+            try:
+                rating_min = int(params["rating_min"][0]) if params.get("rating_min") else None
+                rating_max = int(params["rating_max"][0]) if params.get("rating_max") else None
+                limit = int(params.get("limit", ["20"])[0])
+            except ValueError:
+                self._send_json({"error": "Filtros numéricos inválidos."}, status_code=400)
+                return
+            diagnostics = {}
+            suggestions = recommendations.suggest(
+                codeforces.read_cached_problems(external_cache_path()),
+                storage.get_attempts(),
+                topic_id=params.get("topic_id", [""])[0],
+                rating_min=rating_min,
+                rating_max=rating_max,
+                tag=params.get("tag", [""])[0],
+                attempted=params.get("attempted", ["unattempted"])[0],
+                sort=params.get("sort", ["rating"])[0],
+                limit=limit,
+                diagnostics=diagnostics,
+            )
+            LOGGER.info("Banco de questões: filtros=%s resultados=%d", diagnostics, len(suggestions))
+            self._send_json(suggestions)
+            return
+
         if path == "/api/metrics":
             data = metrics.compute_all_metrics()
             self._send_json(data)
@@ -160,7 +224,8 @@ class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
         elif path == "/api/taxonomy":
             self._send_json({
                 "errors": metrics.ERROR_TAXONOMY,
-                "labels": metrics.MASTERY_LABELS
+                "labels": metrics.MASTERY_LABELS,
+                "topics": storage.get_topics(),
             })
             return
 
@@ -183,6 +248,7 @@ class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 if mode not in {"demo", "personal"}:
                     self._send_json({"error": "mode deve ser demo ou personal."}, status_code=400)
                     return
+
                 if mode == "demo":
                     demo_dir = RUNTIME_ROOT / "demo-data"
                     if not demo_dir.exists():
@@ -200,6 +266,84 @@ class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
                 self._send_json(RUNTIME)
             except Exception as exc:
                 self._send_json({"error": str(exc)}, status_code=500)
+            return
+
+        if path == "/api/codeforces/refresh":
+            try:
+                if not RUNTIME.get("ready"):
+                    self._send_json({"error": "Escolha um modo antes de atualizar o banco externo."}, status_code=409)
+                    return
+
+                cache_path = external_cache_path()
+                existing = cache.read_json(cache_path) or {}
+                payload = codeforces.refresh_cache(
+                    cache_path,
+                    last_request_at=existing.get("updated_at"),
+                )
+                self._send_json({
+                    "success": True,
+                    "updated_at": payload["updated_at"],
+                    "problem_count": len(payload["problems"]),
+                })
+            except codeforces.CodeforcesError as exc:
+                self._send_json({"error": str(exc)}, status_code=502)
+            except cache.CacheError as exc:
+                self._send_json({"error": str(exc)}, status_code=500)
+            return
+
+        if path == "/api/taxonomy/topics":
+            try:
+                self._send_json({"success": True, "topic": storage.add_custom_topic(body)})
+            except ValueError as exc:
+                self._send_json({"error": str(exc)}, status_code=400)
+            return
+
+        if path.startswith("/api/problems/") and path.endswith("/tags"):
+            problem_id = urllib.parse.unquote(path[len("/api/problems/"):-len("/tags")])
+            try:
+                self._send_json({
+                    "success": True,
+                    "tag": storage.add_personal_tag(problem_id, body.get("tag", "")),
+                })
+            except ValueError as exc:
+                self._send_json({"error": str(exc)}, status_code=400)
+            return
+
+        if path == "/api/question-bank/catalog":
+            try:
+                external_id = str(body.get("external_id", "")).strip()
+                external = next(
+                    (item for item in codeforces.read_cached_problems(external_cache_path())
+                     if item.get("external_id") == external_id),
+                    None,
+                )
+                if external is None:
+                    self._send_json({"error": "Problema externo não encontrado no cache."}, status_code=404)
+                    return
+                mappings = external.get("topic_mappings", [])
+                topic_ids = [item["topic_id"] for item in mappings if item.get("topic_id")]
+                existing = storage.get_problem(external["external_id"]) or {}
+                saved = storage.save_problem({
+                    "problem_id": external["external_id"],
+                    "title": existing.get("title") or external["title"],
+                    "platform": existing.get("platform") or "Codeforces",
+                    "source": existing.get("source") or "Codeforces",
+                    "link": existing.get("link") or external["link"],
+                    "difficulty_value": existing.get("difficulty_value") or (
+                        external["rating"] if external["rating"] is not None else ""
+                    ),
+                    "difficulty_source": existing.get("difficulty_source") or (
+                        "Codeforces rating" if external["rating"] is not None else ""
+                    ),
+                    "main_topic": existing.get("main_topic") or (topic_ids[0] if topic_ids else ""),
+                    "subtopics": existing.get("subtopics") or ";".join(topic_ids[1:]),
+                })
+                storage.set_external_tags(external["external_id"], external.get("tags", []))
+                if topic_ids:
+                    storage.set_problem_topics(external["external_id"], topic_ids, source="external_mapping")
+                self._send_json({"success": True, "problem": saved})
+            except (ValueError, OSError) as exc:
+                self._send_json({"error": str(exc)}, status_code=400)
             return
 
         if path == "/api/demo/reset":
