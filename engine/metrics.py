@@ -1,5 +1,5 @@
 """
-Módulo de cálculo de métricas e diagnóstico do treinamento para ICPC 2027.
+Módulo de cálculo de métricas e diagnóstico do treinamento competitivo.
 Implementa métricas transparentes, auditáveis e explicáveis baseadas nos dados CSV.
 """
 
@@ -94,6 +94,7 @@ def compute_all_metrics() -> Dict[str, Any]:
     practice_solved_ids = set()   # AC em tentativa PRACTICE (1º contato real)
     cses_solved = set()
     icpc_solved = set()
+    platform_solved = {}
 
     for pid, p_attempts in attempts_by_problem.items():
         prob = problems_by_id.get(pid, {})
@@ -101,6 +102,8 @@ def compute_all_metrics() -> Dict[str, Any]:
         if has_ac:
             solved_problem_ids.add(pid)
             platform = prob.get("platform", "").upper()
+            platform_name = prob.get("platform", "").strip() or "Outros"
+            platform_solved[platform_name] = platform_solved.get(platform_name, 0) + 1
             if "CSES" in platform:
                 cses_solved.add(pid)
             if "ICPC" in platform:
@@ -426,6 +429,7 @@ def compute_all_metrics() -> Dict[str, Any]:
             "cses_solved": len(cses_solved),
             "icpc_solved": len(icpc_solved),
             "other_solved": max(0, solved_count - len(cses_solved) - len(icpc_solved)),
+            "platform_solved_counts": platform_solved,
             "pending_reviews_count": len(pending_reviews),
             "due_today_count": due_today_count,
             "contests_count": contests_count,
@@ -467,5 +471,3 @@ def compute_all_metrics() -> Dict[str, Any]:
             "items": list(reversed(enriched_upsolving))
         }
     }
-
-

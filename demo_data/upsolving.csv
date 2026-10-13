@@ -1,0 +1,3 @@
+upsolve_id,contest_id,problem_id,problem_letter,contest_result,contest_time_min,contest_failure_reason,original_error,upsolve_status,upsolve_result,upsolve_time_min,help_level,technique_learned,insight,notes,solved_date
+demo-up-0001,demo-contest-001,demo-flight-discount,C,WA,70,TLE,C,AC,AC,40,0,Dijkstra com estado extra,Modelar se o desconto já foi usado,Resolvido no pós-contest,2026-02-09
+demo-up-0002,demo-contest-001,demo-two-sum,E,WA,45,WA,D,PENDING,PENDING,0,3,Janela com dois ponteiros,,Ainda pendente,

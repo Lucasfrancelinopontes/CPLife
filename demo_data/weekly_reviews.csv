@@ -1,0 +1,2 @@
+review_id,week_start,summary,next_focus
+demo-week-0001,2026-02-02,Boa evolução em grafos; revisar estados de Dijkstra,Consolidar shortest paths

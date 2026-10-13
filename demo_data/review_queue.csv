@@ -1,0 +1,4 @@
+review_id,problem_id,cycle,added_date,due_date,status,review_date,review_result,review_time_min,review_help_level,notes
+demo-rev-0001,demo-labyrinth,1,2026-02-02,2026-02-10,COMPLETED,2026-02-10,AC,15,0,Revisão concluída sem ajuda
+demo-rev-0002,demo-flight-discount,1,2026-02-04,2026-02-09,PENDING,,,,
+demo-rev-0003,demo-two-sum,1,2026-02-07,2026-02-14,PENDING,,,,

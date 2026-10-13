@@ -6,6 +6,7 @@ Serve a interface web estática e expõe a API RESTful para manipulação de CSV
 import http.server
 import json
 import os
+import shutil
 import urllib.parse
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -13,6 +14,61 @@ from . import storage, metrics
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 WEB_DIR = BASE_DIR / "web"
+DEMO_DIR = BASE_DIR / "demo_data"
+RUNTIME_ROOT = storage.default_data_root()
+CONFIG_FILE = RUNTIME_ROOT / "config.json"
+RUNTIME = {"ready": False, "mode": None, "goal": "", "season": "", "platforms": []}
+
+
+def configure_runtime(mode=None, data_dir=None, goal="", season="", platforms=None):
+    """Configura o espaço ativo sem tocar em nenhum dataset do checkout."""
+    global RUNTIME
+    RUNTIME_ROOT.mkdir(parents=True, exist_ok=True)
+    if data_dir:
+        active_dir = storage.configure_data_dir(Path(data_dir))
+        mode = mode or "custom"
+        ready = True
+    elif mode in {"demo", "personal"}:
+        active_dir = RUNTIME_ROOT / ("demo-data" if mode == "demo" else "personal-data")
+        if mode == "demo" and not active_dir.exists():
+            storage.copy_data_directory(DEMO_DIR, active_dir)
+        else:
+            storage.initialize_empty_data(active_dir)
+        storage.configure_data_dir(active_dir)
+        ready = True
+    else:
+        active_dir = RUNTIME_ROOT / "personal-data"
+        storage.configure_data_dir(active_dir)
+        ready = False
+    RUNTIME = {
+        "ready": ready,
+        "mode": mode if ready else None,
+        "data_dir": str(active_dir),
+        "goal": goal,
+        "season": season,
+        "platforms": platforms or [],
+    }
+    return RUNTIME
+
+
+def load_runtime_config():
+    if CONFIG_FILE.exists():
+        with open(CONFIG_FILE, "r", encoding="utf-8") as handle:
+            config = json.load(handle)
+        return configure_runtime(
+            mode=config.get("mode"),
+            data_dir=config.get("data_dir"),
+            goal=config.get("goal", ""),
+            season=config.get("season", ""),
+            platforms=config.get("platforms", []),
+        )
+    return configure_runtime()
+
+
+def persist_runtime_config():
+    CONFIG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(CONFIG_FILE, "w", encoding="utf-8") as handle:
+        json.dump({k: v for k, v in RUNTIME.items() if k != "ready"}, handle, ensure_ascii=False, indent=2)
 
 
 class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -47,6 +103,24 @@ class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
         path = parsed.path
+
+        if path == "/api/status":
+            self._send_json(RUNTIME)
+            return
+
+        if path == "/api/feedback/export":
+            self.send_response(200)
+            body = json.dumps(storage.get_feedback(), ensure_ascii=False, indent=2).encode("utf-8")
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Disposition", "attachment; filename=cplife-feedback.json")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
+        if path == "/api/feedback":
+            self._send_json(storage.get_feedback())
+            return
 
         if path == "/api/metrics":
             data = metrics.compute_all_metrics()
@@ -101,6 +175,63 @@ class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
             body = self._read_json()
         except Exception as e:
             self._send_json({"error": f"JSON inválido: {str(e)}"}, status_code=400)
+            return
+
+        if path == "/api/setup":
+            try:
+                mode = body.get("mode")
+                if mode not in {"demo", "personal"}:
+                    self._send_json({"error": "mode deve ser demo ou personal."}, status_code=400)
+                    return
+                if mode == "demo":
+                    demo_dir = RUNTIME_ROOT / "demo-data"
+                    if not demo_dir.exists():
+                        storage.copy_data_directory(DEMO_DIR, demo_dir)
+                    storage.configure_data_dir(demo_dir)
+                else:
+                    storage.initialize_empty_data(RUNTIME_ROOT / "personal-data")
+                configure_runtime(
+                    mode=mode,
+                    goal=str(body.get("goal", "")).strip(),
+                    season=str(body.get("season", "")).strip(),
+                    platforms=body.get("platforms", []),
+                )
+                persist_runtime_config()
+                self._send_json(RUNTIME)
+            except Exception as exc:
+                self._send_json({"error": str(exc)}, status_code=500)
+            return
+
+        if path == "/api/demo/reset":
+            try:
+                if RUNTIME.get("mode") != "demo":
+                    self._send_json({"error": "A restauração só está disponível no modo demonstração."}, status_code=400)
+                    return
+                backup = storage.backup_data_directory(storage.DATA_DIR, RUNTIME_ROOT / "backups")
+                storage.copy_data_directory(DEMO_DIR, storage.DATA_DIR, replace=True)
+                self._send_json({"success": True, "backup_dir": str(backup)})
+            except Exception as exc:
+                self._send_json({"error": str(exc)}, status_code=500)
+            return
+
+        if path == "/api/feedback":
+            try:
+                required = ["feedback_type", "module", "title", "description"]
+                missing = [field for field in required if not str(body.get(field, "")).strip()]
+                if missing:
+                    self._send_json({"error": "Campos obrigatórios: " + ", ".join(missing)}, status_code=400)
+                    return
+                allowed = set(storage.FEEDBACK_FIELDS)
+                feedback = storage.add_feedback({
+                    key: body.get(key, "") for key in allowed if key not in {"feedback_id", "created_at"}
+                })
+                self._send_json({"success": True, "feedback": feedback})
+            except Exception as exc:
+                self._send_json({"error": str(exc)}, status_code=500)
+            return
+
+        if not RUNTIME.get("ready"):
+            self._send_json({"error": "Escolha um modo de uso antes de registrar dados."}, status_code=409)
             return
 
         # 1. Registrar tentativa rápida
@@ -448,11 +579,16 @@ class CPRequestHandler(http.server.SimpleHTTPRequestHandler):
         self._send_json({"error": "Endpoint não encontrado"}, status_code=404)
 
 
-def run_server(port=8080):
+def run_server(port=8080, mode=None, data_dir=None):
+    if data_dir or mode:
+        configure_runtime(mode=mode, data_dir=data_dir)
+        persist_runtime_config()
+    else:
+        load_runtime_config()
     server_address = ("127.0.0.1", port)
     httpd = http.server.HTTPServer(server_address, CPRequestHandler)
     print(f"==================================================")
-    print(f"  Painel de Treinamento ICPC 2027 iniciado!")
+    print(f"  CPLife iniciado!")
     print(f"  URL Local: http://localhost:{port}")
     print(f"  Diretório de dados: {storage.DATA_DIR}")
     print(f"  Pressione Ctrl+C para encerrar o servidor.")

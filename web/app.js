@@ -1,5 +1,5 @@
 /**
- * ICPC 2027 Training OS — Frontend Logic
+ * CPLife — Frontend Logic
  * Interface ultrarrápida para registro e acompanhamento de domínio.
  */
 
@@ -99,11 +99,109 @@ const app = {
 
   async init() {
     this.setupHotkeys();
+    const status = await this.fetchStatus();
+    if (!status || !status.ready) {
+      document.getElementById("modal-setup").classList.add("active");
+      return;
+    }
     await this.fetchTaxonomy();
     await this.fetchTopics();
     await this.fetchProblems();
     await this.fetchAttempts();
     await this.refreshData();
+  },
+
+  async fetchStatus() {
+    try {
+      const response = await fetch("/api/status");
+      const status = await response.json();
+      const badge = document.getElementById("mode-badge");
+      if (status.ready) {
+        badge.textContent = status.mode === "demo" ? "Modo demonstração" : "Modo pessoal";
+        badge.classList.toggle("demo", status.mode === "demo");
+        document.getElementById("btn-reset-demo").style.display = status.mode === "demo" ? "inline-flex" : "none";
+      }
+      return status;
+    } catch (err) {
+      alert("Não foi possível carregar o estado local do CPLife: " + err.message);
+      return null;
+    }
+  },
+
+  async submitSetup(event) {
+    event.preventDefault();
+    const mode = document.querySelector("input[name='setup-mode']:checked").value;
+    try {
+      const response = await fetch("/api/setup", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          mode,
+          goal: document.getElementById("setup-goal").value.trim(),
+          season: document.getElementById("setup-season").value.trim()
+        })
+      });
+      const data = await response.json();
+      if (data.error) throw new Error(data.error);
+      document.getElementById("modal-setup").classList.remove("active");
+      await this.init();
+    } catch (err) {
+      alert("Não foi possível preparar o espaço local: " + err.message);
+    }
+  },
+
+  async resetDemo() {
+    if (!confirm("Restaurar a demonstração? Os dados atuais serão guardados em um backup local.")) return;
+    const response = await fetch("/api/demo/reset", {method: "POST", headers: {"Content-Type": "application/json"}, body: "{}"});
+    const data = await response.json();
+    if (data.error) {
+      alert(data.error);
+      return;
+    }
+    await this.fetchProblems();
+    await this.fetchAttempts();
+    await this.refreshData();
+    alert("Demonstração restaurada. Um backup foi criado antes da substituição.");
+  },
+
+  openFeedbackModal() {
+    document.getElementById("modal-feedback").classList.add("active");
+  },
+
+  closeFeedbackModal() {
+    document.getElementById("modal-feedback").classList.remove("active");
+  },
+
+  async submitFeedback(event) {
+    event.preventDefault();
+    const fields = {
+      feedback_type: document.getElementById("feedback-type").value,
+      module: document.getElementById("feedback-module").value.trim(),
+      title: document.getElementById("feedback-title").value.trim(),
+      description: document.getElementById("feedback-description").value.trim(),
+      reproduction_steps: document.getElementById("feedback-steps").value.trim(),
+      expected_result: document.getElementById("feedback-expected").value.trim(),
+      observed_result: document.getElementById("feedback-observed").value.trim(),
+      severity: document.getElementById("feedback-severity").value
+    };
+    try {
+      const response = await fetch("/api/feedback", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(fields)
+      });
+      const data = await response.json();
+      if (data.error) throw new Error(data.error);
+      document.getElementById("form-feedback").reset();
+      this.closeFeedbackModal();
+      alert("Feedback registrado localmente. Use 'Salvar relatório JSON' para exportá-lo.");
+    } catch (err) {
+      alert("Não foi possível registrar o feedback: " + err.message);
+    }
+  },
+
+  exportFeedback() {
+    window.location.href = "/api/feedback/export";
   },
 
   setupHotkeys() {
@@ -189,7 +287,10 @@ const app = {
     document.getElementById("stat-solo-rate").textContent = `${s.pure_solo_rate}%`;
     document.getElementById("stat-solo-count").textContent = `${s.solo_count} resolvidos 100% solo`;
     document.getElementById("stat-autonomy").textContent = `${s.weighted_autonomy}%`;
-    document.getElementById("stat-bases").textContent = `${s.cses_solved} CSES / ${s.icpc_solved} ICPC`;
+    const platforms = Object.entries(s.platform_solved_counts || {}).sort((a, b) => b[1] - a[1]);
+    document.getElementById("stat-bases").textContent = platforms.length
+      ? platforms.slice(0, 2).map(([name, count]) => `${count} ${name}`).join(" / ")
+      : "Nenhum ainda";
     document.getElementById("stat-time").textContent = `${s.total_time_hours}h em ${s.total_time_min}min de treino`;
     
     const dueEl = document.getElementById("stat-reviews-due");

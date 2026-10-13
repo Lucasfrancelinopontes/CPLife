@@ -55,6 +55,9 @@
     <header class="topbar">
       <div class="topbar-title" id="topbar-title">Dashboard Executivo</div>
       <div class="nav-actions">
+        <span class="mode-badge" id="mode-badge">Configurando...</span>
+        <button class="btn btn-secondary btn-sm" onclick="app.openFeedbackModal()">Enviar feedback</button>
+        <button class="btn btn-secondary btn-sm" id="btn-reset-demo" onclick="app.resetDemo()" style="display:none;">Restaurar demo</button>
         <button class="btn btn-secondary btn-sm" onclick="app.refreshData()">
           ↻ Atualizar
         </button>
@@ -92,7 +95,7 @@
             <div class="stat-sub">Média dos níveis de ajuda</div>
           </div>
           <div class="stat-card">
-            <div class="stat-label">Bases Principais</div>
+            <div class="stat-label">Problemas por plataforma</div>
             <div class="stat-value" id="stat-bases" style="font-size: 1.4rem;">0 CSES / 0 ICPC</div>
             <div class="stat-sub" id="stat-time">0h de treino registradas</div>
           </div>
@@ -438,6 +441,52 @@
 </div>
 
 <!-- ================= MODALS (Preserved exactly as is) ================= -->
+<div class="modal-overlay" id="modal-setup">
+  <div class="modal-card" style="max-width: 620px;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Bem-vindo ao CPLife</div>
+        <div class="modal-subtitle">Escolha um espaço local para começar. Nenhuma conta ou conexão é necessária.</div>
+      </div>
+    </div>
+    <form id="form-setup" onsubmit="app.submitSetup(event)">
+      <div class="form-section-box">
+        <div class="form-section-title">Como você quer experimentar?</div>
+        <div class="form-row">
+          <label class="setup-choice"><input type="radio" name="setup-mode" value="demo" checked> <strong>Experimentar demonstração</strong><br><small>Dados fictícios realistas, restauráveis e separados do seu espaço pessoal.</small></label>
+          <label class="setup-choice"><input type="radio" name="setup-mode" value="personal"> <strong>Começar espaço pessoal vazio</strong><br><small>Um diretório novo para seus próprios registros.</small></label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Objetivo (opcional)</label><input id="setup-goal" class="form-input" placeholder="ex: melhorar grafos e DP"></div>
+        <div class="form-group"><label class="form-label">Temporada ou competição (opcional)</label><input id="setup-season" class="form-input" placeholder="ex: 2026"></div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;margin-top:20px;"><button class="btn btn-primary" type="submit">Começar</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-feedback">
+  <div class="modal-card" style="max-width: 760px;">
+    <div class="modal-header">
+      <div><div class="modal-title">Enviar feedback</div><div class="modal-subtitle">O relatório é salvo localmente e não inclui seus CSVs ou caminhos privados.</div></div>
+      <button class="modal-close" onclick="app.closeFeedbackModal()">&times;</button>
+    </div>
+    <form id="form-feedback" onsubmit="app.submitFeedback(event)">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Tipo *</label><select id="feedback-type" class="form-select" required><option value="bug">Bug</option><option value="usability">Dificuldade de uso</option><option value="suggestion">Sugestão</option><option value="missing_feature">Funcionalidade ausente</option></select></div>
+        <div class="form-group"><label class="form-label">Módulo *</label><input id="feedback-module" class="form-input" placeholder="ex: Revisões" required></div>
+        <div class="form-group"><label class="form-label">Gravidade</label><select id="feedback-severity" class="form-select"><option value="">Não informar</option><option value="low">Baixa</option><option value="medium">Média</option><option value="high">Alta</option></select></div>
+      </div>
+      <div class="form-group"><label class="form-label">Título *</label><input id="feedback-title" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Descrição *</label><textarea id="feedback-description" class="form-input" rows="4" required></textarea></div>
+      <div class="form-group"><label class="form-label">Passos para reproduzir</label><textarea id="feedback-steps" class="form-input" rows="2"></textarea></div>
+      <div class="form-row"><div class="form-group"><label class="form-label">Resultado esperado</label><textarea id="feedback-expected" class="form-input" rows="2"></textarea></div><div class="form-group"><label class="form-label">Resultado observado</label><textarea id="feedback-observed" class="form-input" rows="2"></textarea></div></div>
+      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px;"><button type="button" class="btn btn-secondary" onclick="app.exportFeedback()">Salvar relatório JSON</button><button type="submit" class="btn btn-primary">Registrar feedback</button></div>
+    </form>
+  </div>
+</div>
+
 <!-- Modal: Registro Rápido -->
 <div class="modal-overlay" id="modal-log">
     <div class="modal-card">

@@ -1,0 +1,14 @@
+# Dados locais (pessoais, demonstração em execução e backups)
+/data/
+/data_backup_user_real/
+/data_backup_*/
+/backups/
+
+# Configuração e diretório de execução do usuário
+*.local.json
+.cplife/
+
+# Arquivos temporários do armazenamento CSV
+*.tmp
+__pycache__/
+*.py[cod]
