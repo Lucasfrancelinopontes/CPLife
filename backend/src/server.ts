@@ -1,6 +1,7 @@
 import "dotenv/config";
 import cors from "cors";
 import express from "express";
+import apiRouter from "./routes/api.js";
 
 const app = express();
 const port = Number.parseInt(process.env.PORT ?? "8000", 10);
@@ -12,6 +13,7 @@ if (!Number.isInteger(port) || port < 1 || port > 65_535) {
 
 app.use(cors());
 app.use(express.json());
+app.use("/api", apiRouter);
 
 app.get("/api/status", (_request, response) => {
   response.json({
@@ -22,6 +24,11 @@ app.get("/api/status", (_request, response) => {
 
 app.get("/health", (_request, response) => {
   response.json({ status: "ok" });
+});
+
+app.use((error: unknown, _request: express.Request, response: express.Response, _next: express.NextFunction) => {
+  console.error("Backend request failed.", error);
+  response.status(500).json({ error: "Erro interno do servidor." });
 });
 
 const server = app.listen(port, host, () => {
