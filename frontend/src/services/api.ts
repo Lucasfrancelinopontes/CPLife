@@ -71,6 +71,54 @@ export function fetchRecommendations(
   );
 }
 
+export interface QuestionBankTopic {
+  topic_id: string;
+  parent_id: string;
+  name: string;
+  category: string;
+}
+
+export interface QuestionBankCatalog {
+  source: "fresh" | "cache" | "demo" | "unavailable";
+  stale: boolean;
+  fetched_at: string | null;
+  error: string | null;
+}
+
+export interface QuestionBankResponse {
+  items: Recommendation[];
+  catalog: QuestionBankCatalog;
+  topics: QuestionBankTopic[];
+}
+
+export function fetchQuestionBank(
+  filters: RecommendationFilters = {},
+): Promise<QuestionBankResponse> {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(filters)) {
+    if (value !== undefined && value !== "") params.set(key, String(value));
+  }
+  const query = params.toString();
+  return fetchJson<QuestionBankResponse>(
+    `/api/question-bank/search${query ? `?${query}` : ""}`,
+  );
+}
+
+export function refreshQuestionBank(): Promise<QuestionBankCatalog & { problems: Recommendation[] }> {
+  return fetchJson<QuestionBankCatalog & { problems: Recommendation[] }>(
+    "/api/question-bank/refresh",
+    { method: "POST" },
+  );
+}
+
+export function addQuestionToCatalog(externalId: string): Promise<{ created: boolean }> {
+  return fetchJson<{ created: boolean }>("/api/question-bank/personal", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ external_id: externalId }),
+  });
+}
+
 export function fetchAttempts(): Promise<Attempt[]> {
   return fetchJson<Attempt[]>("/api/attempts");
 }

@@ -1,5 +1,5 @@
 import type { Attempt } from "../types/data.js";
-import { mapExternalTags, normalizeTag } from "./taxonomyService.js";
+import { getDescendantTopicIds, mapExternalTags, normalizeTag } from "./taxonomyService.js";
 
 export interface ExternalProblem {
   external_id: string;
@@ -39,7 +39,10 @@ export function suggest(
   const requestedTag = normalizeTag(filters.tag);
   const results = externalProblems.filter((problem) => {
     const attempted = attemptedIds.has(problem.external_id);
-    if (filters.topic_id && !problemTopicIds(problem).has(filters.topic_id)) return false;
+    if (filters.topic_id) {
+      const acceptedTopics = getDescendantTopicIds(filters.topic_id);
+      if (![...problemTopicIds(problem)].some((topicId) => acceptedTopics.has(topicId))) return false;
+    }
     if (filters.rating_min !== undefined && (problem.rating === null || problem.rating < filters.rating_min)) return false;
     if (filters.rating_max !== undefined && (problem.rating === null || problem.rating > filters.rating_max)) return false;
     if (requestedTag && !problem.tags.some((tag) => {

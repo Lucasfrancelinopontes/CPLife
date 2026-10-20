@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import { getAttempts } from "../services/storageService.js";
 import {
-  getDemoProblemset,
+  getCatalog,
   type CodeforcesProblem,
 } from "../services/codeforcesService.js";
 import { suggest, type RecommendationFilters } from "../services/recommendationService.js";
@@ -29,10 +29,12 @@ export async function listRecommendations(
       sort: typeof query.sort === "string" ? query.sort : "rating",
       limit: optionalInteger(query.limit, "limit"),
     };
-    const [problems, attempts] = await Promise.all([
-      getDemoProblemset() as Promise<CodeforcesProblem[]>,
-      getAttempts(),
-    ]);
+    const [catalog, attempts] = await Promise.all([getCatalog(), getAttempts()]);
+    if (catalog.source === "unavailable") {
+      response.status(503).json({ error: catalog.error ?? "Catálogo Codeforces indisponível." });
+      return;
+    }
+    const problems = catalog.problems as CodeforcesProblem[];
     response.json(suggest(problems, attempts, filters));
   } catch (error) {
     if (error instanceof Error && error.message.startsWith("Filtro ")) {

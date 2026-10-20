@@ -94,3 +94,18 @@ export function getProblemTopicIds(problem: Problem, mappings: Array<{ topic_id:
 export function getBuiltinTopics(): TaxonomyTopic[] {
   return BUILTIN_TOPICS.map((item) => ({ ...item }));
 }
+
+export function getDescendantTopicIds(topicId: string): Set<string> {
+  const descendants = new Set([topicId]);
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const topic of BUILTIN_TOPICS) {
+      if (descendants.has(topic.parent_id) && !descendants.has(topic.topic_id)) {
+        descendants.add(topic.topic_id);
+        changed = true;
+      }
+    }
+  }
+  return descendants;
+}

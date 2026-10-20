@@ -1,5 +1,5 @@
 import { createReadStream } from "node:fs";
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import csv from "csv-parser";
@@ -20,6 +20,10 @@ import type {
 const DEMO_DATA_DIR = fileURLToPath(
   new URL("../../../demo_data/", import.meta.url),
 );
+
+const PERSONAL_DATA_DIR = process.env.CPLIFE_DATA_DIR
+  ? path.resolve(process.env.CPLIFE_DATA_DIR)
+  : path.resolve(process.cwd(), ".cplife-data");
 
 function csvPath(filename: string): string {
   return path.join(DEMO_DATA_DIR, filename);
@@ -43,8 +47,27 @@ async function readJson<T>(filename: string): Promise<T> {
   return JSON.parse(content) as T;
 }
 
+async function readOptionalJson<T>(filename: string): Promise<T | undefined> {
+  try {
+    return await readFile(filename, "utf8").then((content) => JSON.parse(content) as T);
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") {
+      return undefined;
+    }
+    throw error;
+  }
+}
+
+async function writeJson<T>(filename: string, value: T): Promise<void> {
+  await mkdir(path.dirname(filename), { recursive: true });
+  const temporary = `${filename}.tmp`;
+  await writeFile(temporary, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+  await rename(temporary, filename);
+}
+
 export function getProblems(): Promise<Problem[]> {
-  return readCsv<Problem>("problems.csv");
+  return Promise.all([readCsv<Problem>("problems.csv"), readPersonalProblems<Problem>()])
+    .then(([demoProblems, personalProblems]) => [...demoProblems, ...personalProblems]);
 }
 
 export async function getProblem(problemId: string): Promise<Problem | undefined> {
@@ -94,4 +117,28 @@ export function getWeeklyReviews(): Promise<WeeklyReview[]> {
 
 export function getCodeforcesProblemset(): Promise<unknown> {
   return readJson<unknown>("codeforces_problemset.json");
+}
+
+export function getCodeforcesCachePath(): string {
+  return path.join(PERSONAL_DATA_DIR, "codeforces-problemset.json");
+}
+
+export function getPersonalProblemsPath(): string {
+  return path.join(PERSONAL_DATA_DIR, "personal-problems.json");
+}
+
+export function readCodeforcesCache<T>(): Promise<T | undefined> {
+  return readOptionalJson<T>(getCodeforcesCachePath());
+}
+
+export function writeCodeforcesCache<T>(value: T): Promise<void> {
+  return writeJson(getCodeforcesCachePath(), value);
+}
+
+export function readPersonalProblems<T>(): Promise<T[]> {
+  return readOptionalJson<T[]>(getPersonalProblemsPath()).then((value) => value ?? []);
+}
+
+export function writePersonalProblems<T>(value: T[]): Promise<void> {
+  return writeJson(getPersonalProblemsPath(), value);
 }

@@ -55,6 +55,12 @@ export function Navbar({
           >
             {modeLabel}
           </span>
+          <a
+            href="/question-bank"
+            className="rounded-md border border-slate-700 px-3 py-1.5 text-sm font-semibold text-slate-200 transition hover:border-sky-400 hover:text-white"
+          >
+            Banco de questões
+          </a>
           {onRefresh ? (
             <button
               type="button"
