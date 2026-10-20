@@ -67,7 +67,7 @@ export function fetchRecommendations(
 
   const query = params.toString();
   return fetchJson<Recommendation[]>(
-    `/api/question-bank/suggestions${query ? `?${query}` : ""}`,
+    `/api/recommendations${query ? `?${query}` : ""}`,
   );
 }
 
