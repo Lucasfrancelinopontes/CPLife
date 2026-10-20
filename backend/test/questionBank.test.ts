@@ -30,17 +30,30 @@ test("parser validates identity, type, duplicates and absent values", () => {
   assert.equal(problems[2].rating, null);
 });
 
-test("filters combine rating, parent topic and partial external tag", () => {
+test("filters combine rating, parent topic and exact external tags", () => {
   const problems = codeforces.parseProblemset(payload);
   const results = recommendations.suggest(problems, [], {
     topic_id: "graphs",
-    tag: "dfs",
+    tags: ["dfs and similar"],
     rating_min: 1200,
     rating_max: 1600,
     attempted: "all",
     limit: 100,
   });
-  assert.deepEqual(results.map((problem) => problem.external_id), ["cf-1-B"]);
+  assert.deepEqual(results.map((problem) => problem.external_id), []);
+});
+
+test("supports OR and AND tag combinations and ignores missing tags", () => {
+  const problems = codeforces.parseProblemset(payload);
+  assert.deepEqual(recommendations.suggest(problems, [], {
+    tags: ["dfs and similar", "dp"], tag_mode: "or", attempted: "all", limit: 100,
+  }).map((problem) => problem.external_id), ["cf-1-A", "cf-1-C"]);
+  assert.deepEqual(recommendations.suggest(problems, [], {
+    tags: ["dfs and similar", "graphs"], tag_mode: "and", attempted: "all", limit: 100,
+  }).map((problem) => problem.external_id), ["cf-1-A"]);
+  assert.deepEqual(recommendations.suggest(problems, [], {
+    tags: ["dfs"], attempted: "all", limit: 100,
+  }).map((problem) => problem.external_id), ["cf-1-B"]);
 });
 
 test("catalog caches a successful fetch and falls back after failure", async () => {
@@ -53,4 +66,10 @@ test("catalog caches a successful fetch and falls back after failure", async () 
   const fallback = await codeforces.getCatalog({ forceRefresh: true, now: 2_000_000 + 3_000, fetcher: async () => { throw new Error("offline"); } });
   assert.equal(fallback.source, "cache");
   assert.equal(fallback.stale, true);
+});
+
+test("adapts the deterministic demo fixture without using it as the real catalog", async () => {
+  const problems = await codeforces.getDemoProblemset();
+  assert.deepEqual(problems.map((problem) => problem.external_id), ["cf-1000-A", "cf-1000-B"]);
+  assert.equal(problems[0].tags[0], "shortest paths");
 });

@@ -1,6 +1,6 @@
 {
   "source": "codeforces",
-  "fetched_at": "2026-10-20T18:01:52.058Z",
+  "fetched_at": "2026-10-20T18:30:25.494Z",
   "problems": [
     {
       "external_id": "cf-2276-G",
@@ -14,7 +14,7 @@
         "dp",
         "math"
       ],
-      "solved_count": 152,
+      "solved_count": 154,
       "link": "https://codeforces.com/problemset/problem/2276/G",
       "topic_mappings": [
         {
@@ -40,7 +40,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 525,
+      "solved_count": 526,
       "link": "https://codeforces.com/problemset/problem/2276/F",
       "topic_mappings": [
         {
@@ -69,7 +69,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 2456,
+      "solved_count": 2458,
       "link": "https://codeforces.com/problemset/problem/2276/E",
       "topic_mappings": [
         {
@@ -90,7 +90,7 @@
         "combinatorics",
         "graphs"
       ],
-      "solved_count": 5964,
+      "solved_count": 5970,
       "link": "https://codeforces.com/problemset/problem/2276/D",
       "topic_mappings": []
     },
@@ -105,7 +105,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 9356,
+      "solved_count": 9364,
       "link": "https://codeforces.com/problemset/problem/2276/C",
       "topic_mappings": []
     },
@@ -120,7 +120,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 10512,
+      "solved_count": 10515,
       "link": "https://codeforces.com/problemset/problem/2276/B",
       "topic_mappings": []
     },
@@ -135,7 +135,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 14849,
+      "solved_count": 14872,
       "link": "https://codeforces.com/problemset/problem/2276/A",
       "topic_mappings": []
     },
@@ -205,7 +205,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 2281,
+      "solved_count": 2282,
       "link": "https://codeforces.com/problemset/problem/2275/F",
       "topic_mappings": []
     },
@@ -220,7 +220,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 4628,
+      "solved_count": 4631,
       "link": "https://codeforces.com/problemset/problem/2275/E",
       "topic_mappings": [
         {
@@ -243,7 +243,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 7586,
+      "solved_count": 7587,
       "link": "https://codeforces.com/problemset/problem/2275/D",
       "topic_mappings": [
         {
@@ -264,7 +264,7 @@
         "brute force",
         "data structures"
       ],
-      "solved_count": 14322,
+      "solved_count": 14324,
       "link": "https://codeforces.com/problemset/problem/2275/C",
       "topic_mappings": []
     },
@@ -279,7 +279,7 @@
         "data structures",
         "implementation"
       ],
-      "solved_count": 20440,
+      "solved_count": 20442,
       "link": "https://codeforces.com/problemset/problem/2275/B",
       "topic_mappings": []
     },
@@ -294,7 +294,7 @@
         "geometry",
         "implementation"
       ],
-      "solved_count": 24744,
+      "solved_count": 24748,
       "link": "https://codeforces.com/problemset/problem/2275/A",
       "topic_mappings": []
     },
@@ -308,7 +308,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 4628,
+      "solved_count": 4634,
       "link": "https://codeforces.com/problemset/problem/2274/B",
       "topic_mappings": []
     },
@@ -326,7 +326,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 6657,
+      "solved_count": 6662,
       "link": "https://codeforces.com/problemset/problem/2274/A",
       "topic_mappings": [
         {
@@ -426,7 +426,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 1364,
+      "solved_count": 1365,
       "link": "https://codeforces.com/problemset/problem/2273/B",
       "topic_mappings": []
     },
@@ -443,7 +443,7 @@
         "dp",
         "greedy"
       ],
-      "solved_count": 3752,
+      "solved_count": 3757,
       "link": "https://codeforces.com/problemset/problem/2273/A",
       "topic_mappings": [
         {
@@ -600,7 +600,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 4847,
+      "solved_count": 4850,
       "link": "https://codeforces.com/problemset/problem/2271/C",
       "topic_mappings": []
     },
@@ -614,7 +614,7 @@
       "tags": [
         "games"
       ],
-      "solved_count": 8337,
+      "solved_count": 8339,
       "link": "https://codeforces.com/problemset/problem/2271/B",
       "topic_mappings": []
     },
@@ -629,7 +629,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 10572,
+      "solved_count": 10576,
       "link": "https://codeforces.com/problemset/problem/2271/A",
       "topic_mappings": []
     },
@@ -644,7 +644,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 13039,
+      "solved_count": 13040,
       "link": "https://codeforces.com/problemset/problem/2269/B",
       "topic_mappings": []
     },
@@ -659,7 +659,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 20235,
+      "solved_count": 20237,
       "link": "https://codeforces.com/problemset/problem/2269/A",
       "topic_mappings": []
     },
@@ -733,7 +733,7 @@
         "trees",
         "two pointers"
       ],
-      "solved_count": 1160,
+      "solved_count": 1161,
       "link": "https://codeforces.com/problemset/problem/2268/C",
       "topic_mappings": [
         {
@@ -766,7 +766,7 @@
         "data structures",
         "math"
       ],
-      "solved_count": 6614,
+      "solved_count": 6616,
       "link": "https://codeforces.com/problemset/problem/2268/B",
       "topic_mappings": []
     },
@@ -781,7 +781,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 12011,
+      "solved_count": 12014,
       "link": "https://codeforces.com/problemset/problem/2268/A",
       "topic_mappings": []
     },
@@ -882,7 +882,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 8033,
+      "solved_count": 8034,
       "link": "https://codeforces.com/problemset/problem/2267/D",
       "topic_mappings": [
         {
@@ -909,7 +909,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 11011,
+      "solved_count": 11014,
       "link": "https://codeforces.com/problemset/problem/2267/C",
       "topic_mappings": []
     },
@@ -925,7 +925,7 @@
         "constructive algorithms",
         "sortings"
       ],
-      "solved_count": 16107,
+      "solved_count": 16108,
       "link": "https://codeforces.com/problemset/problem/2267/B",
       "topic_mappings": []
     },
@@ -1078,7 +1078,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 17426,
+      "solved_count": 17428,
       "link": "https://codeforces.com/problemset/problem/2266/C",
       "topic_mappings": []
     },
@@ -1203,7 +1203,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 7445,
+      "solved_count": 7447,
       "link": "https://codeforces.com/problemset/problem/2264/C",
       "topic_mappings": []
     },
@@ -1219,7 +1219,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 11866,
+      "solved_count": 11867,
       "link": "https://codeforces.com/problemset/problem/2264/B",
       "topic_mappings": []
     },
@@ -1235,7 +1235,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 16321,
+      "solved_count": 16322,
       "link": "https://codeforces.com/problemset/problem/2264/A",
       "topic_mappings": [
         {
@@ -1255,7 +1255,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 13619,
+      "solved_count": 13620,
       "link": "https://codeforces.com/problemset/problem/2263/B",
       "topic_mappings": []
     },
@@ -1269,7 +1269,7 @@
       "tags": [
         "games"
       ],
-      "solved_count": 18397,
+      "solved_count": 18399,
       "link": "https://codeforces.com/problemset/problem/2263/A",
       "topic_mappings": []
     },
@@ -1397,7 +1397,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 10170,
+      "solved_count": 10171,
       "link": "https://codeforces.com/problemset/problem/2262/A1",
       "topic_mappings": []
     },
@@ -1509,7 +1509,7 @@
         "greedy",
         "trees"
       ],
-      "solved_count": 1852,
+      "solved_count": 1853,
       "link": "https://codeforces.com/problemset/problem/2261/E",
       "topic_mappings": [
         {
@@ -1566,7 +1566,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 5228,
+      "solved_count": 5235,
       "link": "https://codeforces.com/problemset/problem/2261/D1",
       "topic_mappings": []
     },
@@ -1581,7 +1581,7 @@
         "games",
         "math"
       ],
-      "solved_count": 7497,
+      "solved_count": 7508,
       "link": "https://codeforces.com/problemset/problem/2261/C",
       "topic_mappings": []
     },
@@ -1597,7 +1597,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 6951,
+      "solved_count": 6953,
       "link": "https://codeforces.com/problemset/problem/2261/B",
       "topic_mappings": []
     },
@@ -1612,7 +1612,7 @@
         "games",
         "math"
       ],
-      "solved_count": 9200,
+      "solved_count": 9210,
       "link": "https://codeforces.com/problemset/problem/2261/A",
       "topic_mappings": []
     },
@@ -1730,7 +1730,7 @@
         "bitmasks",
         "greedy"
       ],
-      "solved_count": 10890,
+      "solved_count": 10891,
       "link": "https://codeforces.com/problemset/problem/2260/C",
       "topic_mappings": []
     },
@@ -1746,7 +1746,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 16534,
+      "solved_count": 16536,
       "link": "https://codeforces.com/problemset/problem/2260/B",
       "topic_mappings": []
     },
@@ -1869,7 +1869,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 13949,
+      "solved_count": 13950,
       "link": "https://codeforces.com/problemset/problem/2259/D",
       "topic_mappings": []
     },
@@ -1884,7 +1884,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 19116,
+      "solved_count": 19117,
       "link": "https://codeforces.com/problemset/problem/2259/C",
       "topic_mappings": []
     },
@@ -1899,7 +1899,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 25463,
+      "solved_count": 25465,
       "link": "https://codeforces.com/problemset/problem/2259/B",
       "topic_mappings": []
     },
@@ -1983,7 +1983,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 582,
+      "solved_count": 583,
       "link": "https://codeforces.com/problemset/problem/2258/D",
       "topic_mappings": [
         {
@@ -2058,7 +2058,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 20046,
+      "solved_count": 20047,
       "link": "https://codeforces.com/problemset/problem/2258/A",
       "topic_mappings": []
     },
@@ -2230,7 +2230,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 17514,
+      "solved_count": 17515,
       "link": "https://codeforces.com/problemset/problem/2256/B",
       "topic_mappings": []
     },
@@ -2245,7 +2245,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 26416,
+      "solved_count": 26417,
       "link": "https://codeforces.com/problemset/problem/2256/A",
       "topic_mappings": []
     },
@@ -2365,7 +2365,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 14392,
+      "solved_count": 14393,
       "link": "https://codeforces.com/problemset/problem/2255/A",
       "topic_mappings": []
     },
@@ -2465,7 +2465,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 14878,
+      "solved_count": 14879,
       "link": "https://codeforces.com/problemset/problem/2254/C2",
       "topic_mappings": []
     },
@@ -2495,7 +2495,7 @@
         "strings",
         "two pointers"
       ],
-      "solved_count": 26367,
+      "solved_count": 26369,
       "link": "https://codeforces.com/problemset/problem/2254/B",
       "topic_mappings": [
         {
@@ -2516,7 +2516,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 37927,
+      "solved_count": 37928,
       "link": "https://codeforces.com/problemset/problem/2254/A",
       "topic_mappings": []
     },
@@ -2628,7 +2628,7 @@
         "data structures",
         "two pointers"
       ],
-      "solved_count": 12985,
+      "solved_count": 12986,
       "link": "https://codeforces.com/problemset/problem/2253/B",
       "topic_mappings": [
         {
@@ -2758,7 +2758,7 @@
         "math",
         "strings"
       ],
-      "solved_count": 13418,
+      "solved_count": 13419,
       "link": "https://codeforces.com/problemset/problem/2252/B",
       "topic_mappings": [
         {
@@ -2929,7 +2929,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 4693,
+      "solved_count": 4694,
       "link": "https://codeforces.com/problemset/problem/2249/B",
       "topic_mappings": []
     },
@@ -3071,7 +3071,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 15465,
+      "solved_count": 15466,
       "link": "https://codeforces.com/problemset/problem/2248/B",
       "topic_mappings": []
     },
@@ -3085,7 +3085,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 21358,
+      "solved_count": 21359,
       "link": "https://codeforces.com/problemset/problem/2248/A",
       "topic_mappings": []
     },
@@ -3145,7 +3145,7 @@
         "data structures",
         "greedy"
       ],
-      "solved_count": 2624,
+      "solved_count": 2625,
       "link": "https://codeforces.com/problemset/problem/2247/D2",
       "topic_mappings": []
     },
@@ -3205,7 +3205,7 @@
         "dp",
         "number theory"
       ],
-      "solved_count": 23292,
+      "solved_count": 23296,
       "link": "https://codeforces.com/problemset/problem/2247/A",
       "topic_mappings": [
         {
@@ -3275,7 +3275,7 @@
         "dp",
         "math"
       ],
-      "solved_count": 9641,
+      "solved_count": 9642,
       "link": "https://codeforces.com/problemset/problem/2246/C",
       "topic_mappings": [
         {
@@ -3573,7 +3573,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 14231,
+      "solved_count": 14232,
       "link": "https://codeforces.com/problemset/problem/2244/D",
       "topic_mappings": [
         {
@@ -3769,7 +3769,7 @@
         "sortings",
         "strings"
       ],
-      "solved_count": 25581,
+      "solved_count": 25582,
       "link": "https://codeforces.com/problemset/problem/2242/A",
       "topic_mappings": []
     },
@@ -3852,7 +3852,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 17299,
+      "solved_count": 17301,
       "link": "https://codeforces.com/problemset/problem/2241/D",
       "topic_mappings": [
         {
@@ -3910,7 +3910,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 36096,
+      "solved_count": 36097,
       "link": "https://codeforces.com/problemset/problem/2241/A",
       "topic_mappings": []
     },
@@ -4147,7 +4147,7 @@
         "dp",
         "trees"
       ],
-      "solved_count": 9889,
+      "solved_count": 9890,
       "link": "https://codeforces.com/problemset/problem/2238/C",
       "topic_mappings": [
         {
@@ -4378,7 +4378,7 @@
         "greedy",
         "schedules"
       ],
-      "solved_count": 22647,
+      "solved_count": 22648,
       "link": "https://codeforces.com/problemset/problem/2237/A",
       "topic_mappings": []
     },
@@ -4453,7 +4453,7 @@
       "tags": [
         "number theory"
       ],
-      "solved_count": 5409,
+      "solved_count": 5410,
       "link": "https://codeforces.com/problemset/problem/2236/F1",
       "topic_mappings": []
     },
@@ -4468,7 +4468,7 @@
         "brute force",
         "dp"
       ],
-      "solved_count": 6926,
+      "solved_count": 6927,
       "link": "https://codeforces.com/problemset/problem/2236/E",
       "topic_mappings": [
         {
@@ -4535,7 +4535,7 @@
         "math",
         "strings"
       ],
-      "solved_count": 29732,
+      "solved_count": 29733,
       "link": "https://codeforces.com/problemset/problem/2236/B",
       "topic_mappings": []
     },
@@ -4721,7 +4721,7 @@
         "number theory",
         "sortings"
       ],
-      "solved_count": 25087,
+      "solved_count": 25088,
       "link": "https://codeforces.com/problemset/problem/2234/A",
       "topic_mappings": []
     },
@@ -4821,7 +4821,7 @@
         "dp",
         "greedy"
       ],
-      "solved_count": 10081,
+      "solved_count": 10082,
       "link": "https://codeforces.com/problemset/problem/2233/C",
       "topic_mappings": [
         {
@@ -4841,7 +4841,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 18857,
+      "solved_count": 18858,
       "link": "https://codeforces.com/problemset/problem/2233/B",
       "topic_mappings": []
     },
@@ -4992,7 +4992,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 22018,
+      "solved_count": 22019,
       "link": "https://codeforces.com/problemset/problem/2232/B",
       "topic_mappings": [
         {
@@ -5125,7 +5125,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 26366,
+      "solved_count": 26368,
       "link": "https://codeforces.com/problemset/problem/2231/A",
       "topic_mappings": []
     },
@@ -5811,7 +5811,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 24049,
+      "solved_count": 24050,
       "link": "https://codeforces.com/problemset/problem/2227/C",
       "topic_mappings": []
     },
@@ -5825,7 +5825,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 29225,
+      "solved_count": 29226,
       "link": "https://codeforces.com/problemset/problem/2227/B",
       "topic_mappings": []
     },
@@ -5977,7 +5977,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 16241,
+      "solved_count": 16242,
       "link": "https://codeforces.com/problemset/problem/2226/A",
       "topic_mappings": []
     },
@@ -6119,7 +6119,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 9933,
+      "solved_count": 9934,
       "link": "https://codeforces.com/problemset/problem/2224/B",
       "topic_mappings": []
     },
@@ -6457,7 +6457,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 21965,
+      "solved_count": 21966,
       "link": "https://codeforces.com/problemset/problem/2220/A",
       "topic_mappings": []
     },
@@ -6630,7 +6630,7 @@
         "bitmasks",
         "brute force"
       ],
-      "solved_count": 18481,
+      "solved_count": 18482,
       "link": "https://codeforces.com/problemset/problem/2218/E",
       "topic_mappings": [
         {
@@ -6653,7 +6653,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 22963,
+      "solved_count": 22965,
       "link": "https://codeforces.com/problemset/problem/2218/D",
       "topic_mappings": []
     },
@@ -6669,7 +6669,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 32702,
+      "solved_count": 32704,
       "link": "https://codeforces.com/problemset/problem/2218/C",
       "topic_mappings": []
     },
@@ -6684,7 +6684,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 43330,
+      "solved_count": 43333,
       "link": "https://codeforces.com/problemset/problem/2218/B",
       "topic_mappings": []
     },
@@ -6701,7 +6701,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 45939,
+      "solved_count": 45941,
       "link": "https://codeforces.com/problemset/problem/2218/A",
       "topic_mappings": []
     },
@@ -7476,7 +7476,7 @@
         "data structures",
         "greedy"
       ],
-      "solved_count": 20270,
+      "solved_count": 20271,
       "link": "https://codeforces.com/problemset/problem/2210/B",
       "topic_mappings": []
     },
@@ -7570,7 +7570,7 @@
         "constructive algorithms",
         "interactive"
       ],
-      "solved_count": 12316,
+      "solved_count": 12318,
       "link": "https://codeforces.com/problemset/problem/2209/C",
       "topic_mappings": []
     },
@@ -8351,7 +8351,7 @@
         "brute force",
         "constructive algorithms"
       ],
-      "solved_count": 19066,
+      "solved_count": 19067,
       "link": "https://codeforces.com/problemset/problem/2205/A",
       "topic_mappings": []
     },
@@ -8421,7 +8421,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 5422,
+      "solved_count": 5423,
       "link": "https://codeforces.com/problemset/problem/2204/E",
       "topic_mappings": []
     },
@@ -8950,7 +8950,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 29164,
+      "solved_count": 29165,
       "link": "https://codeforces.com/problemset/problem/2200/B",
       "topic_mappings": []
     },
@@ -9486,7 +9486,7 @@
         "dp",
         "greedy"
       ],
-      "solved_count": 22952,
+      "solved_count": 22955,
       "link": "https://codeforces.com/problemset/problem/2195/C",
       "topic_mappings": [
         {
@@ -9507,7 +9507,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 27803,
+      "solved_count": 27804,
       "link": "https://codeforces.com/problemset/problem/2195/B",
       "topic_mappings": []
     },
@@ -9637,7 +9637,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 12054,
+      "solved_count": 12055,
       "link": "https://codeforces.com/problemset/problem/2194/C",
       "topic_mappings": [
         {
@@ -9742,7 +9742,7 @@
         "dp",
         "greedy"
       ],
-      "solved_count": 9883,
+      "solved_count": 9884,
       "link": "https://codeforces.com/problemset/problem/2193/F",
       "topic_mappings": [
         {
@@ -9818,7 +9818,7 @@
         "data structures",
         "greedy"
       ],
-      "solved_count": 31280,
+      "solved_count": 31281,
       "link": "https://codeforces.com/problemset/problem/2193/C",
       "topic_mappings": []
     },
@@ -9847,7 +9847,7 @@
         "brute force",
         "math"
       ],
-      "solved_count": 45434,
+      "solved_count": 45436,
       "link": "https://codeforces.com/problemset/problem/2193/A",
       "topic_mappings": []
     },
@@ -10307,7 +10307,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 16708,
+      "solved_count": 16709,
       "link": "https://codeforces.com/problemset/problem/2189/B",
       "topic_mappings": []
     },
@@ -10350,7 +10350,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 27121,
+      "solved_count": 27122,
       "link": "https://codeforces.com/problemset/problem/2188/A",
       "topic_mappings": []
     },
@@ -10629,7 +10629,7 @@
         "math",
         "two pointers"
       ],
-      "solved_count": 22717,
+      "solved_count": 22718,
       "link": "https://codeforces.com/problemset/problem/2185/D",
       "topic_mappings": [
         {
@@ -11347,7 +11347,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 7874,
+      "solved_count": 7875,
       "link": "https://codeforces.com/problemset/problem/2181/H",
       "topic_mappings": []
     },
@@ -11991,7 +11991,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 22890,
+      "solved_count": 22891,
       "link": "https://codeforces.com/problemset/problem/2178/B",
       "topic_mappings": [
         {
@@ -12142,7 +12142,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 30356,
+      "solved_count": 30357,
       "link": "https://codeforces.com/problemset/problem/2176/A",
       "topic_mappings": []
     },
@@ -12332,7 +12332,7 @@
         "strings",
         "two pointers"
       ],
-      "solved_count": 15786,
+      "solved_count": 15787,
       "link": "https://codeforces.com/problemset/problem/2174/A",
       "topic_mappings": [
         {
@@ -12891,7 +12891,7 @@
         "brute force",
         "math"
       ],
-      "solved_count": 39145,
+      "solved_count": 39146,
       "link": "https://codeforces.com/problemset/problem/2171/A",
       "topic_mappings": []
     },
@@ -12992,7 +12992,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 15802,
+      "solved_count": 15803,
       "link": "https://codeforces.com/problemset/problem/2170/B",
       "topic_mappings": []
     },
@@ -13010,7 +13010,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 20992,
+      "solved_count": 20993,
       "link": "https://codeforces.com/problemset/problem/2170/A",
       "topic_mappings": []
     },
@@ -13358,7 +13358,7 @@
         "sortings",
         "strings"
       ],
-      "solved_count": 56232,
+      "solved_count": 56233,
       "link": "https://codeforces.com/problemset/problem/2167/B",
       "topic_mappings": []
     },
@@ -13373,7 +13373,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 64340,
+      "solved_count": 64341,
       "link": "https://codeforces.com/problemset/problem/2167/A",
       "topic_mappings": []
     },
@@ -13403,7 +13403,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 24257,
+      "solved_count": 24258,
       "link": "https://codeforces.com/problemset/problem/2166/A",
       "topic_mappings": []
     },
@@ -13841,7 +13841,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 20516,
+      "solved_count": 20517,
       "link": "https://codeforces.com/problemset/problem/2163/A",
       "topic_mappings": []
     },
@@ -13976,7 +13976,7 @@
         "brute force",
         "greedy"
       ],
-      "solved_count": 43674,
+      "solved_count": 43675,
       "link": "https://codeforces.com/problemset/problem/2162/A",
       "topic_mappings": []
     },
@@ -15326,7 +15326,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 15129,
+      "solved_count": 15130,
       "link": "https://codeforces.com/problemset/problem/2152/C",
       "topic_mappings": []
     },
@@ -15603,7 +15603,7 @@
         "data structures",
         "two pointers"
       ],
-      "solved_count": 10019,
+      "solved_count": 10020,
       "link": "https://codeforces.com/problemset/problem/2149/E",
       "topic_mappings": [
         {
@@ -15777,7 +15777,7 @@
       "tags": [
         "geometry"
       ],
-      "solved_count": 34999,
+      "solved_count": 35002,
       "link": "https://codeforces.com/problemset/problem/2148/B",
       "topic_mappings": []
     },
@@ -15927,7 +15927,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 12536,
+      "solved_count": 12537,
       "link": "https://codeforces.com/problemset/problem/2147/C",
       "topic_mappings": [
         {
@@ -16038,7 +16038,7 @@
         "greedy",
         "trees"
       ],
-      "solved_count": 11482,
+      "solved_count": 11483,
       "link": "https://codeforces.com/problemset/problem/2146/D1",
       "topic_mappings": []
     },
@@ -16212,7 +16212,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 16591,
+      "solved_count": 16592,
       "link": "https://codeforces.com/problemset/problem/2145/C",
       "topic_mappings": [
         {
@@ -16503,7 +16503,7 @@
         "graphs",
         "greedy"
       ],
-      "solved_count": 15312,
+      "solved_count": 15313,
       "link": "https://codeforces.com/problemset/problem/2143/C",
       "topic_mappings": [
         {
@@ -16800,7 +16800,7 @@
         "games",
         "greedy"
       ],
-      "solved_count": 13437,
+      "solved_count": 13438,
       "link": "https://codeforces.com/problemset/problem/2140/C",
       "topic_mappings": []
     },
@@ -16860,7 +16860,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 27009,
+      "solved_count": 27010,
       "link": "https://codeforces.com/problemset/problem/2139/A",
       "topic_mappings": []
     },
@@ -17093,7 +17093,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 10938,
+      "solved_count": 10939,
       "link": "https://codeforces.com/problemset/problem/2137/E",
       "topic_mappings": []
     },
@@ -17171,7 +17171,7 @@
         "greedy",
         "two pointers"
       ],
-      "solved_count": 22022,
+      "solved_count": 22023,
       "link": "https://codeforces.com/problemset/problem/2136/B",
       "topic_mappings": [
         {
@@ -17399,7 +17399,7 @@
         "implementation",
         "interactive"
       ],
-      "solved_count": 2567,
+      "solved_count": 2568,
       "link": "https://codeforces.com/problemset/problem/2134/E",
       "topic_mappings": [
         {
@@ -17578,7 +17578,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 26418,
+      "solved_count": 26419,
       "link": "https://codeforces.com/problemset/problem/2133/B",
       "topic_mappings": []
     },
@@ -17595,7 +17595,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 32206,
+      "solved_count": 32207,
       "link": "https://codeforces.com/problemset/problem/2133/A",
       "topic_mappings": []
     },
@@ -17757,7 +17757,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 45987,
+      "solved_count": 45988,
       "link": "https://codeforces.com/problemset/problem/2132/A",
       "topic_mappings": []
     },
@@ -17868,7 +17868,7 @@
         "greedy",
         "trees"
       ],
-      "solved_count": 15204,
+      "solved_count": 15205,
       "link": "https://codeforces.com/problemset/problem/2131/D",
       "topic_mappings": []
     },
@@ -17927,7 +17927,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 22318,
+      "solved_count": 22319,
       "link": "https://codeforces.com/problemset/problem/2130/B",
       "topic_mappings": []
     },
@@ -18258,7 +18258,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 21827,
+      "solved_count": 21828,
       "link": "https://codeforces.com/problemset/problem/2128/C",
       "topic_mappings": []
     },
@@ -18664,7 +18664,7 @@
         "dp",
         "greedy"
       ],
-      "solved_count": 38943,
+      "solved_count": 38944,
       "link": "https://codeforces.com/problemset/problem/2126/B",
       "topic_mappings": [
         {
@@ -18796,7 +18796,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 29064,
+      "solved_count": 29065,
       "link": "https://codeforces.com/problemset/problem/2125/B",
       "topic_mappings": []
     },
@@ -19032,7 +19032,7 @@
         "constructive algorithms",
         "number theory"
       ],
-      "solved_count": 10360,
+      "solved_count": 10361,
       "link": "https://codeforces.com/problemset/problem/2123/F",
       "topic_mappings": []
     },
@@ -19092,7 +19092,7 @@
         "brute force",
         "data structures"
       ],
-      "solved_count": 32293,
+      "solved_count": 32294,
       "link": "https://codeforces.com/problemset/problem/2123/C",
       "topic_mappings": []
     },
@@ -19106,7 +19106,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 35837,
+      "solved_count": 35838,
       "link": "https://codeforces.com/problemset/problem/2123/B",
       "topic_mappings": []
     },
@@ -19302,7 +19302,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 5604,
+      "solved_count": 5605,
       "link": "https://codeforces.com/problemset/problem/2121/G",
       "topic_mappings": []
     },
@@ -19348,7 +19348,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 15476,
+      "solved_count": 15477,
       "link": "https://codeforces.com/problemset/problem/2121/E",
       "topic_mappings": [
         {
@@ -19488,7 +19488,7 @@
         "combinatorics",
         "math"
       ],
-      "solved_count": 6069,
+      "solved_count": 6070,
       "link": "https://codeforces.com/problemset/problem/2120/D",
       "topic_mappings": []
     },
@@ -19607,7 +19607,7 @@
         "dp",
         "math"
       ],
-      "solved_count": 3633,
+      "solved_count": 3634,
       "link": "https://codeforces.com/problemset/problem/2119/D",
       "topic_mappings": [
         {
@@ -19974,7 +19974,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 18156,
+      "solved_count": 18157,
       "link": "https://codeforces.com/problemset/problem/2116/B",
       "topic_mappings": []
     },
@@ -19989,7 +19989,7 @@
         "games",
         "greedy"
       ],
-      "solved_count": 27351,
+      "solved_count": 27352,
       "link": "https://codeforces.com/problemset/problem/2116/A",
       "topic_mappings": []
     },
@@ -20134,7 +20134,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 17817,
+      "solved_count": 17818,
       "link": "https://codeforces.com/problemset/problem/2115/A",
       "topic_mappings": [
         {
@@ -20282,7 +20282,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 31483,
+      "solved_count": 31484,
       "link": "https://codeforces.com/problemset/problem/2114/B",
       "topic_mappings": []
     },
@@ -20676,7 +20676,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 18470,
+      "solved_count": 18471,
       "link": "https://codeforces.com/problemset/problem/2111/B",
       "topic_mappings": [
         {
@@ -21588,7 +21588,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 13971,
+      "solved_count": 13972,
       "link": "https://codeforces.com/problemset/problem/2104/D",
       "topic_mappings": [
         {
@@ -21809,7 +21809,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 22274,
+      "solved_count": 22275,
       "link": "https://codeforces.com/problemset/problem/2102/A",
       "topic_mappings": []
     },
@@ -22107,7 +22107,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 9102,
+      "solved_count": 9103,
       "link": "https://codeforces.com/problemset/problem/2097/A",
       "topic_mappings": []
     },
@@ -22495,7 +22495,7 @@
         "strings",
         "two pointers"
       ],
-      "solved_count": 25060,
+      "solved_count": 25061,
       "link": "https://codeforces.com/problemset/problem/2094/D",
       "topic_mappings": [
         {
@@ -23408,7 +23408,7 @@
         "brute force",
         "greedy"
       ],
-      "solved_count": 19572,
+      "solved_count": 19573,
       "link": "https://codeforces.com/problemset/problem/2086/B",
       "topic_mappings": [
         {
@@ -24502,7 +24502,7 @@
         "geometry",
         "implementation"
       ],
-      "solved_count": 45781,
+      "solved_count": 45782,
       "link": "https://codeforces.com/problemset/problem/2074/A",
       "topic_mappings": []
     },
@@ -24786,7 +24786,7 @@
         "constructive algorithms",
         "strings"
       ],
-      "solved_count": 31884,
+      "solved_count": 31885,
       "link": "https://codeforces.com/problemset/problem/2072/B",
       "topic_mappings": []
     },
@@ -24944,7 +24944,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 21534,
+      "solved_count": 21535,
       "link": "https://codeforces.com/problemset/problem/2071/B",
       "topic_mappings": []
     },
@@ -25623,7 +25623,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 5684,
+      "solved_count": 5685,
       "link": "https://codeforces.com/problemset/problem/2066/B",
       "topic_mappings": [
         {
@@ -25983,7 +25983,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 27489,
+      "solved_count": 27490,
       "link": "https://codeforces.com/problemset/problem/2064/A",
       "topic_mappings": []
     },
@@ -26353,7 +26353,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 24420,
+      "solved_count": 24421,
       "link": "https://codeforces.com/problemset/problem/2062/B",
       "topic_mappings": []
     },
@@ -26551,7 +26551,7 @@
         "binary search",
         "geometry"
       ],
-      "solved_count": 15124,
+      "solved_count": 15125,
       "link": "https://codeforces.com/problemset/problem/2061/B",
       "topic_mappings": [
         {
@@ -26674,7 +26674,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 33467,
+      "solved_count": 33468,
       "link": "https://codeforces.com/problemset/problem/2060/C",
       "topic_mappings": [
         {
@@ -26709,7 +26709,7 @@
       "tags": [
         "brute force"
       ],
-      "solved_count": 42175,
+      "solved_count": 42176,
       "link": "https://codeforces.com/problemset/problem/2060/A",
       "topic_mappings": []
     },
@@ -27211,7 +27211,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 27091,
+      "solved_count": 27092,
       "link": "https://codeforces.com/problemset/problem/2056/A",
       "topic_mappings": []
     },
@@ -27303,7 +27303,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 28001,
+      "solved_count": 28002,
       "link": "https://codeforces.com/problemset/problem/2055/B",
       "topic_mappings": []
     },
@@ -27320,7 +27320,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 34265,
+      "solved_count": 34266,
       "link": "https://codeforces.com/problemset/problem/2055/A",
       "topic_mappings": []
     },
@@ -27928,7 +27928,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 35899,
+      "solved_count": 35900,
       "link": "https://codeforces.com/problemset/problem/2051/A",
       "topic_mappings": []
     },
@@ -28396,7 +28396,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 19960,
+      "solved_count": 19961,
       "link": "https://codeforces.com/problemset/problem/2047/B",
       "topic_mappings": []
     },
@@ -28944,7 +28944,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 54376,
+      "solved_count": 54377,
       "link": "https://codeforces.com/problemset/problem/2044/B",
       "topic_mappings": []
     },
@@ -29182,7 +29182,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 5673,
+      "solved_count": 5674,
       "link": "https://codeforces.com/problemset/problem/2042/D",
       "topic_mappings": [
         {
@@ -30265,7 +30265,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 26391,
+      "solved_count": 26392,
       "link": "https://codeforces.com/problemset/problem/2037/C",
       "topic_mappings": []
     },
@@ -30777,7 +30777,7 @@
         "graphs",
         "implementation"
       ],
-      "solved_count": 9509,
+      "solved_count": 9510,
       "link": "https://codeforces.com/problemset/problem/2034/C",
       "topic_mappings": [
         {
@@ -32084,7 +32084,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 20760,
+      "solved_count": 20761,
       "link": "https://codeforces.com/problemset/problem/2026/A",
       "topic_mappings": []
     },
@@ -32202,7 +32202,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 19781,
+      "solved_count": 19782,
       "link": "https://codeforces.com/problemset/problem/2025/C",
       "topic_mappings": [
         {
@@ -32252,7 +32252,7 @@
         "strings",
         "two pointers"
       ],
-      "solved_count": 29680,
+      "solved_count": 29681,
       "link": "https://codeforces.com/problemset/problem/2025/A",
       "topic_mappings": [
         {
@@ -33720,7 +33720,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 21848,
+      "solved_count": 21849,
       "link": "https://codeforces.com/problemset/problem/2010/A",
       "topic_mappings": []
     },
@@ -33895,7 +33895,7 @@
         "brute force",
         "math"
       ],
-      "solved_count": 77383,
+      "solved_count": 77386,
       "link": "https://codeforces.com/problemset/problem/2009/A",
       "topic_mappings": []
     },
@@ -33958,7 +33958,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 16254,
+      "solved_count": 16255,
       "link": "https://codeforces.com/problemset/problem/2008/F",
       "topic_mappings": []
     },
@@ -34382,7 +34382,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 25423,
+      "solved_count": 25424,
       "link": "https://codeforces.com/problemset/problem/2005/B1",
       "topic_mappings": []
     },
@@ -34817,7 +34817,7 @@
         "data structures",
         "dp"
       ],
-      "solved_count": 3068,
+      "solved_count": 3069,
       "link": "https://codeforces.com/problemset/problem/2002/E",
       "topic_mappings": [
         {
@@ -35220,7 +35220,7 @@
         "math",
         "strings"
       ],
-      "solved_count": 45389,
+      "solved_count": 45390,
       "link": "https://codeforces.com/problemset/problem/2000/A",
       "topic_mappings": []
     },
@@ -35381,7 +35381,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 957,
+      "solved_count": 958,
       "link": "https://codeforces.com/problemset/problem/1998/E2",
       "topic_mappings": [
         {
@@ -35405,7 +35405,7 @@
         "divide and conquer",
         "greedy"
       ],
-      "solved_count": 2376,
+      "solved_count": 2377,
       "link": "https://codeforces.com/problemset/problem/1998/E1",
       "topic_mappings": [
         {
@@ -35688,7 +35688,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 13073,
+      "solved_count": 13075,
       "link": "https://codeforces.com/problemset/problem/1996/E",
       "topic_mappings": []
     },
@@ -35729,7 +35729,7 @@
         "sortings",
         "strings"
       ],
-      "solved_count": 28875,
+      "solved_count": 28876,
       "link": "https://codeforces.com/problemset/problem/1996/C",
       "topic_mappings": [
         {
@@ -35766,7 +35766,7 @@
         "math",
         "ternary search"
       ],
-      "solved_count": 60308,
+      "solved_count": 60310,
       "link": "https://codeforces.com/problemset/problem/1996/A",
       "topic_mappings": [
         {
@@ -36842,7 +36842,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 29883,
+      "solved_count": 29884,
       "link": "https://codeforces.com/problemset/problem/1989/A",
       "topic_mappings": []
     },
@@ -37326,7 +37326,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 49151,
+      "solved_count": 49152,
       "link": "https://codeforces.com/problemset/problem/1986/A",
       "topic_mappings": []
     },
@@ -37488,7 +37488,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 58701,
+      "solved_count": 58702,
       "link": "https://codeforces.com/problemset/problem/1985/B",
       "topic_mappings": []
     },
@@ -37664,7 +37664,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 21388,
+      "solved_count": 21389,
       "link": "https://codeforces.com/problemset/problem/1984/B",
       "topic_mappings": []
     },
@@ -38210,7 +38210,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 48604,
+      "solved_count": 48605,
       "link": "https://codeforces.com/problemset/problem/1980/A",
       "topic_mappings": []
     },
@@ -38973,7 +38973,7 @@
       "tags": [
         "dp"
       ],
-      "solved_count": 12298,
+      "solved_count": 12299,
       "link": "https://codeforces.com/problemset/problem/1974/E",
       "topic_mappings": [
         {
@@ -39338,7 +39338,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 43203,
+      "solved_count": 43205,
       "link": "https://codeforces.com/problemset/problem/1971/C",
       "topic_mappings": []
     },
@@ -39841,7 +39841,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 12191,
+      "solved_count": 12192,
       "link": "https://codeforces.com/problemset/problem/1969/C",
       "topic_mappings": [
         {
@@ -40015,7 +40015,7 @@
         "constructive algorithms",
         "number theory"
       ],
-      "solved_count": 30046,
+      "solved_count": 30047,
       "link": "https://codeforces.com/problemset/problem/1968/C",
       "topic_mappings": []
     },
@@ -40916,7 +40916,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 10957,
+      "solved_count": 10958,
       "link": "https://codeforces.com/problemset/problem/1955/E",
       "topic_mappings": []
     },
@@ -40970,7 +40970,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 33075,
+      "solved_count": 33076,
       "link": "https://codeforces.com/problemset/problem/1955/B",
       "topic_mappings": []
     },
@@ -40984,7 +40984,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 54442,
+      "solved_count": 54443,
       "link": "https://codeforces.com/problemset/problem/1955/A",
       "topic_mappings": []
     },
@@ -41091,7 +41091,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 22181,
+      "solved_count": 22182,
       "link": "https://codeforces.com/problemset/problem/1954/B",
       "topic_mappings": []
     },
@@ -41573,7 +41573,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 48063,
+      "solved_count": 48064,
       "link": "https://codeforces.com/problemset/problem/1950/C",
       "topic_mappings": []
     },
@@ -41587,7 +41587,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 45396,
+      "solved_count": 45398,
       "link": "https://codeforces.com/problemset/problem/1950/B",
       "topic_mappings": []
     },
@@ -41601,7 +41601,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 73027,
+      "solved_count": 73030,
       "link": "https://codeforces.com/problemset/problem/1950/A",
       "topic_mappings": []
     },
@@ -41970,7 +41970,7 @@
         "brute force",
         "constructive algorithms"
       ],
-      "solved_count": 31534,
+      "solved_count": 31535,
       "link": "https://codeforces.com/problemset/problem/1948/A",
       "topic_mappings": []
     },
@@ -42248,7 +42248,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 30889,
+      "solved_count": 30890,
       "link": "https://codeforces.com/problemset/problem/1945/A",
       "topic_mappings": []
     },
@@ -42263,7 +42263,7 @@
         "bitmasks",
         "constructive algorithms"
       ],
-      "solved_count": 18512,
+      "solved_count": 18513,
       "link": "https://codeforces.com/problemset/problem/1944/B",
       "topic_mappings": []
     },
@@ -42607,7 +42607,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 15794,
+      "solved_count": 15795,
       "link": "https://codeforces.com/problemset/problem/1942/B",
       "topic_mappings": []
     },
@@ -43926,7 +43926,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 34404,
+      "solved_count": 34405,
       "link": "https://codeforces.com/problemset/problem/1931/D",
       "topic_mappings": []
     },
@@ -44183,7 +44183,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 20581,
+      "solved_count": 20582,
       "link": "https://codeforces.com/problemset/problem/1930/A",
       "topic_mappings": []
     },
@@ -44282,7 +44282,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 17764,
+      "solved_count": 17766,
       "link": "https://codeforces.com/problemset/problem/1929/C",
       "topic_mappings": [
         {
@@ -44304,7 +44304,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 26975,
+      "solved_count": 26976,
       "link": "https://codeforces.com/problemset/problem/1929/B",
       "topic_mappings": []
     },
@@ -44538,7 +44538,7 @@
         "greedy",
         "two pointers"
       ],
-      "solved_count": 36900,
+      "solved_count": 36901,
       "link": "https://codeforces.com/problemset/problem/1927/D",
       "topic_mappings": [
         {
@@ -44591,7 +44591,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 38971,
+      "solved_count": 38972,
       "link": "https://codeforces.com/problemset/problem/1927/B",
       "topic_mappings": []
     },
@@ -44762,7 +44762,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 64946,
+      "solved_count": 64947,
       "link": "https://codeforces.com/problemset/problem/1926/A",
       "topic_mappings": []
     },
@@ -44802,7 +44802,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 23957,
+      "solved_count": 23958,
       "link": "https://codeforces.com/problemset/problem/1925/B",
       "topic_mappings": []
     },
@@ -45139,7 +45139,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 7106,
+      "solved_count": 7107,
       "link": "https://codeforces.com/problemset/problem/1922/D",
       "topic_mappings": [
         {
@@ -45161,7 +45161,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 22751,
+      "solved_count": 22752,
       "link": "https://codeforces.com/problemset/problem/1922/C",
       "topic_mappings": []
     },
@@ -45276,7 +45276,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 24950,
+      "solved_count": 24951,
       "link": "https://codeforces.com/problemset/problem/1921/D",
       "topic_mappings": [
         {
@@ -45831,7 +45831,7 @@
         "dp",
         "trees"
       ],
-      "solved_count": 1288,
+      "solved_count": 1289,
       "link": "https://codeforces.com/problemset/problem/1917/F",
       "topic_mappings": [
         {
@@ -45912,7 +45912,7 @@
         "dp",
         "strings"
       ],
-      "solved_count": 41109,
+      "solved_count": 41110,
       "link": "https://codeforces.com/problemset/problem/1917/B",
       "topic_mappings": [
         {
@@ -46174,7 +46174,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 38603,
+      "solved_count": 38605,
       "link": "https://codeforces.com/problemset/problem/1915/E",
       "topic_mappings": []
     },
@@ -46205,7 +46205,7 @@
         "binary search",
         "implementation"
       ],
-      "solved_count": 57007,
+      "solved_count": 57008,
       "link": "https://codeforces.com/problemset/problem/1915/C",
       "topic_mappings": [
         {
@@ -46242,7 +46242,7 @@
         "bitmasks",
         "implementation"
       ],
-      "solved_count": 84821,
+      "solved_count": 84822,
       "link": "https://codeforces.com/problemset/problem/1915/A",
       "topic_mappings": []
     },
@@ -46410,7 +46410,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 44599,
+      "solved_count": 44601,
       "link": "https://codeforces.com/problemset/problem/1914/C",
       "topic_mappings": []
     },
@@ -46425,7 +46425,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 33714,
+      "solved_count": 33715,
       "link": "https://codeforces.com/problemset/problem/1914/B",
       "topic_mappings": []
     },
@@ -47063,7 +47063,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 13608,
+      "solved_count": 13609,
       "link": "https://codeforces.com/problemset/problem/1909/C",
       "topic_mappings": [
         {
@@ -47086,7 +47086,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 35378,
+      "solved_count": 35379,
       "link": "https://codeforces.com/problemset/problem/1909/B",
       "topic_mappings": []
     },
@@ -47157,7 +47157,7 @@
         "combinatorics",
         "number theory"
       ],
-      "solved_count": 17403,
+      "solved_count": 17404,
       "link": "https://codeforces.com/problemset/problem/1907/E",
       "topic_mappings": []
     },
@@ -47441,7 +47441,7 @@
       "tags": [
         "brute force"
       ],
-      "solved_count": 6365,
+      "solved_count": 6366,
       "link": "https://codeforces.com/problemset/problem/1906/A",
       "topic_mappings": []
     },
@@ -47655,7 +47655,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 26607,
+      "solved_count": 26608,
       "link": "https://codeforces.com/problemset/problem/1904/C",
       "topic_mappings": [
         {
@@ -47684,7 +47684,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 31878,
+      "solved_count": 31880,
       "link": "https://codeforces.com/problemset/problem/1904/B",
       "topic_mappings": [
         {
@@ -47715,7 +47715,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 47052,
+      "solved_count": 47053,
       "link": "https://codeforces.com/problemset/problem/1904/A",
       "topic_mappings": []
     },
@@ -47849,7 +47849,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 94695,
+      "solved_count": 94699,
       "link": "https://codeforces.com/problemset/problem/1903/A",
       "topic_mappings": []
     },
@@ -48105,7 +48105,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 89086,
+      "solved_count": 89091,
       "link": "https://codeforces.com/problemset/problem/1901/A",
       "topic_mappings": []
     },
@@ -48250,7 +48250,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 76237,
+      "solved_count": 76240,
       "link": "https://codeforces.com/problemset/problem/1900/A",
       "topic_mappings": []
     },
@@ -48406,7 +48406,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 107947,
+      "solved_count": 107950,
       "link": "https://codeforces.com/problemset/problem/1899/A",
       "topic_mappings": []
     },
@@ -48662,7 +48662,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 12086,
+      "solved_count": 12087,
       "link": "https://codeforces.com/problemset/problem/1896/C",
       "topic_mappings": [
         {
@@ -48684,7 +48684,7 @@
         "strings",
         "two pointers"
       ],
-      "solved_count": 19129,
+      "solved_count": 19130,
       "link": "https://codeforces.com/problemset/problem/1896/B",
       "topic_mappings": [
         {
@@ -49094,7 +49094,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 22595,
+      "solved_count": 22596,
       "link": "https://codeforces.com/problemset/problem/1891/C",
       "topic_mappings": [
         {
@@ -49165,7 +49165,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 66904,
+      "solved_count": 66906,
       "link": "https://codeforces.com/problemset/problem/1890/A",
       "topic_mappings": []
     },
@@ -49520,7 +49520,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 18056,
+      "solved_count": 18057,
       "link": "https://codeforces.com/problemset/problem/1886/C",
       "topic_mappings": []
     },
@@ -49536,7 +49536,7 @@
         "geometry",
         "math"
       ],
-      "solved_count": 18438,
+      "solved_count": 18439,
       "link": "https://codeforces.com/problemset/problem/1886/B",
       "topic_mappings": [
         {
@@ -49558,7 +49558,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 28001,
+      "solved_count": 28002,
       "link": "https://codeforces.com/problemset/problem/1886/A",
       "topic_mappings": []
     },
@@ -49812,7 +49812,7 @@
       "tags": [
         "strings"
       ],
-      "solved_count": 68112,
+      "solved_count": 68117,
       "link": "https://codeforces.com/problemset/problem/1883/B",
       "topic_mappings": []
     },
@@ -50037,7 +50037,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 19948,
+      "solved_count": 19949,
       "link": "https://codeforces.com/problemset/problem/1881/C",
       "topic_mappings": []
     },
@@ -50066,7 +50066,7 @@
         "brute force",
         "strings"
       ],
-      "solved_count": 68960,
+      "solved_count": 68961,
       "link": "https://codeforces.com/problemset/problem/1881/A",
       "topic_mappings": []
     },
@@ -50126,7 +50126,7 @@
         "dp",
         "math"
       ],
-      "solved_count": 11492,
+      "solved_count": 11494,
       "link": "https://codeforces.com/problemset/problem/1879/D",
       "topic_mappings": [
         {
@@ -50247,7 +50247,7 @@
         "data structures",
         "greedy"
       ],
-      "solved_count": 23472,
+      "solved_count": 23473,
       "link": "https://codeforces.com/problemset/problem/1878/E",
       "topic_mappings": [
         {
@@ -50282,7 +50282,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 65538,
+      "solved_count": 65539,
       "link": "https://codeforces.com/problemset/problem/1878/C",
       "topic_mappings": []
     },
@@ -50311,7 +50311,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 89843,
+      "solved_count": 89844,
       "link": "https://codeforces.com/problemset/problem/1878/A",
       "topic_mappings": []
     },
@@ -50497,7 +50497,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 40684,
+      "solved_count": 40685,
       "link": "https://codeforces.com/problemset/problem/1876/A",
       "topic_mappings": []
     },
@@ -50728,7 +50728,7 @@
         "shortest paths",
         "trees"
       ],
-      "solved_count": 9933,
+      "solved_count": 9935,
       "link": "https://codeforces.com/problemset/problem/1873/H",
       "topic_mappings": [
         {
@@ -50759,7 +50759,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 17596,
+      "solved_count": 17597,
       "link": "https://codeforces.com/problemset/problem/1873/G",
       "topic_mappings": []
     },
@@ -50802,7 +50802,7 @@
         "binary search",
         "sortings"
       ],
-      "solved_count": 49138,
+      "solved_count": 49139,
       "link": "https://codeforces.com/problemset/problem/1873/E",
       "topic_mappings": [
         {
@@ -50845,7 +50845,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 79564,
+      "solved_count": 79566,
       "link": "https://codeforces.com/problemset/problem/1873/C",
       "topic_mappings": []
     },
@@ -50963,7 +50963,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 43427,
+      "solved_count": 43428,
       "link": "https://codeforces.com/problemset/problem/1872/D",
       "topic_mappings": []
     },
@@ -51209,7 +51209,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 45711,
+      "solved_count": 45713,
       "link": "https://codeforces.com/problemset/problem/1869/A",
       "topic_mappings": []
     },
@@ -51764,7 +51764,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 60674,
+      "solved_count": 60677,
       "link": "https://codeforces.com/problemset/problem/1866/A",
       "topic_mappings": []
     },
@@ -52243,7 +52243,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 62793,
+      "solved_count": 62795,
       "link": "https://codeforces.com/problemset/problem/1862/B",
       "topic_mappings": []
     },
@@ -52648,7 +52648,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 49386,
+      "solved_count": 49387,
       "link": "https://codeforces.com/problemset/problem/1859/B",
       "topic_mappings": []
     },
@@ -52809,7 +52809,7 @@
         "sortings",
         "trees"
       ],
-      "solved_count": 5796,
+      "solved_count": 5797,
       "link": "https://codeforces.com/problemset/problem/1857/G",
       "topic_mappings": [
         {
@@ -52868,7 +52868,7 @@
         "sortings",
         "trees"
       ],
-      "solved_count": 32251,
+      "solved_count": 32252,
       "link": "https://codeforces.com/problemset/problem/1857/D",
       "topic_mappings": []
     },
@@ -52914,7 +52914,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 88796,
+      "solved_count": 88799,
       "link": "https://codeforces.com/problemset/problem/1857/A",
       "topic_mappings": []
     },
@@ -53643,7 +53643,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 68465,
+      "solved_count": 68466,
       "link": "https://codeforces.com/problemset/problem/1850/D",
       "topic_mappings": []
     },
@@ -53658,7 +53658,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 55634,
+      "solved_count": 55635,
       "link": "https://codeforces.com/problemset/problem/1850/C",
       "topic_mappings": []
     },
@@ -53830,7 +53830,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 32591,
+      "solved_count": 32592,
       "link": "https://codeforces.com/problemset/problem/1849/A",
       "topic_mappings": []
     },
@@ -54392,7 +54392,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 54299,
+      "solved_count": 54302,
       "link": "https://codeforces.com/problemset/problem/1845/A",
       "topic_mappings": []
     },
@@ -54669,7 +54669,7 @@
         "data structures",
         "two pointers"
       ],
-      "solved_count": 19554,
+      "solved_count": 19555,
       "link": "https://codeforces.com/problemset/problem/1843/E",
       "topic_mappings": [
         {
@@ -54726,7 +54726,7 @@
         "math",
         "trees"
       ],
-      "solved_count": 40943,
+      "solved_count": 40946,
       "link": "https://codeforces.com/problemset/problem/1843/C",
       "topic_mappings": []
     },
@@ -55058,7 +55058,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 24547,
+      "solved_count": 24548,
       "link": "https://codeforces.com/problemset/problem/1841/B",
       "topic_mappings": []
     },
@@ -55191,7 +55191,7 @@
         "math",
         "two pointers"
       ],
-      "solved_count": 54205,
+      "solved_count": 54206,
       "link": "https://codeforces.com/problemset/problem/1840/C",
       "topic_mappings": [
         {
@@ -55505,7 +55505,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 25097,
+      "solved_count": 25098,
       "link": "https://codeforces.com/problemset/problem/1837/C",
       "topic_mappings": []
     },
@@ -55519,7 +55519,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 56699,
+      "solved_count": 56701,
       "link": "https://codeforces.com/problemset/problem/1837/B",
       "topic_mappings": []
     },
@@ -55534,7 +55534,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 62010,
+      "solved_count": 62013,
       "link": "https://codeforces.com/problemset/problem/1837/A",
       "topic_mappings": []
     },
@@ -55800,7 +55800,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 52662,
+      "solved_count": 52663,
       "link": "https://codeforces.com/problemset/problem/1834/A",
       "topic_mappings": []
     },
@@ -56082,7 +56082,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 40123,
+      "solved_count": 40125,
       "link": "https://codeforces.com/problemset/problem/1832/B",
       "topic_mappings": [
         {
@@ -56117,7 +56117,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 39994,
+      "solved_count": 39997,
       "link": "https://codeforces.com/problemset/problem/1831/B",
       "topic_mappings": []
     },
@@ -56131,7 +56131,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 52514,
+      "solved_count": 52517,
       "link": "https://codeforces.com/problemset/problem/1831/A",
       "topic_mappings": []
     },
@@ -56223,7 +56223,7 @@
         "brute force",
         "math"
       ],
-      "solved_count": 6075,
+      "solved_count": 6076,
       "link": "https://codeforces.com/problemset/problem/1830/B",
       "topic_mappings": []
     },
@@ -56364,7 +56364,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 35989,
+      "solved_count": 35990,
       "link": "https://codeforces.com/problemset/problem/1829/D",
       "topic_mappings": [
         {
@@ -56405,7 +56405,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 88030,
+      "solved_count": 88031,
       "link": "https://codeforces.com/problemset/problem/1829/B",
       "topic_mappings": []
     },
@@ -56420,7 +56420,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 74731,
+      "solved_count": 74734,
       "link": "https://codeforces.com/problemset/problem/1829/A",
       "topic_mappings": []
     },
@@ -58720,7 +58720,7 @@
         "data structures",
         "implementation"
       ],
-      "solved_count": 64776,
+      "solved_count": 64778,
       "link": "https://codeforces.com/problemset/problem/1807/D",
       "topic_mappings": []
     },
@@ -58750,7 +58750,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 50917,
+      "solved_count": 50918,
       "link": "https://codeforces.com/problemset/problem/1807/B",
       "topic_mappings": []
     },
@@ -58764,7 +58764,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 90491,
+      "solved_count": 90492,
       "link": "https://codeforces.com/problemset/problem/1807/A",
       "topic_mappings": []
     },
@@ -58895,7 +58895,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 49738,
+      "solved_count": 49739,
       "link": "https://codeforces.com/problemset/problem/1806/A",
       "topic_mappings": []
     },
@@ -59059,7 +59059,7 @@
         "bitmasks",
         "brute force"
       ],
-      "solved_count": 48160,
+      "solved_count": 48161,
       "link": "https://codeforces.com/problemset/problem/1805/A",
       "topic_mappings": []
     },
@@ -59532,7 +59532,7 @@
         "hashing",
         "strings"
       ],
-      "solved_count": 30728,
+      "solved_count": 30729,
       "link": "https://codeforces.com/problemset/problem/1800/D",
       "topic_mappings": []
     },
@@ -60273,7 +60273,7 @@
         "data structures",
         "implementation"
       ],
-      "solved_count": 19784,
+      "solved_count": 19785,
       "link": "https://codeforces.com/problemset/problem/1795/C",
       "topic_mappings": [
         {
@@ -60354,7 +60354,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 4756,
+      "solved_count": 4757,
       "link": "https://codeforces.com/problemset/problem/1794/D",
       "topic_mappings": [
         {
@@ -60404,7 +60404,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 45617,
+      "solved_count": 45618,
       "link": "https://codeforces.com/problemset/problem/1794/B",
       "topic_mappings": []
     },
@@ -60521,7 +60521,7 @@
         "data structures",
         "two pointers"
       ],
-      "solved_count": 37169,
+      "solved_count": 37170,
       "link": "https://codeforces.com/problemset/problem/1793/C",
       "topic_mappings": [
         {
@@ -60651,7 +60651,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 8548,
+      "solved_count": 8549,
       "link": "https://codeforces.com/problemset/problem/1792/D",
       "topic_mappings": [
         {
@@ -60769,7 +60769,7 @@
         "brute force",
         "data structures"
       ],
-      "solved_count": 16241,
+      "solved_count": 16243,
       "link": "https://codeforces.com/problemset/problem/1791/F",
       "topic_mappings": [
         {
@@ -60813,7 +60813,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 55474,
+      "solved_count": 55475,
       "link": "https://codeforces.com/problemset/problem/1791/D",
       "topic_mappings": []
     },
@@ -60828,7 +60828,7 @@
         "implementation",
         "two pointers"
       ],
-      "solved_count": 83619,
+      "solved_count": 83621,
       "link": "https://codeforces.com/problemset/problem/1791/C",
       "topic_mappings": [
         {
@@ -60864,7 +60864,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 85832,
+      "solved_count": 85834,
       "link": "https://codeforces.com/problemset/problem/1791/A",
       "topic_mappings": []
     },
@@ -60955,7 +60955,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 35279,
+      "solved_count": 35280,
       "link": "https://codeforces.com/problemset/problem/1790/D",
       "topic_mappings": []
     },
@@ -61268,7 +61268,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 60584,
+      "solved_count": 60585,
       "link": "https://codeforces.com/problemset/problem/1788/A",
       "topic_mappings": []
     },
@@ -62431,7 +62431,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 50440,
+      "solved_count": 50441,
       "link": "https://codeforces.com/problemset/problem/1777/A",
       "topic_mappings": []
     },
@@ -62792,7 +62792,7 @@
         "bitmasks",
         "constructive algorithms"
       ],
-      "solved_count": 22837,
+      "solved_count": 22838,
       "link": "https://codeforces.com/problemset/problem/1775/B",
       "topic_mappings": []
     },
@@ -63907,7 +63907,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 26152,
+      "solved_count": 26153,
       "link": "https://codeforces.com/problemset/problem/1768/B",
       "topic_mappings": []
     },
@@ -64153,7 +64153,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 52997,
+      "solved_count": 52998,
       "link": "https://codeforces.com/problemset/problem/1766/A",
       "topic_mappings": []
     },
@@ -64182,7 +64182,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 37133,
+      "solved_count": 37135,
       "link": "https://codeforces.com/problemset/problem/1765/M",
       "topic_mappings": []
     },
@@ -64266,7 +64266,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 1620,
+      "solved_count": 1621,
       "link": "https://codeforces.com/problemset/problem/1765/H",
       "topic_mappings": [
         {
@@ -64723,7 +64723,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 16972,
+      "solved_count": 16973,
       "link": "https://codeforces.com/problemset/problem/1763/B",
       "topic_mappings": [
         {
@@ -65034,7 +65034,7 @@
         "brute force",
         "constructive algorithms"
       ],
-      "solved_count": 42848,
+      "solved_count": 42849,
       "link": "https://codeforces.com/problemset/problem/1761/A",
       "topic_mappings": []
     },
@@ -65050,7 +65050,7 @@
         "dfs and similar",
         "graphs"
       ],
-      "solved_count": 11209,
+      "solved_count": 11211,
       "link": "https://codeforces.com/problemset/problem/1760/G",
       "topic_mappings": [
         {
@@ -65147,7 +65147,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 55085,
+      "solved_count": 55086,
       "link": "https://codeforces.com/problemset/problem/1760/B",
       "topic_mappings": []
     },
@@ -65162,7 +65162,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 84794,
+      "solved_count": 84797,
       "link": "https://codeforces.com/problemset/problem/1760/A",
       "topic_mappings": []
     },
@@ -65247,7 +65247,7 @@
         "brute force",
         "number theory"
       ],
-      "solved_count": 22392,
+      "solved_count": 22393,
       "link": "https://codeforces.com/problemset/problem/1759/D",
       "topic_mappings": []
     },
@@ -65399,7 +65399,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 24420,
+      "solved_count": 24421,
       "link": "https://codeforces.com/problemset/problem/1758/B",
       "topic_mappings": []
     },
@@ -66316,7 +66316,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 13213,
+      "solved_count": 13214,
       "link": "https://codeforces.com/problemset/problem/1744/E1",
       "topic_mappings": []
     },
@@ -66591,7 +66591,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 43233,
+      "solved_count": 43234,
       "link": "https://codeforces.com/problemset/problem/1742/E",
       "topic_mappings": [
         {
@@ -66613,7 +66613,7 @@
         "greedy",
         "number theory"
       ],
-      "solved_count": 37499,
+      "solved_count": 37500,
       "link": "https://codeforces.com/problemset/problem/1742/D",
       "topic_mappings": []
     },
@@ -66643,7 +66643,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 64205,
+      "solved_count": 64208,
       "link": "https://codeforces.com/problemset/problem/1742/B",
       "topic_mappings": []
     },
@@ -66657,7 +66657,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 113363,
+      "solved_count": 113366,
       "link": "https://codeforces.com/problemset/problem/1742/A",
       "topic_mappings": []
     },
@@ -66730,7 +66730,7 @@
       "tags": [
         "dp"
       ],
-      "solved_count": 19360,
+      "solved_count": 19361,
       "link": "https://codeforces.com/problemset/problem/1741/E",
       "topic_mappings": [
         {
@@ -66798,7 +66798,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 27007,
+      "solved_count": 27008,
       "link": "https://codeforces.com/problemset/problem/1741/B",
       "topic_mappings": []
     },
@@ -67627,7 +67627,7 @@
         "hashing",
         "math"
       ],
-      "solved_count": 7246,
+      "solved_count": 7247,
       "link": "https://codeforces.com/problemset/problem/1735/D",
       "topic_mappings": []
     },
@@ -67888,7 +67888,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 21404,
+      "solved_count": 21405,
       "link": "https://codeforces.com/problemset/problem/1733/B",
       "topic_mappings": []
     },
@@ -68006,7 +68006,7 @@
         "greedy",
         "two pointers"
       ],
-      "solved_count": 8145,
+      "solved_count": 8146,
       "link": "https://codeforces.com/problemset/problem/1732/C1",
       "topic_mappings": [
         {
@@ -68382,7 +68382,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 33954,
+      "solved_count": 33956,
       "link": "https://codeforces.com/problemset/problem/1729/D",
       "topic_mappings": [
         {
@@ -68418,7 +68418,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 32823,
+      "solved_count": 32824,
       "link": "https://codeforces.com/problemset/problem/1729/B",
       "topic_mappings": []
     },
@@ -68432,7 +68432,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 46855,
+      "solved_count": 46856,
       "link": "https://codeforces.com/problemset/problem/1729/A",
       "topic_mappings": []
     },
@@ -68969,7 +68969,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 33043,
+      "solved_count": 33044,
       "link": "https://codeforces.com/problemset/problem/1725/B",
       "topic_mappings": [
         {
@@ -69093,7 +69093,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 59001,
+      "solved_count": 59002,
       "link": "https://codeforces.com/problemset/problem/1722/B",
       "topic_mappings": []
     },
@@ -69107,7 +69107,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 69124,
+      "solved_count": 69126,
       "link": "https://codeforces.com/problemset/problem/1722/A",
       "topic_mappings": []
     },
@@ -69348,7 +69348,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 22640,
+      "solved_count": 22641,
       "link": "https://codeforces.com/problemset/problem/1720/B",
       "topic_mappings": []
     },
@@ -69489,7 +69489,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 1931,
+      "solved_count": 1932,
       "link": "https://codeforces.com/problemset/problem/1718/C",
       "topic_mappings": []
     },
@@ -69869,7 +69869,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 37473,
+      "solved_count": 37474,
       "link": "https://codeforces.com/problemset/problem/1715/B",
       "topic_mappings": []
     },
@@ -70537,7 +70537,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 26702,
+      "solved_count": 26703,
       "link": "https://codeforces.com/problemset/problem/1709/B",
       "topic_mappings": [
         {
@@ -71147,7 +71147,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 33848,
+      "solved_count": 33850,
       "link": "https://codeforces.com/problemset/problem/1704/B",
       "topic_mappings": []
     },
@@ -71180,7 +71180,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 13217,
+      "solved_count": 13218,
       "link": "https://codeforces.com/problemset/problem/1703/G",
       "topic_mappings": [
         {
@@ -71229,7 +71229,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 30492,
+      "solved_count": 30494,
       "link": "https://codeforces.com/problemset/problem/1703/E",
       "topic_mappings": []
     },
@@ -71276,7 +71276,7 @@
         "data structures",
         "implementation"
       ],
-      "solved_count": 70525,
+      "solved_count": 70530,
       "link": "https://codeforces.com/problemset/problem/1703/B",
       "topic_mappings": []
     },
@@ -71292,7 +71292,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 103905,
+      "solved_count": 103907,
       "link": "https://codeforces.com/problemset/problem/1703/A",
       "topic_mappings": []
     },
@@ -71369,7 +71369,7 @@
         "dsu",
         "graphs"
       ],
-      "solved_count": 19473,
+      "solved_count": 19475,
       "link": "https://codeforces.com/problemset/problem/1702/E",
       "topic_mappings": [
         {
@@ -71423,7 +71423,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 29724,
+      "solved_count": 29725,
       "link": "https://codeforces.com/problemset/problem/1702/B",
       "topic_mappings": []
     },
@@ -71525,7 +71525,7 @@
         "implementation",
         "two pointers"
       ],
-      "solved_count": 26212,
+      "solved_count": 26213,
       "link": "https://codeforces.com/problemset/problem/1701/C",
       "topic_mappings": [
         {
@@ -72186,7 +72186,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 41416,
+      "solved_count": 41419,
       "link": "https://codeforces.com/problemset/problem/1696/B",
       "topic_mappings": []
     },
@@ -72583,7 +72583,7 @@
         "implementation",
         "two pointers"
       ],
-      "solved_count": 37355,
+      "solved_count": 37356,
       "link": "https://codeforces.com/problemset/problem/1692/E",
       "topic_mappings": [
         {
@@ -72838,7 +72838,7 @@
         "number theory",
         "strings"
       ],
-      "solved_count": 9393,
+      "solved_count": 9394,
       "link": "https://codeforces.com/problemset/problem/1690/F",
       "topic_mappings": []
     },
@@ -72855,7 +72855,7 @@
         "math",
         "two pointers"
       ],
-      "solved_count": 17395,
+      "solved_count": 17396,
       "link": "https://codeforces.com/problemset/problem/1690/E",
       "topic_mappings": [
         {
@@ -72881,7 +72881,7 @@
         "implementation",
         "two pointers"
       ],
-      "solved_count": 53109,
+      "solved_count": 53110,
       "link": "https://codeforces.com/problemset/problem/1690/D",
       "topic_mappings": [
         {
@@ -72933,7 +72933,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 36024,
+      "solved_count": 36025,
       "link": "https://codeforces.com/problemset/problem/1690/A",
       "topic_mappings": []
     },
@@ -73007,7 +73007,7 @@
         "dp",
         "trees"
       ],
-      "solved_count": 14313,
+      "solved_count": 14314,
       "link": "https://codeforces.com/problemset/problem/1689/C",
       "topic_mappings": [
         {
@@ -73105,7 +73105,7 @@
         "bitmasks",
         "brute force"
       ],
-      "solved_count": 24027,
+      "solved_count": 24028,
       "link": "https://codeforces.com/problemset/problem/1688/A",
       "topic_mappings": []
     },
@@ -73630,7 +73630,7 @@
         "constructive algorithms",
         "sortings"
       ],
-      "solved_count": 29072,
+      "solved_count": 29073,
       "link": "https://codeforces.com/problemset/problem/1682/B",
       "topic_mappings": []
     },
@@ -73772,7 +73772,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 21249,
+      "solved_count": 21250,
       "link": "https://codeforces.com/problemset/problem/1681/B",
       "topic_mappings": []
     },
@@ -74019,7 +74019,7 @@
         "data structures",
         "implementation"
       ],
-      "solved_count": 30274,
+      "solved_count": 30275,
       "link": "https://codeforces.com/problemset/problem/1679/B",
       "topic_mappings": []
     },
@@ -74036,7 +74036,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 45505,
+      "solved_count": 45507,
       "link": "https://codeforces.com/problemset/problem/1679/A",
       "topic_mappings": []
     },
@@ -74250,7 +74250,7 @@
         "graphs",
         "trees"
       ],
-      "solved_count": 27118,
+      "solved_count": 27119,
       "link": "https://codeforces.com/problemset/problem/1676/G",
       "topic_mappings": [
         {
@@ -74371,7 +74371,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 92875,
+      "solved_count": 92876,
       "link": "https://codeforces.com/problemset/problem/1676/A",
       "topic_mappings": []
     },
@@ -74486,7 +74486,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 48733,
+      "solved_count": 48736,
       "link": "https://codeforces.com/problemset/problem/1675/B",
       "topic_mappings": []
     },
@@ -74960,7 +74960,7 @@
         "sortings",
         "trees"
       ],
-      "solved_count": 3418,
+      "solved_count": 3419,
       "link": "https://codeforces.com/problemset/problem/1671/E",
       "topic_mappings": [
         {
@@ -74987,7 +74987,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 8636,
+      "solved_count": 8637,
       "link": "https://codeforces.com/problemset/problem/1671/D",
       "topic_mappings": []
     },
@@ -75004,7 +75004,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 28236,
+      "solved_count": 28238,
       "link": "https://codeforces.com/problemset/problem/1671/C",
       "topic_mappings": [
         {
@@ -75312,7 +75312,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 95296,
+      "solved_count": 95297,
       "link": "https://codeforces.com/problemset/problem/1669/A",
       "topic_mappings": []
     },
@@ -75732,7 +75732,7 @@
         "sortings",
         "trees"
       ],
-      "solved_count": 10136,
+      "solved_count": 10137,
       "link": "https://codeforces.com/problemset/problem/1665/C",
       "topic_mappings": [
         {
@@ -75754,7 +75754,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 37216,
+      "solved_count": 37217,
       "link": "https://codeforces.com/problemset/problem/1665/B",
       "topic_mappings": []
     },
@@ -76436,7 +76436,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 39902,
+      "solved_count": 39903,
       "link": "https://codeforces.com/problemset/problem/1660/A",
       "topic_mappings": []
     },
@@ -76561,7 +76561,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 12278,
+      "solved_count": 12279,
       "link": "https://codeforces.com/problemset/problem/1659/B",
       "topic_mappings": []
     },
@@ -76578,7 +76578,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 34993,
+      "solved_count": 34995,
       "link": "https://codeforces.com/problemset/problem/1659/A",
       "topic_mappings": []
     },
@@ -77584,7 +77584,7 @@
         "matrices",
         "sortings"
       ],
-      "solved_count": 20641,
+      "solved_count": 20642,
       "link": "https://codeforces.com/problemset/problem/1648/A",
       "topic_mappings": []
     },
@@ -77783,7 +77783,7 @@
         "dp",
         "math"
       ],
-      "solved_count": 21314,
+      "solved_count": 21316,
       "link": "https://codeforces.com/problemset/problem/1646/C",
       "topic_mappings": [
         {
@@ -78599,7 +78599,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 27668,
+      "solved_count": 27669,
       "link": "https://codeforces.com/problemset/problem/1635/C",
       "topic_mappings": []
     },
@@ -78991,7 +78991,7 @@
         "bitmasks",
         "constructive algorithms"
       ],
-      "solved_count": 34605,
+      "solved_count": 34607,
       "link": "https://codeforces.com/problemset/problem/1632/B",
       "topic_mappings": []
     },
@@ -79040,7 +79040,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 31574,
+      "solved_count": 31575,
       "link": "https://codeforces.com/problemset/problem/1631/A",
       "topic_mappings": []
     },
@@ -79780,7 +79780,7 @@
         "graphs",
         "greedy"
       ],
-      "solved_count": 8083,
+      "solved_count": 8084,
       "link": "https://codeforces.com/problemset/problem/1624/G",
       "topic_mappings": [
         {
@@ -79894,7 +79894,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 58208,
+      "solved_count": 58209,
       "link": "https://codeforces.com/problemset/problem/1624/B",
       "topic_mappings": []
     },
@@ -80608,7 +80608,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 64762,
+      "solved_count": 64763,
       "link": "https://codeforces.com/problemset/problem/1619/A",
       "topic_mappings": []
     },
@@ -80824,7 +80824,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 16209,
+      "solved_count": 16210,
       "link": "https://codeforces.com/problemset/problem/1617/C",
       "topic_mappings": [
         {
@@ -81292,7 +81292,7 @@
         "constructive algorithms",
         "sortings"
       ],
-      "solved_count": 32381,
+      "solved_count": 32382,
       "link": "https://codeforces.com/problemset/problem/1614/B",
       "topic_mappings": []
     },
@@ -81402,7 +81402,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 23640,
+      "solved_count": 23641,
       "link": "https://codeforces.com/problemset/problem/1613/B",
       "topic_mappings": []
     },
@@ -81516,7 +81516,7 @@
         "binary search",
         "math"
       ],
-      "solved_count": 28688,
+      "solved_count": 28689,
       "link": "https://codeforces.com/problemset/problem/1612/C",
       "topic_mappings": [
         {
@@ -81537,7 +81537,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 18673,
+      "solved_count": 18674,
       "link": "https://codeforces.com/problemset/problem/1612/B",
       "topic_mappings": []
     },
@@ -81888,7 +81888,7 @@
         "greedy",
         "two pointers"
       ],
-      "solved_count": 26042,
+      "solved_count": 26043,
       "link": "https://codeforces.com/problemset/problem/1610/B",
       "topic_mappings": [
         {
@@ -82470,7 +82470,7 @@
       "tags": [
         "strings"
       ],
-      "solved_count": 41808,
+      "solved_count": 41809,
       "link": "https://codeforces.com/problemset/problem/1606/A",
       "topic_mappings": []
     },
@@ -82727,7 +82727,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 15344,
+      "solved_count": 15345,
       "link": "https://codeforces.com/problemset/problem/1603/B",
       "topic_mappings": []
     },
@@ -82926,7 +82926,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 23184,
+      "solved_count": 23185,
       "link": "https://codeforces.com/problemset/problem/1601/A",
       "topic_mappings": []
     },
@@ -84350,7 +84350,7 @@
         "strings",
         "two pointers"
       ],
-      "solved_count": 26287,
+      "solved_count": 26288,
       "link": "https://codeforces.com/problemset/problem/1582/C",
       "topic_mappings": [
         {
@@ -85447,7 +85447,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 10868,
+      "solved_count": 10869,
       "link": "https://codeforces.com/problemset/problem/1572/A",
       "topic_mappings": [
         {
@@ -85859,7 +85859,7 @@
         "bitmasks",
         "greedy"
       ],
-      "solved_count": 36422,
+      "solved_count": 36424,
       "link": "https://codeforces.com/problemset/problem/1567/B",
       "topic_mappings": []
     },
@@ -86056,7 +86056,7 @@
         "dp",
         "greedy"
       ],
-      "solved_count": 21686,
+      "solved_count": 21687,
       "link": "https://codeforces.com/problemset/problem/1566/B",
       "topic_mappings": [
         {
@@ -86493,7 +86493,7 @@
         "greedy",
         "trees"
       ],
-      "solved_count": 16822,
+      "solved_count": 16823,
       "link": "https://codeforces.com/problemset/problem/1559/D1",
       "topic_mappings": [
         {
@@ -86551,7 +86551,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 50450,
+      "solved_count": 50451,
       "link": "https://codeforces.com/problemset/problem/1559/A",
       "topic_mappings": []
     },
@@ -87006,7 +87006,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 24730,
+      "solved_count": 24731,
       "link": "https://codeforces.com/problemset/problem/1555/C",
       "topic_mappings": [
         {
@@ -87689,7 +87689,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 59843,
+      "solved_count": 59844,
       "link": "https://codeforces.com/problemset/problem/1551/A",
       "topic_mappings": []
     },
@@ -88027,7 +88027,7 @@
         "graphs",
         "trees"
       ],
-      "solved_count": 3795,
+      "solved_count": 3796,
       "link": "https://codeforces.com/problemset/problem/1547/G",
       "topic_mappings": [
         {
@@ -88423,7 +88423,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 24790,
+      "solved_count": 24791,
       "link": "https://codeforces.com/problemset/problem/1543/B",
       "topic_mappings": []
     },
@@ -88439,7 +88439,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 45319,
+      "solved_count": 45320,
       "link": "https://codeforces.com/problemset/problem/1543/A",
       "topic_mappings": []
     },
@@ -88571,7 +88571,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 41645,
+      "solved_count": 41646,
       "link": "https://codeforces.com/problemset/problem/1541/B",
       "topic_mappings": []
     },
@@ -88710,7 +88710,7 @@
         "shortest paths",
         "sortings"
       ],
-      "solved_count": 15198,
+      "solved_count": 15199,
       "link": "https://codeforces.com/problemset/problem/1540/A",
       "topic_mappings": [
         {
@@ -88806,7 +88806,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 34379,
+      "solved_count": 34381,
       "link": "https://codeforces.com/problemset/problem/1539/C",
       "topic_mappings": []
     },
@@ -88822,7 +88822,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 27145,
+      "solved_count": 27146,
       "link": "https://codeforces.com/problemset/problem/1539/B",
       "topic_mappings": [
         {
@@ -88862,7 +88862,7 @@
         "math",
         "ternary search"
       ],
-      "solved_count": 5485,
+      "solved_count": 5486,
       "link": "https://codeforces.com/problemset/problem/1538/G",
       "topic_mappings": [
         {
@@ -88947,7 +88947,7 @@
         "math",
         "two pointers"
       ],
-      "solved_count": 36889,
+      "solved_count": 36891,
       "link": "https://codeforces.com/problemset/problem/1538/C",
       "topic_mappings": [
         {
@@ -90441,7 +90441,7 @@
         "constructive algorithms",
         "games"
       ],
-      "solved_count": 37239,
+      "solved_count": 37240,
       "link": "https://codeforces.com/problemset/problem/1527/B1",
       "topic_mappings": []
     },
@@ -91052,7 +91052,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 31062,
+      "solved_count": 31063,
       "link": "https://codeforces.com/problemset/problem/1520/E",
       "topic_mappings": []
     },
@@ -91068,7 +91068,7 @@
         "hashing",
         "math"
       ],
-      "solved_count": 71231,
+      "solved_count": 71232,
       "link": "https://codeforces.com/problemset/problem/1520/D",
       "topic_mappings": []
     },
@@ -91703,7 +91703,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 27437,
+      "solved_count": 27438,
       "link": "https://codeforces.com/problemset/problem/1515/B",
       "topic_mappings": []
     },
@@ -91766,7 +91766,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 5141,
+      "solved_count": 5142,
       "link": "https://codeforces.com/problemset/problem/1514/D",
       "topic_mappings": [
         {
@@ -91787,7 +91787,7 @@
         "greedy",
         "number theory"
       ],
-      "solved_count": 19325,
+      "solved_count": 19327,
       "link": "https://codeforces.com/problemset/problem/1514/C",
       "topic_mappings": []
     },
@@ -91803,7 +91803,7 @@
         "combinatorics",
         "math"
       ],
-      "solved_count": 38016,
+      "solved_count": 38017,
       "link": "https://codeforces.com/problemset/problem/1514/B",
       "topic_mappings": []
     },
@@ -91892,7 +91892,7 @@
         "dp",
         "matrices"
       ],
-      "solved_count": 17215,
+      "solved_count": 17216,
       "link": "https://codeforces.com/problemset/problem/1513/C",
       "topic_mappings": [
         {
@@ -92651,7 +92651,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 39086,
+      "solved_count": 39087,
       "link": "https://codeforces.com/problemset/problem/1506/C",
       "topic_mappings": []
     },
@@ -92840,7 +92840,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 28062,
+      "solved_count": 28063,
       "link": "https://codeforces.com/problemset/problem/1504/B",
       "topic_mappings": []
     },
@@ -93263,7 +93263,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 13626,
+      "solved_count": 13627,
       "link": "https://codeforces.com/problemset/problem/1499/C",
       "topic_mappings": []
     },
@@ -93418,7 +93418,7 @@
         "data structures",
         "greedy"
       ],
-      "solved_count": 25582,
+      "solved_count": 25583,
       "link": "https://codeforces.com/problemset/problem/1498/B",
       "topic_mappings": [
         {
@@ -93537,7 +93537,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 20003,
+      "solved_count": 20004,
       "link": "https://codeforces.com/problemset/problem/1497/C2",
       "topic_mappings": []
     },
@@ -93552,7 +93552,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 29968,
+      "solved_count": 29969,
       "link": "https://codeforces.com/problemset/problem/1497/C1",
       "topic_mappings": []
     },
@@ -93568,7 +93568,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 29939,
+      "solved_count": 29940,
       "link": "https://codeforces.com/problemset/problem/1497/B",
       "topic_mappings": []
     },
@@ -94356,7 +94356,7 @@
         "divide and conquer",
         "implementation"
       ],
-      "solved_count": 22858,
+      "solved_count": 22859,
       "link": "https://codeforces.com/problemset/problem/1490/D",
       "topic_mappings": [
         {
@@ -94905,7 +94905,7 @@
         "shortest paths",
         "sortings"
       ],
-      "solved_count": 21925,
+      "solved_count": 21926,
       "link": "https://codeforces.com/problemset/problem/1486/B",
       "topic_mappings": [
         {
@@ -95016,7 +95016,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 11359,
+      "solved_count": 11360,
       "link": "https://codeforces.com/problemset/problem/1485/C",
       "topic_mappings": [
         {
@@ -95158,7 +95158,7 @@
         "implementation",
         "shortest paths"
       ],
-      "solved_count": 4166,
+      "solved_count": 4167,
       "link": "https://codeforces.com/problemset/problem/1482/D",
       "topic_mappings": [
         {
@@ -95523,7 +95523,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 19134,
+      "solved_count": 19135,
       "link": "https://codeforces.com/problemset/problem/1478/B",
       "topic_mappings": [
         {
@@ -95879,7 +95879,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 19028,
+      "solved_count": 19029,
       "link": "https://codeforces.com/problemset/problem/1475/E",
       "topic_mappings": []
     },
@@ -95965,7 +95965,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 94994,
+      "solved_count": 94995,
       "link": "https://codeforces.com/problemset/problem/1475/A",
       "topic_mappings": []
     },
@@ -96062,7 +96062,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 44256,
+      "solved_count": 44257,
       "link": "https://codeforces.com/problemset/problem/1474/B",
       "topic_mappings": [
         {
@@ -96321,7 +96321,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 31635,
+      "solved_count": 31636,
       "link": "https://codeforces.com/problemset/problem/1472/D",
       "topic_mappings": [
         {
@@ -96385,7 +96385,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 46544,
+      "solved_count": 46545,
       "link": "https://codeforces.com/problemset/problem/1472/A",
       "topic_mappings": []
     },
@@ -96551,7 +96551,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 31772,
+      "solved_count": 31773,
       "link": "https://codeforces.com/problemset/problem/1470/A",
       "topic_mappings": [
         {
@@ -96905,7 +96905,7 @@
         "data structures",
         "implementation"
       ],
-      "solved_count": 11905,
+      "solved_count": 11906,
       "link": "https://codeforces.com/problemset/problem/1468/C",
       "topic_mappings": []
     },
@@ -97508,7 +97508,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 29622,
+      "solved_count": 29623,
       "link": "https://codeforces.com/problemset/problem/1462/B",
       "topic_mappings": [
         {
@@ -97594,7 +97594,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 10569,
+      "solved_count": 10570,
       "link": "https://codeforces.com/problemset/problem/1461/D",
       "topic_mappings": [
         {
@@ -98170,7 +98170,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 25384,
+      "solved_count": 25386,
       "link": "https://codeforces.com/problemset/problem/1453/A",
       "topic_mappings": []
     },
@@ -98899,7 +98899,7 @@
         "dsu",
         "graphs"
       ],
-      "solved_count": 2003,
+      "solved_count": 2004,
       "link": "https://codeforces.com/problemset/problem/1444/C",
       "topic_mappings": [
         {
@@ -99186,7 +99186,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 34213,
+      "solved_count": 34214,
       "link": "https://codeforces.com/problemset/problem/1440/B",
       "topic_mappings": []
     },
@@ -99409,7 +99409,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 32221,
+      "solved_count": 32224,
       "link": "https://codeforces.com/problemset/problem/1438/B",
       "topic_mappings": []
     },
@@ -99515,7 +99515,7 @@
         "shortest paths",
         "trees"
       ],
-      "solved_count": 14758,
+      "solved_count": 14759,
       "link": "https://codeforces.com/problemset/problem/1437/D",
       "topic_mappings": [
         {
@@ -99778,7 +99778,7 @@
         "combinatorics",
         "math"
       ],
-      "solved_count": 20225,
+      "solved_count": 20226,
       "link": "https://codeforces.com/problemset/problem/1433/E",
       "topic_mappings": []
     },
@@ -99844,7 +99844,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 64591,
+      "solved_count": 64592,
       "link": "https://codeforces.com/problemset/problem/1433/A",
       "topic_mappings": []
     },
@@ -100602,7 +100602,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 56626,
+      "solved_count": 56627,
       "link": "https://codeforces.com/problemset/problem/1426/A",
       "topic_mappings": []
     },
@@ -100976,7 +100976,7 @@
         "graph matchings",
         "graphs"
       ],
-      "solved_count": 2291,
+      "solved_count": 2292,
       "link": "https://codeforces.com/problemset/problem/1423/B",
       "topic_mappings": [
         {
@@ -101201,7 +101201,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 37528,
+      "solved_count": 37529,
       "link": "https://codeforces.com/problemset/problem/1421/A",
       "topic_mappings": []
     },
@@ -101299,7 +101299,7 @@
         "bitmasks",
         "math"
       ],
-      "solved_count": 39191,
+      "solved_count": 39192,
       "link": "https://codeforces.com/problemset/problem/1420/B",
       "topic_mappings": []
     },
@@ -101531,7 +101531,7 @@
         "combinatorics",
         "probabilities"
       ],
-      "solved_count": 2427,
+      "solved_count": 2428,
       "link": "https://codeforces.com/problemset/problem/1418/E",
       "topic_mappings": [
         {
@@ -101981,7 +101981,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 12125,
+      "solved_count": 12126,
       "link": "https://codeforces.com/problemset/problem/1413/B",
       "topic_mappings": []
     },
@@ -102234,7 +102234,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 84032,
+      "solved_count": 84033,
       "link": "https://codeforces.com/problemset/problem/1409/A",
       "topic_mappings": []
     },
@@ -102402,7 +102402,7 @@
         "math",
         "two pointers"
       ],
-      "solved_count": 9415,
+      "solved_count": 9416,
       "link": "https://codeforces.com/problemset/problem/1408/C",
       "topic_mappings": [
         {
@@ -102610,7 +102610,7 @@
         "graphs",
         "trees"
       ],
-      "solved_count": 12368,
+      "solved_count": 12369,
       "link": "https://codeforces.com/problemset/problem/1406/C",
       "topic_mappings": [
         {
@@ -102797,7 +102797,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 20673,
+      "solved_count": 20675,
       "link": "https://codeforces.com/problemset/problem/1404/A",
       "topic_mappings": []
     },
@@ -103492,7 +103492,7 @@
         "dp",
         "math"
       ],
-      "solved_count": 40721,
+      "solved_count": 40723,
       "link": "https://codeforces.com/problemset/problem/1398/C",
       "topic_mappings": [
         {
@@ -103926,7 +103926,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 11142,
+      "solved_count": 11144,
       "link": "https://codeforces.com/problemset/problem/1393/C",
       "topic_mappings": []
     },
@@ -104470,7 +104470,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 22932,
+      "solved_count": 22933,
       "link": "https://codeforces.com/problemset/problem/1388/B",
       "topic_mappings": []
     },
@@ -104794,7 +104794,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 44560,
+      "solved_count": 44562,
       "link": "https://codeforces.com/problemset/problem/1385/A",
       "topic_mappings": []
     },
@@ -105297,7 +105297,7 @@
         "brute force",
         "data structures"
       ],
-      "solved_count": 44761,
+      "solved_count": 44762,
       "link": "https://codeforces.com/problemset/problem/1380/A",
       "topic_mappings": []
     },
@@ -105714,7 +105714,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 69324,
+      "solved_count": 69325,
       "link": "https://codeforces.com/problemset/problem/1374/C",
       "topic_mappings": []
     },
@@ -105728,7 +105728,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 78648,
+      "solved_count": 78651,
       "link": "https://codeforces.com/problemset/problem/1374/B",
       "topic_mappings": []
     },
@@ -105742,7 +105742,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 66720,
+      "solved_count": 66721,
       "link": "https://codeforces.com/problemset/problem/1374/A",
       "topic_mappings": []
     },
@@ -105821,7 +105821,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 18289,
+      "solved_count": 18290,
       "link": "https://codeforces.com/problemset/problem/1373/D",
       "topic_mappings": [
         {
@@ -105855,7 +105855,7 @@
       "tags": [
         "games"
       ],
-      "solved_count": 58065,
+      "solved_count": 58066,
       "link": "https://codeforces.com/problemset/problem/1373/B",
       "topic_mappings": []
     },
@@ -105974,7 +105974,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 39203,
+      "solved_count": 39204,
       "link": "https://codeforces.com/problemset/problem/1372/B",
       "topic_mappings": []
     },
@@ -106120,7 +106120,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 52330,
+      "solved_count": 52331,
       "link": "https://codeforces.com/problemset/problem/1371/A",
       "topic_mappings": []
     },
@@ -106296,7 +106296,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 68704,
+      "solved_count": 68705,
       "link": "https://codeforces.com/problemset/problem/1370/A",
       "topic_mappings": []
     },
@@ -106714,7 +106714,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 66804,
+      "solved_count": 66805,
       "link": "https://codeforces.com/problemset/problem/1367/B",
       "topic_mappings": []
     },
@@ -106729,7 +106729,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 70077,
+      "solved_count": 70078,
       "link": "https://codeforces.com/problemset/problem/1367/A",
       "topic_mappings": []
     },
@@ -107273,7 +107273,7 @@
         "bitmasks",
         "brute force"
       ],
-      "solved_count": 21524,
+      "solved_count": 21525,
       "link": "https://codeforces.com/problemset/problem/1362/B",
       "topic_mappings": []
     },
@@ -107519,7 +107519,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 46389,
+      "solved_count": 46390,
       "link": "https://codeforces.com/problemset/problem/1360/D",
       "topic_mappings": []
     },
@@ -107551,7 +107551,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 55293,
+      "solved_count": 55294,
       "link": "https://codeforces.com/problemset/problem/1360/B",
       "topic_mappings": []
     },
@@ -107813,7 +107813,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 44146,
+      "solved_count": 44147,
       "link": "https://codeforces.com/problemset/problem/1358/A",
       "topic_mappings": []
     },
@@ -108239,7 +108239,7 @@
         "sortings",
         "ternary search"
       ],
-      "solved_count": 6212,
+      "solved_count": 6213,
       "link": "https://codeforces.com/problemset/problem/1355/E",
       "topic_mappings": [
         {
@@ -108326,7 +108326,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 29419,
+      "solved_count": 29420,
       "link": "https://codeforces.com/problemset/problem/1355/A",
       "topic_mappings": []
     },
@@ -108587,7 +108587,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 39512,
+      "solved_count": 39513,
       "link": "https://codeforces.com/problemset/problem/1353/C",
       "topic_mappings": []
     },
@@ -108602,7 +108602,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 60120,
+      "solved_count": 60121,
       "link": "https://codeforces.com/problemset/problem/1353/B",
       "topic_mappings": []
     },
@@ -108632,7 +108632,7 @@
       "tags": [
         "constructive algorithms"
       ],
-      "solved_count": 25786,
+      "solved_count": 25787,
       "link": "https://codeforces.com/problemset/problem/1352/G",
       "topic_mappings": []
     },
@@ -108705,7 +108705,7 @@
         "binary search",
         "math"
       ],
-      "solved_count": 75553,
+      "solved_count": 75555,
       "link": "https://codeforces.com/problemset/problem/1352/C",
       "topic_mappings": [
         {
@@ -108726,7 +108726,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 47502,
+      "solved_count": 47503,
       "link": "https://codeforces.com/problemset/problem/1352/B",
       "topic_mappings": []
     },
@@ -108741,7 +108741,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 111086,
+      "solved_count": 111087,
       "link": "https://codeforces.com/problemset/problem/1352/A",
       "topic_mappings": []
     },
@@ -108802,7 +108802,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 31739,
+      "solved_count": 31740,
       "link": "https://codeforces.com/problemset/problem/1350/B",
       "topic_mappings": [
         {
@@ -109482,7 +109482,7 @@
         "greedy",
         "two pointers"
       ],
-      "solved_count": 45898,
+      "solved_count": 45900,
       "link": "https://codeforces.com/problemset/problem/1343/C",
       "topic_mappings": [
         {
@@ -109523,7 +109523,7 @@
         "brute force",
         "math"
       ],
-      "solved_count": 54781,
+      "solved_count": 54782,
       "link": "https://codeforces.com/problemset/problem/1343/A",
       "topic_mappings": []
     },
@@ -110250,7 +110250,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 110275,
+      "solved_count": 110276,
       "link": "https://codeforces.com/problemset/problem/1335/A",
       "topic_mappings": []
     },
@@ -110992,7 +110992,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 140535,
+      "solved_count": 140537,
       "link": "https://codeforces.com/problemset/problem/1328/A",
       "topic_mappings": []
     },
@@ -111134,7 +111134,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 47685,
+      "solved_count": 47686,
       "link": "https://codeforces.com/problemset/problem/1327/A",
       "topic_mappings": []
     },
@@ -111394,7 +111394,7 @@
         "greedy",
         "trees"
       ],
-      "solved_count": 18403,
+      "solved_count": 18404,
       "link": "https://codeforces.com/problemset/problem/1325/C",
       "topic_mappings": [
         {
@@ -111497,7 +111497,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 36033,
+      "solved_count": 36034,
       "link": "https://codeforces.com/problemset/problem/1324/D",
       "topic_mappings": [
         {
@@ -111755,7 +111755,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 15106,
+      "solved_count": 15107,
       "link": "https://codeforces.com/problemset/problem/1321/A",
       "topic_mappings": []
     },
@@ -111880,7 +111880,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 23523,
+      "solved_count": 23525,
       "link": "https://codeforces.com/problemset/problem/1320/A",
       "topic_mappings": [
         {
@@ -112175,7 +112175,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 16426,
+      "solved_count": 16429,
       "link": "https://codeforces.com/problemset/problem/1313/A",
       "topic_mappings": []
     },
@@ -112293,7 +112293,7 @@
         "constructive algorithms",
         "sortings"
       ],
-      "solved_count": 42785,
+      "solved_count": 42786,
       "link": "https://codeforces.com/problemset/problem/1312/B",
       "topic_mappings": []
     },
@@ -113821,7 +113821,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 49980,
+      "solved_count": 49981,
       "link": "https://codeforces.com/problemset/problem/1296/A",
       "topic_mappings": []
     },
@@ -114001,7 +114001,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 50345,
+      "solved_count": 50348,
       "link": "https://codeforces.com/problemset/problem/1294/C",
       "topic_mappings": []
     },
@@ -114030,7 +114030,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 55252,
+      "solved_count": 55253,
       "link": "https://codeforces.com/problemset/problem/1294/A",
       "topic_mappings": []
     },
@@ -115549,7 +115549,7 @@
         "greedy",
         "number theory"
       ],
-      "solved_count": 17582,
+      "solved_count": 17583,
       "link": "https://codeforces.com/problemset/problem/1277/B",
       "topic_mappings": []
     },
@@ -116297,7 +116297,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 6632,
+      "solved_count": 6633,
       "link": "https://codeforces.com/problemset/problem/1268/B",
       "topic_mappings": [
         {
@@ -117621,7 +117621,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 19643,
+      "solved_count": 19644,
       "link": "https://codeforces.com/problemset/problem/1253/A",
       "topic_mappings": []
     },
@@ -119128,7 +119128,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 15919,
+      "solved_count": 15920,
       "link": "https://codeforces.com/problemset/problem/1238/B",
       "topic_mappings": []
     },
@@ -119300,7 +119300,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 25135,
+      "solved_count": 25136,
       "link": "https://codeforces.com/problemset/problem/1237/B",
       "topic_mappings": [
         {
@@ -120940,7 +120940,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 20192,
+      "solved_count": 20193,
       "link": "https://codeforces.com/problemset/problem/1215/B",
       "topic_mappings": [
         {
@@ -121191,7 +121191,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 12479,
+      "solved_count": 12480,
       "link": "https://codeforces.com/problemset/problem/1213/D2",
       "topic_mappings": []
     },
@@ -121206,7 +121206,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 12275,
+      "solved_count": 12276,
       "link": "https://codeforces.com/problemset/problem/1213/D1",
       "topic_mappings": []
     },
@@ -122066,7 +122066,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 26391,
+      "solved_count": 26392,
       "link": "https://codeforces.com/problemset/problem/1206/A",
       "topic_mappings": []
     },
@@ -122386,7 +122386,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 25765,
+      "solved_count": 25766,
       "link": "https://codeforces.com/problemset/problem/1203/C",
       "topic_mappings": []
     },
@@ -123170,7 +123170,7 @@
         "constructive algorithms",
         "math"
       ],
-      "solved_count": 17822,
+      "solved_count": 17823,
       "link": "https://codeforces.com/problemset/problem/1196/B",
       "topic_mappings": []
     },
@@ -123270,7 +123270,7 @@
       "tags": [
         "dp"
       ],
-      "solved_count": 38329,
+      "solved_count": 38330,
       "link": "https://codeforces.com/problemset/problem/1195/C",
       "topic_mappings": [
         {
@@ -124548,7 +124548,7 @@
         "implementation",
         "shortest paths"
       ],
-      "solved_count": 5641,
+      "solved_count": 5643,
       "link": "https://codeforces.com/problemset/problem/1183/E",
       "topic_mappings": [
         {
@@ -124574,7 +124574,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 22461,
+      "solved_count": 22462,
       "link": "https://codeforces.com/problemset/problem/1183/D",
       "topic_mappings": []
     },
@@ -125253,7 +125253,7 @@
         "shortest paths",
         "trees"
       ],
-      "solved_count": 14547,
+      "solved_count": 14548,
       "link": "https://codeforces.com/problemset/problem/1176/E",
       "topic_mappings": [
         {
@@ -125491,7 +125491,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 20361,
+      "solved_count": 20362,
       "link": "https://codeforces.com/problemset/problem/1175/A",
       "topic_mappings": []
     },
@@ -126126,7 +126126,7 @@
         "dsu",
         "graphs"
       ],
-      "solved_count": 28675,
+      "solved_count": 28676,
       "link": "https://codeforces.com/problemset/problem/1167/C",
       "topic_mappings": [
         {
@@ -127171,7 +127171,7 @@
         "sortings",
         "strings"
       ],
-      "solved_count": 29300,
+      "solved_count": 29302,
       "link": "https://codeforces.com/problemset/problem/1155/A",
       "topic_mappings": []
     },
@@ -127283,7 +127283,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 91576,
+      "solved_count": 91577,
       "link": "https://codeforces.com/problemset/problem/1154/A",
       "topic_mappings": []
     },
@@ -127346,7 +127346,7 @@
         "greedy",
         "trees"
       ],
-      "solved_count": 5840,
+      "solved_count": 5841,
       "link": "https://codeforces.com/problemset/problem/1153/D",
       "topic_mappings": [
         {
@@ -128310,7 +128310,7 @@
         "dfs and similar",
         "graphs"
       ],
-      "solved_count": 15299,
+      "solved_count": 15300,
       "link": "https://codeforces.com/problemset/problem/1144/F",
       "topic_mappings": [
         {
@@ -128669,7 +128669,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 41048,
+      "solved_count": 41049,
       "link": "https://codeforces.com/problemset/problem/1141/A",
       "topic_mappings": []
     },
@@ -129269,7 +129269,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 20168,
+      "solved_count": 20169,
       "link": "https://codeforces.com/problemset/problem/1133/A",
       "topic_mappings": []
     },
@@ -129353,7 +129353,7 @@
         "binary search",
         "greedy"
       ],
-      "solved_count": 2372,
+      "solved_count": 2373,
       "link": "https://codeforces.com/problemset/problem/1132/D",
       "topic_mappings": [
         {
@@ -129997,7 +129997,7 @@
         "binary search",
         "sortings"
       ],
-      "solved_count": 5214,
+      "solved_count": 5215,
       "link": "https://codeforces.com/problemset/problem/1119/D",
       "topic_mappings": [
         {
@@ -130037,7 +130037,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 18342,
+      "solved_count": 18343,
       "link": "https://codeforces.com/problemset/problem/1119/B",
       "topic_mappings": [
         {
@@ -132416,7 +132416,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 45111,
+      "solved_count": 45112,
       "link": "https://codeforces.com/problemset/problem/1097/A",
       "topic_mappings": []
     },
@@ -132566,7 +132566,7 @@
         "graphs",
         "greedy"
       ],
-      "solved_count": 8132,
+      "solved_count": 8133,
       "link": "https://codeforces.com/problemset/problem/1095/F",
       "topic_mappings": [
         {
@@ -132629,7 +132629,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 25092,
+      "solved_count": 25093,
       "link": "https://codeforces.com/problemset/problem/1095/B",
       "topic_mappings": []
     },
@@ -132774,7 +132774,7 @@
         "dp",
         "trees"
       ],
-      "solved_count": 12099,
+      "solved_count": 12100,
       "link": "https://codeforces.com/problemset/problem/1092/F",
       "topic_mappings": [
         {
@@ -133708,7 +133708,7 @@
         "dp",
         "geometry"
       ],
-      "solved_count": 6132,
+      "solved_count": 6134,
       "link": "https://codeforces.com/problemset/problem/1083/E",
       "topic_mappings": [
         {
@@ -134275,7 +134275,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 32825,
+      "solved_count": 32827,
       "link": "https://codeforces.com/problemset/problem/1077/A",
       "topic_mappings": []
     },
@@ -137796,7 +137796,7 @@
       "tags": [
         "number theory"
       ],
-      "solved_count": 10361,
+      "solved_count": 10362,
       "link": "https://codeforces.com/problemset/problem/1034/A",
       "topic_mappings": []
     },
@@ -138236,7 +138236,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 182835,
+      "solved_count": 182836,
       "link": "https://codeforces.com/problemset/problem/1030/A",
       "topic_mappings": []
     },
@@ -138507,7 +138507,7 @@
         "graph matchings",
         "graphs"
       ],
-      "solved_count": 2078,
+      "solved_count": 2079,
       "link": "https://codeforces.com/problemset/problem/1027/F",
       "topic_mappings": [
         {
@@ -138814,7 +138814,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 11136,
+      "solved_count": 11138,
       "link": "https://codeforces.com/problemset/problem/1023/C",
       "topic_mappings": []
     },
@@ -139514,7 +139514,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 11209,
+      "solved_count": 11211,
       "link": "https://codeforces.com/problemset/problem/1011/B",
       "topic_mappings": [
         {
@@ -142718,7 +142718,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 14865,
+      "solved_count": 14866,
       "link": "https://codeforces.com/problemset/problem/979/A",
       "topic_mappings": []
     },
@@ -142906,7 +142906,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 21130,
+      "solved_count": 21131,
       "link": "https://codeforces.com/problemset/problem/977/D",
       "topic_mappings": [
         {
@@ -142941,7 +142941,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 52489,
+      "solved_count": 52492,
       "link": "https://codeforces.com/problemset/problem/977/B",
       "topic_mappings": []
     },
@@ -142955,7 +142955,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 232634,
+      "solved_count": 232637,
       "link": "https://codeforces.com/problemset/problem/977/A",
       "topic_mappings": []
     },
@@ -144548,7 +144548,7 @@
         "*special",
         "math"
       ],
-      "solved_count": 12127,
+      "solved_count": 12128,
       "link": "https://codeforces.com/problemset/problem/952/A",
       "topic_mappings": []
     },
@@ -148397,7 +148397,7 @@
         "data structures",
         "math"
       ],
-      "solved_count": 5288,
+      "solved_count": 5289,
       "link": "https://codeforces.com/problemset/problem/903/D",
       "topic_mappings": []
     },
@@ -148863,7 +148863,7 @@
         "implementation",
         "number theory"
       ],
-      "solved_count": 10895,
+      "solved_count": 10896,
       "link": "https://codeforces.com/problemset/problem/898/B",
       "topic_mappings": []
     },
@@ -149190,7 +149190,7 @@
         "brute force",
         "dp"
       ],
-      "solved_count": 40404,
+      "solved_count": 40405,
       "link": "https://codeforces.com/problemset/problem/894/A",
       "topic_mappings": [
         {
@@ -149228,7 +149228,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 4394,
+      "solved_count": 4395,
       "link": "https://codeforces.com/problemset/problem/893/E",
       "topic_mappings": [
         {
@@ -149324,7 +149324,7 @@
         "implementation",
         "two pointers"
       ],
-      "solved_count": 10346,
+      "solved_count": 10347,
       "link": "https://codeforces.com/problemset/problem/892/B",
       "topic_mappings": [
         {
@@ -150505,7 +150505,7 @@
         "sortings",
         "two pointers"
       ],
-      "solved_count": 5415,
+      "solved_count": 5417,
       "link": "https://codeforces.com/problemset/problem/875/B",
       "topic_mappings": [
         {
@@ -151441,7 +151441,7 @@
         "graphs",
         "trees"
       ],
-      "solved_count": 28526,
+      "solved_count": 28527,
       "link": "https://codeforces.com/problemset/problem/862/B",
       "topic_mappings": [
         {
@@ -154109,7 +154109,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 11268,
+      "solved_count": 11269,
       "link": "https://codeforces.com/problemset/problem/831/A",
       "topic_mappings": []
     },
@@ -155011,7 +155011,7 @@
         "dsu",
         "sortings"
       ],
-      "solved_count": 7042,
+      "solved_count": 7043,
       "link": "https://codeforces.com/problemset/problem/817/D",
       "topic_mappings": [
         {
@@ -155800,7 +155800,7 @@
         "flows",
         "graphs"
       ],
-      "solved_count": 1714,
+      "solved_count": 1715,
       "link": "https://codeforces.com/problemset/problem/808/F",
       "topic_mappings": [
         {
@@ -155902,7 +155902,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 11384,
+      "solved_count": 11385,
       "link": "https://codeforces.com/problemset/problem/808/A",
       "topic_mappings": []
     },
@@ -155932,7 +155932,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 23910,
+      "solved_count": 23911,
       "link": "https://codeforces.com/problemset/problem/807/A",
       "topic_mappings": []
     },
@@ -157221,7 +157221,7 @@
         "implementation",
         "shortest paths"
       ],
-      "solved_count": 4965,
+      "solved_count": 4966,
       "link": "https://codeforces.com/problemset/problem/793/B",
       "topic_mappings": [
         {
@@ -157359,7 +157359,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 275684,
+      "solved_count": 275688,
       "link": "https://codeforces.com/problemset/problem/791/A",
       "topic_mappings": []
     },
@@ -158409,7 +158409,7 @@
         "constructive algorithms",
         "number theory"
       ],
-      "solved_count": 27387,
+      "solved_count": 27388,
       "link": "https://codeforces.com/problemset/problem/776/B",
       "topic_mappings": []
     },
@@ -160225,7 +160225,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 78354,
+      "solved_count": 78356,
       "link": "https://codeforces.com/problemset/problem/758/A",
       "topic_mappings": []
     },
@@ -160560,7 +160560,7 @@
       "tags": [
         "data structures"
       ],
-      "solved_count": 2728,
+      "solved_count": 2729,
       "link": "https://codeforces.com/problemset/problem/755/D",
       "topic_mappings": []
     },
@@ -160955,7 +160955,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 97432,
+      "solved_count": 97433,
       "link": "https://codeforces.com/problemset/problem/750/A",
       "topic_mappings": [
         {
@@ -161659,7 +161659,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 54671,
+      "solved_count": 54673,
       "link": "https://codeforces.com/problemset/problem/742/A",
       "topic_mappings": []
     },
@@ -161734,7 +161734,7 @@
         "dp",
         "dsu"
       ],
-      "solved_count": 6070,
+      "solved_count": 6071,
       "link": "https://codeforces.com/problemset/problem/741/B",
       "topic_mappings": [
         {
@@ -162169,7 +162169,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 208149,
+      "solved_count": 208152,
       "link": "https://codeforces.com/problemset/problem/734/A",
       "topic_mappings": []
     },
@@ -163298,7 +163298,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 106448,
+      "solved_count": 106450,
       "link": "https://codeforces.com/problemset/problem/723/A",
       "topic_mappings": []
     },
@@ -164498,7 +164498,7 @@
         "greedy",
         "trees"
       ],
-      "solved_count": 4728,
+      "solved_count": 4729,
       "link": "https://codeforces.com/problemset/problem/708/C",
       "topic_mappings": [
         {
@@ -164623,7 +164623,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 57245,
+      "solved_count": 57246,
       "link": "https://codeforces.com/problemset/problem/707/A",
       "topic_mappings": []
     },
@@ -164698,7 +164698,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 92788,
+      "solved_count": 92791,
       "link": "https://codeforces.com/problemset/problem/706/B",
       "topic_mappings": [
         {
@@ -164754,7 +164754,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 139258,
+      "solved_count": 139261,
       "link": "https://codeforces.com/problemset/problem/705/A",
       "topic_mappings": []
     },
@@ -165328,7 +165328,7 @@
       "tags": [
         "dp"
       ],
-      "solved_count": 41168,
+      "solved_count": 41170,
       "link": "https://codeforces.com/problemset/problem/698/A",
       "topic_mappings": [
         {
@@ -165502,7 +165502,7 @@
         "implementation",
         "trees"
       ],
-      "solved_count": 6556,
+      "solved_count": 6557,
       "link": "https://codeforces.com/problemset/problem/696/A",
       "topic_mappings": []
     },
@@ -165554,7 +165554,7 @@
         "dsu",
         "math"
       ],
-      "solved_count": 6871,
+      "solved_count": 6872,
       "link": "https://codeforces.com/problemset/problem/691/D",
       "topic_mappings": [
         {
@@ -166118,7 +166118,7 @@
         "constructive algorithms",
         "implementation"
       ],
-      "solved_count": 44898,
+      "solved_count": 44899,
       "link": "https://codeforces.com/problemset/problem/686/A",
       "topic_mappings": []
     },
@@ -166888,7 +166888,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 191648,
+      "solved_count": 191650,
       "link": "https://codeforces.com/problemset/problem/677/A",
       "topic_mappings": []
     },
@@ -167564,7 +167564,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 19504,
+      "solved_count": 19505,
       "link": "https://codeforces.com/problemset/problem/665/C",
       "topic_mappings": [
         {
@@ -167613,7 +167613,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 22759,
+      "solved_count": 22760,
       "link": "https://codeforces.com/problemset/problem/664/A",
       "topic_mappings": []
     },
@@ -168101,7 +168101,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 17121,
+      "solved_count": 17122,
       "link": "https://codeforces.com/problemset/problem/659/A",
       "topic_mappings": []
     },
@@ -168413,7 +168413,7 @@
         "data structures",
         "sortings"
       ],
-      "solved_count": 5138,
+      "solved_count": 5139,
       "link": "https://codeforces.com/problemset/problem/652/D",
       "topic_mappings": []
     },
@@ -170051,7 +170051,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 13055,
+      "solved_count": 13056,
       "link": "https://codeforces.com/problemset/problem/630/J",
       "topic_mappings": []
     },
@@ -170182,7 +170182,7 @@
       "tags": [
         "number theory"
       ],
-      "solved_count": 100181,
+      "solved_count": 100185,
       "link": "https://codeforces.com/problemset/problem/630/A",
       "topic_mappings": []
     },
@@ -170767,7 +170767,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 11264,
+      "solved_count": 11265,
       "link": "https://codeforces.com/problemset/problem/624/A",
       "topic_mappings": []
     },
@@ -171047,7 +171047,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 23391,
+      "solved_count": 23392,
       "link": "https://codeforces.com/problemset/problem/621/A",
       "topic_mappings": []
     },
@@ -171350,7 +171350,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 269316,
+      "solved_count": 269323,
       "link": "https://codeforces.com/problemset/problem/617/A",
       "topic_mappings": []
     },
@@ -171460,7 +171460,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 11052,
+      "solved_count": 11053,
       "link": "https://codeforces.com/problemset/problem/616/A",
       "topic_mappings": []
     },
@@ -173009,7 +173009,7 @@
         "data structures",
         "dp"
       ],
-      "solved_count": 7347,
+      "solved_count": 7348,
       "link": "https://codeforces.com/problemset/problem/597/C",
       "topic_mappings": [
         {
@@ -173489,7 +173489,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 17740,
+      "solved_count": 17741,
       "link": "https://codeforces.com/problemset/problem/591/A",
       "topic_mappings": []
     },
@@ -174195,7 +174195,7 @@
         "bitmasks",
         "dp"
       ],
-      "solved_count": 13007,
+      "solved_count": 13008,
       "link": "https://codeforces.com/problemset/problem/580/D",
       "topic_mappings": [
         {
@@ -174302,7 +174302,7 @@
       "tags": [
         "bitmasks"
       ],
-      "solved_count": 84267,
+      "solved_count": 84268,
       "link": "https://codeforces.com/problemset/problem/579/A",
       "topic_mappings": []
     },
@@ -174414,7 +174414,7 @@
         "dp",
         "two pointers"
       ],
-      "solved_count": 16126,
+      "solved_count": 16127,
       "link": "https://codeforces.com/problemset/problem/577/B",
       "topic_mappings": [
         {
@@ -174440,7 +174440,7 @@
         "implementation",
         "number theory"
       ],
-      "solved_count": 46687,
+      "solved_count": 46688,
       "link": "https://codeforces.com/problemset/problem/577/A",
       "topic_mappings": []
     },
@@ -174863,7 +174863,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 9230,
+      "solved_count": 9231,
       "link": "https://codeforces.com/problemset/problem/572/B",
       "topic_mappings": []
     },
@@ -175819,7 +175819,7 @@
         "graphs",
         "trees"
       ],
-      "solved_count": 3277,
+      "solved_count": 3278,
       "link": "https://codeforces.com/problemset/problem/555/E",
       "topic_mappings": [
         {
@@ -175907,7 +175907,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 11218,
+      "solved_count": 11220,
       "link": "https://codeforces.com/problemset/problem/554/B",
       "topic_mappings": []
     },
@@ -176106,7 +176106,7 @@
         "meet-in-the-middle",
         "number theory"
       ],
-      "solved_count": 5934,
+      "solved_count": 5935,
       "link": "https://codeforces.com/problemset/problem/552/C",
       "topic_mappings": [
         {
@@ -176306,7 +176306,7 @@
         "bitmasks",
         "brute force"
       ],
-      "solved_count": 29666,
+      "solved_count": 29667,
       "link": "https://codeforces.com/problemset/problem/550/B",
       "topic_mappings": []
     },
@@ -176710,7 +176710,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 252369,
+      "solved_count": 252372,
       "link": "https://codeforces.com/problemset/problem/546/A",
       "topic_mappings": []
     },
@@ -178557,7 +178557,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 135568,
+      "solved_count": 135572,
       "link": "https://codeforces.com/problemset/problem/520/A",
       "topic_mappings": []
     },
@@ -179383,7 +179383,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 111947,
+      "solved_count": 111949,
       "link": "https://codeforces.com/problemset/problem/510/A",
       "topic_mappings": []
     },
@@ -179487,7 +179487,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 45209,
+      "solved_count": 45211,
       "link": "https://codeforces.com/problemset/problem/509/A",
       "topic_mappings": []
     },
@@ -180130,7 +180130,7 @@
         "graphs",
         "implementation"
       ],
-      "solved_count": 65936,
+      "solved_count": 65937,
       "link": "https://codeforces.com/problemset/problem/500/A",
       "topic_mappings": [
         {
@@ -180671,7 +180671,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 95092,
+      "solved_count": 95093,
       "link": "https://codeforces.com/problemset/problem/492/B",
       "topic_mappings": [
         {
@@ -181245,7 +181245,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 165017,
+      "solved_count": 165023,
       "link": "https://codeforces.com/problemset/problem/486/A",
       "topic_mappings": []
     },
@@ -181690,7 +181690,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 21248,
+      "solved_count": 21249,
       "link": "https://codeforces.com/problemset/problem/478/C",
       "topic_mappings": []
     },
@@ -181826,7 +181826,7 @@
         "math",
         "probabilities"
       ],
-      "solved_count": 38886,
+      "solved_count": 38887,
       "link": "https://codeforces.com/problemset/problem/476/B",
       "topic_mappings": [
         {
@@ -182045,7 +182045,7 @@
         "binary search",
         "implementation"
       ],
-      "solved_count": 68298,
+      "solved_count": 68300,
       "link": "https://codeforces.com/problemset/problem/474/B",
       "topic_mappings": [
         {
@@ -182186,7 +182186,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 73098,
+      "solved_count": 73099,
       "link": "https://codeforces.com/problemset/problem/472/A",
       "topic_mappings": []
     },
@@ -182416,7 +182416,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 128031,
+      "solved_count": 128032,
       "link": "https://codeforces.com/problemset/problem/469/A",
       "topic_mappings": []
     },
@@ -182609,7 +182609,7 @@
         "constructive algorithms",
         "implementation"
       ],
-      "solved_count": 44327,
+      "solved_count": 44328,
       "link": "https://codeforces.com/problemset/problem/467/B",
       "topic_mappings": []
     },
@@ -182690,7 +182690,7 @@
         "dp",
         "two pointers"
       ],
-      "solved_count": 43859,
+      "solved_count": 43860,
       "link": "https://codeforces.com/problemset/problem/466/C",
       "topic_mappings": [
         {
@@ -182735,7 +182735,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 80668,
+      "solved_count": 80669,
       "link": "https://codeforces.com/problemset/problem/466/A",
       "topic_mappings": []
     },
@@ -182969,7 +182969,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 15823,
+      "solved_count": 15824,
       "link": "https://codeforces.com/problemset/problem/462/B",
       "topic_mappings": []
     },
@@ -182984,7 +182984,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 18150,
+      "solved_count": 18151,
       "link": "https://codeforces.com/problemset/problem/462/A",
       "topic_mappings": []
     },
@@ -183493,7 +183493,7 @@
       "tags": [
         "dp"
       ],
-      "solved_count": 77142,
+      "solved_count": 77144,
       "link": "https://codeforces.com/problemset/problem/455/A",
       "topic_mappings": [
         {
@@ -183827,7 +183827,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 47870,
+      "solved_count": 47871,
       "link": "https://codeforces.com/problemset/problem/450/A",
       "topic_mappings": []
     },
@@ -184314,7 +184314,7 @@
         "constructive algorithms",
         "implementation"
       ],
-      "solved_count": 118747,
+      "solved_count": 118750,
       "link": "https://codeforces.com/problemset/problem/443/A",
       "topic_mappings": []
     },
@@ -185185,7 +185185,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 71775,
+      "solved_count": 71776,
       "link": "https://codeforces.com/problemset/problem/432/A",
       "topic_mappings": []
     },
@@ -186332,7 +186332,7 @@
       "tags": [
         "dfs and similar"
       ],
-      "solved_count": 2552,
+      "solved_count": 2553,
       "link": "https://codeforces.com/problemset/problem/412/D",
       "topic_mappings": [
         {
@@ -186806,7 +186806,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 133253,
+      "solved_count": 133254,
       "link": "https://codeforces.com/problemset/problem/405/A",
       "topic_mappings": []
     },
@@ -188466,7 +188466,7 @@
         "implementation",
         "two pointers"
       ],
-      "solved_count": 97230,
+      "solved_count": 97231,
       "link": "https://codeforces.com/problemset/problem/381/A",
       "topic_mappings": [
         {
@@ -188516,7 +188516,7 @@
         "data structures",
         "schedules"
       ],
-      "solved_count": 21988,
+      "solved_count": 21989,
       "link": "https://codeforces.com/problemset/problem/380/C",
       "topic_mappings": []
     },
@@ -188670,7 +188670,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 54983,
+      "solved_count": 54985,
       "link": "https://codeforces.com/problemset/problem/379/A",
       "topic_mappings": []
     },
@@ -188931,7 +188931,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 5439,
+      "solved_count": 5440,
       "link": "https://codeforces.com/problemset/problem/375/A",
       "topic_mappings": []
     },
@@ -189082,7 +189082,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 11610,
+      "solved_count": 11611,
       "link": "https://codeforces.com/problemset/problem/373/A",
       "topic_mappings": []
     },
@@ -189263,7 +189263,7 @@
         "binary search",
         "brute force"
       ],
-      "solved_count": 37786,
+      "solved_count": 37787,
       "link": "https://codeforces.com/problemset/problem/371/C",
       "topic_mappings": [
         {
@@ -189512,7 +189512,7 @@
         "data structures",
         "dp"
       ],
-      "solved_count": 52179,
+      "solved_count": 52181,
       "link": "https://codeforces.com/problemset/problem/368/B",
       "topic_mappings": [
         {
@@ -189920,7 +189920,7 @@
         "brute force",
         "dp"
       ],
-      "solved_count": 72780,
+      "solved_count": 72781,
       "link": "https://codeforces.com/problemset/problem/363/B",
       "topic_mappings": [
         {
@@ -190758,7 +190758,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 29299,
+      "solved_count": 29300,
       "link": "https://codeforces.com/problemset/problem/352/A",
       "topic_mappings": []
     },
@@ -191084,7 +191084,7 @@
         "math",
         "sortings"
       ],
-      "solved_count": 15215,
+      "solved_count": 15216,
       "link": "https://codeforces.com/problemset/problem/348/A",
       "topic_mappings": [
         {
@@ -191354,7 +191354,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 162132,
+      "solved_count": 162133,
       "link": "https://codeforces.com/problemset/problem/344/A",
       "topic_mappings": []
     },
@@ -191446,7 +191446,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 19327,
+      "solved_count": 19328,
       "link": "https://codeforces.com/problemset/problem/343/B",
       "topic_mappings": []
     },
@@ -191702,7 +191702,7 @@
         "data structures",
         "trees"
       ],
-      "solved_count": 35128,
+      "solved_count": 35129,
       "link": "https://codeforces.com/problemset/problem/339/D",
       "topic_mappings": []
     },
@@ -191751,7 +191751,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 84904,
+      "solved_count": 84907,
       "link": "https://codeforces.com/problemset/problem/339/B",
       "topic_mappings": []
     },
@@ -191768,7 +191768,7 @@
         "sortings",
         "strings"
       ],
-      "solved_count": 294255,
+      "solved_count": 294263,
       "link": "https://codeforces.com/problemset/problem/339/A",
       "topic_mappings": []
     },
@@ -192748,7 +192748,7 @@
         "dp",
         "implementation"
       ],
-      "solved_count": 52618,
+      "solved_count": 52619,
       "link": "https://codeforces.com/problemset/problem/327/A",
       "topic_mappings": [
         {
@@ -193204,7 +193204,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 150516,
+      "solved_count": 150517,
       "link": "https://codeforces.com/problemset/problem/318/A",
       "topic_mappings": []
     },
@@ -194595,7 +194595,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 16135,
+      "solved_count": 16136,
       "link": "https://codeforces.com/problemset/problem/298/B",
       "topic_mappings": []
     },
@@ -195814,7 +195814,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 386198,
+      "solved_count": 386203,
       "link": "https://codeforces.com/problemset/problem/282/A",
       "topic_mappings": []
     },
@@ -195851,7 +195851,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 288425,
+      "solved_count": 288430,
       "link": "https://codeforces.com/problemset/problem/281/A",
       "topic_mappings": []
     },
@@ -196033,7 +196033,7 @@
         "implementation",
         "two pointers"
       ],
-      "solved_count": 81400,
+      "solved_count": 81402,
       "link": "https://codeforces.com/problemset/problem/279/B",
       "topic_mappings": [
         {
@@ -196238,7 +196238,7 @@
         "implementation",
         "sortings"
       ],
-      "solved_count": 44168,
+      "solved_count": 44169,
       "link": "https://codeforces.com/problemset/problem/276/C",
       "topic_mappings": []
     },
@@ -196580,7 +196580,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 16070,
+      "solved_count": 16071,
       "link": "https://codeforces.com/problemset/problem/271/B",
       "topic_mappings": [
         {
@@ -196600,7 +196600,7 @@
       "tags": [
         "brute force"
       ],
-      "solved_count": 189870,
+      "solved_count": 189871,
       "link": "https://codeforces.com/problemset/problem/271/A",
       "topic_mappings": []
     },
@@ -196803,7 +196803,7 @@
       "tags": [
         "brute force"
       ],
-      "solved_count": 108958,
+      "solved_count": 108962,
       "link": "https://codeforces.com/problemset/problem/268/A",
       "topic_mappings": []
     },
@@ -196924,7 +196924,7 @@
         "implementation",
         "shortest paths"
       ],
-      "solved_count": 175362,
+      "solved_count": 175364,
       "link": "https://codeforces.com/problemset/problem/266/B",
       "topic_mappings": [
         {
@@ -196944,7 +196944,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 260592,
+      "solved_count": 260598,
       "link": "https://codeforces.com/problemset/problem/266/A",
       "topic_mappings": []
     },
@@ -196973,7 +196973,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 44030,
+      "solved_count": 44031,
       "link": "https://codeforces.com/problemset/problem/265/A",
       "topic_mappings": []
     },
@@ -197055,7 +197055,7 @@
         "dp",
         "number theory"
       ],
-      "solved_count": 12564,
+      "solved_count": 12565,
       "link": "https://codeforces.com/problemset/problem/264/B",
       "topic_mappings": [
         {
@@ -197179,7 +197179,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 340083,
+      "solved_count": 340089,
       "link": "https://codeforces.com/problemset/problem/263/A",
       "topic_mappings": []
     },
@@ -197207,7 +197207,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 22764,
+      "solved_count": 22765,
       "link": "https://codeforces.com/problemset/problem/262/A",
       "topic_mappings": []
     },
@@ -198947,7 +198947,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 21034,
+      "solved_count": 21035,
       "link": "https://codeforces.com/problemset/problem/239/A",
       "topic_mappings": []
     },
@@ -199171,7 +199171,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 301285,
+      "solved_count": 301291,
       "link": "https://codeforces.com/problemset/problem/236/A",
       "topic_mappings": []
     },
@@ -199646,7 +199646,7 @@
         "brute force",
         "greedy"
       ],
-      "solved_count": 463158,
+      "solved_count": 463161,
       "link": "https://codeforces.com/problemset/problem/231/A",
       "topic_mappings": []
     },
@@ -199663,7 +199663,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 102628,
+      "solved_count": 102629,
       "link": "https://codeforces.com/problemset/problem/230/B",
       "topic_mappings": [
         {
@@ -199684,7 +199684,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 104950,
+      "solved_count": 104952,
       "link": "https://codeforces.com/problemset/problem/230/A",
       "topic_mappings": []
     },
@@ -199891,7 +199891,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 148283,
+      "solved_count": 148285,
       "link": "https://codeforces.com/problemset/problem/228/A",
       "topic_mappings": []
     },
@@ -199905,7 +199905,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 33540,
+      "solved_count": 33541,
       "link": "https://codeforces.com/problemset/problem/227/B",
       "topic_mappings": []
     },
@@ -200091,7 +200091,7 @@
         "constructive algorithms",
         "greedy"
       ],
-      "solved_count": 14622,
+      "solved_count": 14624,
       "link": "https://codeforces.com/problemset/problem/225/A",
       "topic_mappings": []
     },
@@ -200642,7 +200642,7 @@
         "dsu",
         "graphs"
       ],
-      "solved_count": 25972,
+      "solved_count": 25973,
       "link": "https://codeforces.com/problemset/problem/217/A",
       "topic_mappings": [
         {
@@ -201133,7 +201133,7 @@
         "dfs and similar",
         "trees"
       ],
-      "solved_count": 9980,
+      "solved_count": 9981,
       "link": "https://codeforces.com/problemset/problem/208/E",
       "topic_mappings": [
         {
@@ -201225,7 +201225,7 @@
       "tags": [
         "strings"
       ],
-      "solved_count": 109283,
+      "solved_count": 109285,
       "link": "https://codeforces.com/problemset/problem/208/A",
       "topic_mappings": []
     },
@@ -201564,7 +201564,7 @@
         "binary search",
         "data structures"
       ],
-      "solved_count": 6060,
+      "solved_count": 6061,
       "link": "https://codeforces.com/problemset/problem/204/B",
       "topic_mappings": [
         {
@@ -204459,7 +204459,7 @@
         "math",
         "matrices"
       ],
-      "solved_count": 27082,
+      "solved_count": 27083,
       "link": "https://codeforces.com/problemset/problem/166/E",
       "topic_mappings": [
         {
@@ -204647,7 +204647,7 @@
         "binary search",
         "implementation"
       ],
-      "solved_count": 24427,
+      "solved_count": 24428,
       "link": "https://codeforces.com/problemset/problem/165/B",
       "topic_mappings": [
         {
@@ -205203,7 +205203,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 153723,
+      "solved_count": 153724,
       "link": "https://codeforces.com/problemset/problem/160/A",
       "topic_mappings": []
     },
@@ -205369,7 +205369,7 @@
         "greedy",
         "implementation"
       ],
-      "solved_count": 109712,
+      "solved_count": 109713,
       "link": "https://codeforces.com/problemset/problem/158/B",
       "topic_mappings": []
     },
@@ -205384,7 +205384,7 @@
         "*special",
         "implementation"
       ],
-      "solved_count": 344680,
+      "solved_count": 344681,
       "link": "https://codeforces.com/problemset/problem/158/A",
       "topic_mappings": []
     },
@@ -205529,7 +205529,7 @@
       "tags": [
         "brute force"
       ],
-      "solved_count": 98226,
+      "solved_count": 98227,
       "link": "https://codeforces.com/problemset/problem/155/A",
       "topic_mappings": []
     },
@@ -206058,7 +206058,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 117597,
+      "solved_count": 117598,
       "link": "https://codeforces.com/problemset/problem/148/A",
       "topic_mappings": []
     },
@@ -206291,7 +206291,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 127957,
+      "solved_count": 127958,
       "link": "https://codeforces.com/problemset/problem/144/A",
       "topic_mappings": []
     },
@@ -206497,7 +206497,7 @@
         "sortings",
         "strings"
       ],
-      "solved_count": 106543,
+      "solved_count": 106545,
       "link": "https://codeforces.com/problemset/problem/141/A",
       "topic_mappings": []
     },
@@ -206630,7 +206630,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 38933,
+      "solved_count": 38934,
       "link": "https://codeforces.com/problemset/problem/139/A",
       "topic_mappings": []
     },
@@ -207003,7 +207003,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 130444,
+      "solved_count": 130446,
       "link": "https://codeforces.com/problemset/problem/133/A",
       "topic_mappings": []
     },
@@ -207194,7 +207194,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 105588,
+      "solved_count": 105590,
       "link": "https://codeforces.com/problemset/problem/131/A",
       "topic_mappings": []
     },
@@ -207828,7 +207828,7 @@
         "brute force",
         "number theory"
       ],
-      "solved_count": 157061,
+      "solved_count": 157063,
       "link": "https://codeforces.com/problemset/problem/122/A",
       "topic_mappings": []
     },
@@ -208234,7 +208234,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 242920,
+      "solved_count": 242921,
       "link": "https://codeforces.com/problemset/problem/118/A",
       "topic_mappings": []
     },
@@ -208347,7 +208347,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 186745,
+      "solved_count": 186747,
       "link": "https://codeforces.com/problemset/problem/116/A",
       "topic_mappings": []
     },
@@ -208580,7 +208580,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 306345,
+      "solved_count": 306349,
       "link": "https://codeforces.com/problemset/problem/112/A",
       "topic_mappings": []
     },
@@ -208705,7 +208705,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 213098,
+      "solved_count": 213099,
       "link": "https://codeforces.com/problemset/problem/110/A",
       "topic_mappings": []
     },
@@ -209727,7 +209727,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 204085,
+      "solved_count": 204091,
       "link": "https://codeforces.com/problemset/problem/96/A",
       "topic_mappings": []
     },
@@ -210736,7 +210736,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 32797,
+      "solved_count": 32798,
       "link": "https://codeforces.com/problemset/problem/82/A",
       "topic_mappings": []
     },
@@ -211416,7 +211416,7 @@
       "tags": [
         "data structures"
       ],
-      "solved_count": 463,
+      "solved_count": 464,
       "link": "https://codeforces.com/problemset/problem/74/D",
       "topic_mappings": []
     },
@@ -211480,7 +211480,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 6032,
+      "solved_count": 6033,
       "link": "https://codeforces.com/problemset/problem/74/A",
       "topic_mappings": []
     },
@@ -211820,7 +211820,7 @@
       "tags": [
         "strings"
       ],
-      "solved_count": 540334,
+      "solved_count": 540340,
       "link": "https://codeforces.com/problemset/problem/71/A",
       "topic_mappings": []
     },
@@ -211857,7 +211857,7 @@
         "data structures",
         "geometry"
       ],
-      "solved_count": 1182,
+      "solved_count": 1183,
       "link": "https://codeforces.com/problemset/problem/70/D",
       "topic_mappings": []
     },
@@ -211995,7 +211995,7 @@
         "implementation",
         "math"
       ],
-      "solved_count": 212350,
+      "solved_count": 212352,
       "link": "https://codeforces.com/problemset/problem/69/A",
       "topic_mappings": []
     },
@@ -212247,7 +212247,7 @@
         "brute force",
         "implementation"
       ],
-      "solved_count": 23580,
+      "solved_count": 23581,
       "link": "https://codeforces.com/problemset/problem/66/B",
       "topic_mappings": []
     },
@@ -212763,7 +212763,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 143160,
+      "solved_count": 143162,
       "link": "https://codeforces.com/problemset/problem/61/A",
       "topic_mappings": []
     },
@@ -212949,7 +212949,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 243700,
+      "solved_count": 243702,
       "link": "https://codeforces.com/problemset/problem/59/A",
       "topic_mappings": []
     },
@@ -213027,7 +213027,7 @@
         "greedy",
         "strings"
       ],
-      "solved_count": 163443,
+      "solved_count": 163445,
       "link": "https://codeforces.com/problemset/problem/58/A",
       "topic_mappings": []
     },
@@ -213666,7 +213666,7 @@
       "tags": [
         "geometry"
       ],
-      "solved_count": 955,
+      "solved_count": 957,
       "link": "https://codeforces.com/problemset/problem/50/C",
       "topic_mappings": []
     },
@@ -213695,7 +213695,7 @@
         "greedy",
         "math"
       ],
-      "solved_count": 342540,
+      "solved_count": 342544,
       "link": "https://codeforces.com/problemset/problem/50/A",
       "topic_mappings": []
     },
@@ -214420,7 +214420,7 @@
       "tags": [
         "implementation"
       ],
-      "solved_count": 19367,
+      "solved_count": 19368,
       "link": "https://codeforces.com/problemset/problem/44/A",
       "topic_mappings": []
     },
@@ -214501,7 +214501,7 @@
       "tags": [
         "strings"
       ],
-      "solved_count": 73463,
+      "solved_count": 73465,
       "link": "https://codeforces.com/problemset/problem/43/A",
       "topic_mappings": []
     },
@@ -214662,7 +214662,7 @@
         "implementation",
         "strings"
       ],
-      "solved_count": 201182,
+      "solved_count": 201183,
       "link": "https://codeforces.com/problemset/problem/41/A",
       "topic_mappings": []
     },
@@ -215367,7 +215367,7 @@
         "greedy",
         "sortings"
       ],
-      "solved_count": 69933,
+      "solved_count": 69934,
       "link": "https://codeforces.com/problemset/problem/34/B",
       "topic_mappings": []
     },
@@ -215523,7 +215523,7 @@
         "expression parsing",
         "implementation"
       ],
-      "solved_count": 83825,
+      "solved_count": 83826,
       "link": "https://codeforces.com/problemset/problem/32/B",
       "topic_mappings": []
     },
@@ -215537,7 +215537,7 @@
       "tags": [
         "brute force"
       ],
-      "solved_count": 15618,
+      "solved_count": 15620,
       "link": "https://codeforces.com/problemset/problem/32/A",
       "topic_mappings": []
     },
@@ -215951,7 +215951,7 @@
         "dsu",
         "graphs"
       ],
-      "solved_count": 3247,
+      "solved_count": 3248,
       "link": "https://codeforces.com/problemset/problem/27/D",
       "topic_mappings": [
         {
@@ -216076,7 +216076,7 @@
       "tags": [
         "greedy"
       ],
-      "solved_count": 27973,
+      "solved_count": 27976,
       "link": "https://codeforces.com/problemset/problem/26/B",
       "topic_mappings": []
     },
@@ -216176,7 +216176,7 @@
       "tags": [
         "brute force"
       ],
-      "solved_count": 108355,
+      "solved_count": 108356,
       "link": "https://codeforces.com/problemset/problem/25/A",
       "topic_mappings": []
     },
@@ -216592,7 +216592,7 @@
       "tags": [
         "data structures"
       ],
-      "solved_count": 3486,
+      "solved_count": 3487,
       "link": "https://codeforces.com/problemset/problem/19/D",
       "topic_mappings": []
     },
@@ -216826,7 +216826,7 @@
         "math",
         "number theory"
       ],
-      "solved_count": 22939,
+      "solved_count": 22940,
       "link": "https://codeforces.com/problemset/problem/17/A",
       "topic_mappings": []
     },
@@ -216979,7 +216979,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 1760,
+      "solved_count": 1761,
       "link": "https://codeforces.com/problemset/problem/15/B",
       "topic_mappings": []
     },
@@ -217136,7 +217136,7 @@
         "dp",
         "geometry"
       ],
-      "solved_count": 792,
+      "solved_count": 793,
       "link": "https://codeforces.com/problemset/problem/13/D",
       "topic_mappings": [
         {
@@ -217486,7 +217486,7 @@
         "divide and conquer",
         "dp"
       ],
-      "solved_count": 4751,
+      "solved_count": 4752,
       "link": "https://codeforces.com/problemset/problem/9/D",
       "topic_mappings": [
         {
@@ -217539,7 +217539,7 @@
         "math",
         "probabilities"
       ],
-      "solved_count": 73608,
+      "solved_count": 73610,
       "link": "https://codeforces.com/problemset/problem/9/A",
       "topic_mappings": []
     },
@@ -217818,7 +217818,7 @@
         "brute force",
         "geometry"
       ],
-      "solved_count": 23963,
+      "solved_count": 23964,
       "link": "https://codeforces.com/problemset/problem/6/A",
       "topic_mappings": []
     },
@@ -217866,7 +217866,7 @@
         "sortings",
         "strings"
       ],
-      "solved_count": 19523,
+      "solved_count": 19524,
       "link": "https://codeforces.com/problemset/problem/5/C",
       "topic_mappings": [
         {
@@ -217938,7 +217938,7 @@
         "hashing",
         "implementation"
       ],
-      "solved_count": 117597,
+      "solved_count": 117598,
       "link": "https://codeforces.com/problemset/problem/4/C",
       "topic_mappings": []
     },
@@ -217968,7 +217968,7 @@
         "brute force",
         "math"
       ],
-      "solved_count": 742911,
+      "solved_count": 742921,
       "link": "https://codeforces.com/problemset/problem/4/A",
       "topic_mappings": []
     },
@@ -217998,7 +217998,7 @@
         "games",
         "implementation"
       ],
-      "solved_count": 8550,
+      "solved_count": 8551,
       "link": "https://codeforces.com/problemset/problem/3/C",
       "topic_mappings": []
     },
@@ -218099,7 +218099,7 @@
         "geometry",
         "math"
       ],
-      "solved_count": 6798,
+      "solved_count": 6801,
       "link": "https://codeforces.com/problemset/problem/1/C",
       "topic_mappings": []
     },
@@ -218128,7 +218128,7 @@
       "tags": [
         "math"
       ],
-      "solved_count": 336636,
+      "solved_count": 336642,
       "link": "https://codeforces.com/problemset/problem/1/A",
       "topic_mappings": []
     }

@@ -5,6 +5,10 @@ import {
 } from "../services/codeforcesService.js";
 import { getBuiltinTopics } from "../services/taxonomyService.js";
 import {
+  listOfficialCodeforcesTags,
+  resolveOfficialCodeforcesTag,
+} from "../services/codeforcesTagService.js";
+import {
   getAttempts,
   readPersonalProblems,
   writePersonalProblems,
@@ -25,11 +29,23 @@ function filtersFromQuery(query: Request["query"]): RecommendationFilters {
   if (ratingMin !== undefined && ratingMax !== undefined && ratingMin > ratingMax) {
     throw new Error("Filtro rating_min não pode ser maior que rating_max.");
   }
+  const rawTags = query.tags ?? query.tag;
+  const tagValues = (Array.isArray(rawTags) ? rawTags : [rawTags])
+    .flatMap((value) => typeof value === "string" ? value.split(",") : [])
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const tags = [...new Set(tagValues.map((value) => {
+    const resolved = resolveOfficialCodeforcesTag(value) ?? resolveOfficialCodeforcesTag(value.replace(/-/g, " "));
+    if (!resolved) throw new Error(`Filtro tag desconhecida: ${value}.`);
+    return resolved.name;
+  }))];
+  const tagMode = query.tag_mode === "and" ? "and" : "or";
   return {
     topic_id: typeof query.topic_id === "string" ? query.topic_id : undefined,
     rating_min: ratingMin,
     rating_max: ratingMax,
-    tag: typeof query.tag === "string" ? query.tag : undefined,
+    tags,
+    tag_mode: tagMode,
     attempted: typeof query.attempted === "string" ? query.attempted : "all",
     sort: typeof query.sort === "string" ? query.sort : "rating",
     limit: optionalInteger(query.limit, "limit"),
@@ -114,6 +130,18 @@ export async function listQuestionBankTopics(
 ): Promise<void> {
   try {
     response.json(getBuiltinTopics());
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function listQuestionBankTags(
+  _request: Request,
+  response: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    response.json(await listOfficialCodeforcesTags());
   } catch (error) {
     next(error);
   }

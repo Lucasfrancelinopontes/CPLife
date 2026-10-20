@@ -7,6 +7,7 @@ import {
 	addPersonalProblem,
 	listQuestionBankSuggestions,
 	listQuestionBankTopics,
+	listQuestionBankTags,
 	refreshQuestionBank,
 	showQuestionBankStatus,
 } from "../controllers/questionBankController.js";
@@ -21,6 +22,7 @@ apiRouter.get("/question-bank/suggestions", listRecommendations);
 apiRouter.get("/question-bank/status", showQuestionBankStatus);
 apiRouter.get("/question-bank/search", listQuestionBankSuggestions);
 apiRouter.get("/question-bank/topics", listQuestionBankTopics);
+apiRouter.get("/question-bank/tags", listQuestionBankTags);
 apiRouter.post("/question-bank/refresh", refreshQuestionBank);
 apiRouter.post("/question-bank/personal", addPersonalProblem);
 

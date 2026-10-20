@@ -11,6 +11,15 @@ export interface Problem {
   created_at: string;
 }
 
+export interface CodeforcesTag {
+  id: string;
+  name: string;
+  source: "codeforces";
+  is_official: boolean;
+  active: boolean;
+  description: string;
+}
+
 export interface Attempt {
   attempt_id: string;
   problem_id: string;

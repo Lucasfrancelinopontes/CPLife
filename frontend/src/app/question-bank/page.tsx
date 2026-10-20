@@ -6,8 +6,10 @@ import ProblemCard from "../../components/ProblemCard";
 import {
   addQuestionToCatalog,
   fetchQuestionBank,
+  fetchQuestionBankTags,
   refreshQuestionBank,
   type QuestionBankCatalog,
+  type QuestionBankTag,
   type QuestionBankTopic,
 } from "../../services/api";
 import type { Recommendation } from "../../types";
@@ -24,11 +26,14 @@ const initialCatalog: QuestionBankCatalog = {
 export default function QuestionBankPage() {
   const [items, setItems] = useState<Recommendation[]>([]);
   const [topics, setTopics] = useState<QuestionBankTopic[]>([]);
+  const [tags, setTags] = useState<QuestionBankTag[]>([]);
   const [catalog, setCatalog] = useState(initialCatalog);
   const [state, setState] = useState<LoadState>("loading");
   const [error, setError] = useState<string | null>(null);
   const [topicId, setTopicId] = useState("");
-  const [tag, setTag] = useState("");
+  const [tagSearch, setTagSearch] = useState("");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [tagMode, setTagMode] = useState<"or" | "and">("or");
   const [ratingMin, setRatingMin] = useState("");
   const [ratingMax, setRatingMax] = useState("");
   const [sort, setSort] = useState<"rating" | "solved_count">("rating");
@@ -41,7 +46,8 @@ export default function QuestionBankPage() {
     try {
       const result = await fetchQuestionBank({
         topic_id: topicId,
-        tag,
+        tags: selectedTags,
+        tag_mode: tagMode,
         rating_min: ratingMin ? Number(ratingMin) : undefined,
         rating_max: ratingMax ? Number(ratingMax) : undefined,
         sort,
@@ -60,6 +66,12 @@ export default function QuestionBankPage() {
 
   useEffect(() => {
     void loadSearch();
+  }, []);
+
+  useEffect(() => {
+    void fetchQuestionBankTags().then(setTags).catch((loadError) => {
+      setError(loadError instanceof Error ? loadError.message : "Não foi possível carregar as tags oficiais.");
+    });
   }, []);
 
   function submit(event: FormEvent<HTMLFormElement>) {
@@ -129,9 +141,27 @@ export default function QuestionBankPage() {
             <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Rating máximo</span>
             <input type="number" min="0" step="100" value={ratingMax} onChange={(event) => setRatingMax(event.target.value)} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm" />
           </label>
+          <div className="md:col-span-2">
+            <label>
+              <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Tags Codeforces</span>
+              <input value={tagSearch} onChange={(event) => setTagSearch(event.target.value)} placeholder="Buscar tag oficial" className="mb-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm" />
+            </label>
+            <select multiple value={selectedTags} onChange={(event) => setSelectedTags(Array.from(event.target.selectedOptions, (option) => option.value))} className="h-24 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm">
+              {tags.filter((item) => item.name.includes(tagSearch.trim().toLowerCase())).map((item) => (
+                <option key={item.id} value={item.name}>{item.name}</option>
+              ))}
+            </select>
+            <div className="mt-2 flex items-center justify-between gap-2">
+              <span className="truncate text-xs text-slate-500">{selectedTags.length ? `Ativas: ${selectedTags.join(", ")}` : "Nenhuma tag selecionada"}</span>
+              <button type="button" onClick={() => setSelectedTags([])} disabled={!selectedTags.length} className="text-xs font-semibold text-sky-400 disabled:text-slate-600">Limpar tags</button>
+            </div>
+          </div>
           <label>
-            <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Tag Codeforces</span>
-            <input value={tag} onChange={(event) => setTag(event.target.value)} placeholder="ex.: dfs" className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm" />
+            <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Combinação</span>
+            <select value={tagMode} onChange={(event) => setTagMode(event.target.value as "or" | "and")} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm">
+              <option value="or">Qualquer tag (OR)</option>
+              <option value="and">Todas as tags (AND)</option>
+            </select>
           </label>
           <label>
             <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Ordenar por</span>
@@ -151,6 +181,7 @@ export default function QuestionBankPage() {
         {error ? <div role="alert" className="mb-5 rounded-md border border-red-400/40 bg-red-950/30 px-4 py-3 text-sm text-red-200">{error}</div> : null}
         {state === "loading" ? <p role="status" className="py-10 text-center text-sm text-slate-400">Carregando catálogo...</p> : null}
         {state === "error" ? <p className="py-10 text-center text-sm text-slate-400">A busca não pôde ser concluída.</p> : null}
+        {state === "ready" ? <p className="mb-4 text-sm text-slate-400">{items.length} questão(ões) encontrada(s)</p> : null}
         {state === "ready" && !items.length ? <p className="rounded-xl border border-dashed border-slate-700 p-10 text-center text-sm text-slate-400">Nenhuma questão corresponde aos filtros. Tente ampliar o rating ou remover uma tag.</p> : null}
         {state === "ready" && items.length ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -171,5 +202,5 @@ export default function QuestionBankPage() {
 function CatalogStatus({ catalog }: { catalog: QuestionBankCatalog }) {
   const label = catalog.source === "fresh" ? "Atualizado" : catalog.source === "cache" ? (catalog.stale ? "Cache desatualizado" : "Cache local") : catalog.source === "demo" ? "Demonstração" : "Indisponível";
   const color = catalog.source === "unavailable" ? "text-red-300" : catalog.stale ? "text-amber-300" : "text-emerald-300";
-  return <p className={`text-xs font-semibold ${color}`}>Catálogo: {label}{catalog.fetched_at ? ` · ${new Date(catalog.fetched_at).toLocaleString("pt-BR")}` : ""}</p>;
+  return <p className={`text-xs font-semibold ${color}`}>Catálogo: {label}{catalog.fetched_at ? ` · ${new Date(catalog.fetched_at).toLocaleString("pt-BR")}` : ""}{catalog.error ? ` · ${catalog.error}` : ""}</p>;
 }

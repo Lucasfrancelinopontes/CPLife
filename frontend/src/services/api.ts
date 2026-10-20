@@ -49,6 +49,8 @@ export interface RecommendationFilters {
   rating_min?: number;
   rating_max?: number;
   tag?: string;
+  tags?: string[];
+  tag_mode?: "or" | "and";
   attempted?: "attempted" | "unattempted" | string;
   sort?: "rating" | "solved_count" | string;
   limit?: number;
@@ -61,7 +63,7 @@ export function fetchRecommendations(
 
   for (const [key, value] of Object.entries(filters)) {
     if (value !== undefined && value !== "") {
-      params.set(key, String(value));
+      params.set(key, Array.isArray(value) ? value.join(",") : String(value));
     }
   }
 
@@ -76,6 +78,15 @@ export interface QuestionBankTopic {
   parent_id: string;
   name: string;
   category: string;
+}
+
+export interface QuestionBankTag {
+  id: string;
+  name: string;
+  source: "codeforces";
+  is_official: boolean;
+  active: boolean;
+  description: string;
 }
 
 export interface QuestionBankCatalog {
@@ -96,12 +107,16 @@ export function fetchQuestionBank(
 ): Promise<QuestionBankResponse> {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(filters)) {
-    if (value !== undefined && value !== "") params.set(key, String(value));
+    if (value !== undefined && value !== "") params.set(key, Array.isArray(value) ? value.join(",") : String(value));
   }
   const query = params.toString();
   return fetchJson<QuestionBankResponse>(
     `/api/question-bank/search${query ? `?${query}` : ""}`,
   );
+}
+
+export function fetchQuestionBankTags(): Promise<QuestionBankTag[]> {
+  return fetchJson<QuestionBankTag[]>("/api/question-bank/tags");
 }
 
 export function refreshQuestionBank(): Promise<QuestionBankCatalog & { problems: Recommendation[] }> {

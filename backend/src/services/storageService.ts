@@ -6,6 +6,7 @@ import csv from "csv-parser";
 import type {
   Attempt,
   Contest,
+  CodeforcesTag,
   Feedback,
   Pattern,
   Problem,
@@ -127,6 +128,10 @@ export function getPersonalProblemsPath(): string {
   return path.join(PERSONAL_DATA_DIR, "personal-problems.json");
 }
 
+export function getCodeforcesTagsPath(): string {
+  return path.join(PERSONAL_DATA_DIR, "codeforces-tags.json");
+}
+
 export function readCodeforcesCache<T>(): Promise<T | undefined> {
   return readOptionalJson<T>(getCodeforcesCachePath());
 }
@@ -141,4 +146,12 @@ export function readPersonalProblems<T>(): Promise<T[]> {
 
 export function writePersonalProblems<T>(value: T[]): Promise<void> {
   return writeJson(getPersonalProblemsPath(), value);
+}
+
+export function readCodeforcesTags(): Promise<CodeforcesTag[] | undefined> {
+  return readOptionalJson<CodeforcesTag[]>(getCodeforcesTagsPath());
+}
+
+export function writeCodeforcesTags(value: CodeforcesTag[]): Promise<void> {
+  return writeJson(getCodeforcesTagsPath(), value);
 }

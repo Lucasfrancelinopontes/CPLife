@@ -93,8 +93,10 @@ export function parseProblemset(payload: CodeforcesPayload): CodeforcesProblem[]
         .filter(Boolean),
     ));
     const stat = statistics.get(itemKey);
-    unique.set(`cf-${contestId}-${index}`, {
-      external_id: `cf-${contestId}-${index}`,
+    const externalId = `cf-${contestId}-${index}`;
+    if (unique.has(externalId)) continue;
+    unique.set(externalId, {
+      external_id: externalId,
       contest_id: contestId,
       index,
       title: String(item.name || `Problem ${contestId}${index}`).trim(),
@@ -196,6 +198,27 @@ export async function fetchProblemset(
 }
 
 export async function getDemoProblemset(): Promise<CodeforcesProblem[]> {
-  const payload = await getCodeforcesProblemset() as CodeforcesPayload;
+  const fixture = await getCodeforcesProblemset() as {
+    problems?: Array<Record<string, unknown>>;
+  };
+  const payload: CodeforcesPayload = {
+    status: "OK",
+    result: {
+      problems: (fixture.problems ?? []).map((problem) => ({
+        contestId: problem.contest_id,
+        index: problem.index,
+        name: problem.title,
+        type: problem.type,
+        rating: problem.rating,
+        tags: problem.tags,
+        solvedCount: problem.solved_count,
+      })),
+      problemStatistics: (fixture.problems ?? []).map((problem) => ({
+        contestId: problem.contest_id,
+        index: problem.index,
+        solvedCount: problem.solved_count,
+      })),
+    },
+  };
   return parseProblemset(payload);
 }

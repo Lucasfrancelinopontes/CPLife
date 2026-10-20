@@ -1,0 +1,306 @@
+[
+  {
+    "id": "special",
+    "name": "*special",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "2-sat",
+    "name": "2-sat",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "binary-search",
+    "name": "binary search",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "bitmasks",
+    "name": "bitmasks",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "brute-force",
+    "name": "brute force",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "chinese-remainder-theorem",
+    "name": "chinese remainder theorem",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "combinatorics",
+    "name": "combinatorics",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "communication",
+    "name": "communication",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "constructive-algorithms",
+    "name": "constructive algorithms",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "data-structures",
+    "name": "data structures",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "dfs-and-similar",
+    "name": "dfs and similar",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "divide-and-conquer",
+    "name": "divide and conquer",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "dp",
+    "name": "dp",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "dsu",
+    "name": "dsu",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "expression-parsing",
+    "name": "expression parsing",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "fft",
+    "name": "fft",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "flows",
+    "name": "flows",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "games",
+    "name": "games",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "geometry",
+    "name": "geometry",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "graph-matchings",
+    "name": "graph matchings",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "graphs",
+    "name": "graphs",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "greedy",
+    "name": "greedy",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "hashing",
+    "name": "hashing",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "implementation",
+    "name": "implementation",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "interactive",
+    "name": "interactive",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "math",
+    "name": "math",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "matrices",
+    "name": "matrices",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "meet-in-the-middle",
+    "name": "meet-in-the-middle",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "number-theory",
+    "name": "number theory",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "probabilities",
+    "name": "probabilities",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "schedules",
+    "name": "schedules",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "shortest-paths",
+    "name": "shortest paths",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "sortings",
+    "name": "sortings",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "string-suffix-structures",
+    "name": "string suffix structures",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "strings",
+    "name": "strings",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "ternary-search",
+    "name": "ternary search",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "trees",
+    "name": "trees",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  },
+  {
+    "id": "two-pointers",
+    "name": "two pointers",
+    "source": "codeforces",
+    "is_official": true,
+    "active": true,
+    "description": ""
+  }
+]
