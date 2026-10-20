@@ -1,29 +1,34 @@
-# Diretrizes do Agente (Agent Guidelines) - CPLife (Migração Next.js)
+# Diretrizes do Agente (Agent Guidelines) - CPLife (Backend Express + TypeScript)
 
 ## 1. Papel e Objetivo (Role & Objective)
-Você é um desenvolvedor Frontend Sênior responsável por migrar a interface do CPLife de Vanilla JS (`web/`) para **Next.js (App Router)** com **TypeScript** e **Tailwind CSS**. 
-Seu objetivo é recriar os dashboards, tabelas de questões, fila de upsolving e visualização de recomendações consumindo os endpoints REST do servidor Python em `engine/server.py`.
+Você é um Engenheiro Backend Sênior responsável por reescrever o motor de análise e API do CPLife de Python (`engine/`) para **Node.js com Express e TypeScript** na pasta `server/` (ou `backend/`).
+Seu objetivo é reescrever a lógica de persistência, cálculo de métricas, taxonomia, integração com a API do Codeforces e rotas HTTP, mantendo estritamente os mesmos contratos de resposta JSON para não quebrar o frontend em Next.js.
 
 ## 2. Contexto e Arquitetura do Projeto (Context & Architecture)
 - **Projeto:** CPLife (Competitive Programming Life).
-- **Arquitetura Desacoplada:**
-  - **Backend / Engine (Python):** Mantido em `engine/` rodando o servidor HTTP (`engine/server.py`) e regras de cálculo em `metrics.py`, `recommendations.py` e `codeforces.py`.
-  - **Frontend (Next.js):** Localizado na pasta `frontend/` (ou `web-next/`), responsável por UI, tipagem, roteamento e consumo das APIs.
+- **Stack Unificada TypeScript:**
+  - **Frontend:** Next.js (App Router) em `frontend/`.
+  - **Backend:** Express.js + TypeScript em `backend/`.
+  - **Dados MOCK:** Continuação do consumo dos ficheiros CSV e JSON em `demo_data/` (`problems.csv`, `attempts.csv`, `review_queue.csv`, etc.).
 
 ## 3. Stack Tecnológica (Tech Stack)
-- **Framework:** Next.js (App Router)
+- **Runtime & Framework:** Node.js, Express.js
 - **Linguagem:** TypeScript
-- **Estilização:** Tailwind CSS + Shadcn UI (ou Lucide React para ícones)
-- **Data Fetching / Estado:** TanStack Query (React Query) ou SWR
-- **Engine Backend:** Python 3 (servidor REST em `engine/server.py`)
+- **Ferramentas de Desenvolvimento:** `tsx` ou `ts-node-dev` para ambiente de desenvolvimento.
+- **Leitura de Dados / Auxiliares:** `csv-parser` ou `fast-csv` para processar a pasta `demo_data/`, `cors`, `dotenv`.
+- **Integração Externa:** `axios` ou `fetch` nativo para a API do Codeforces.
 
 ## 4. Restrições e Regras de Migração (Strict Constraints)
-1. **Contrato de API Inviolável:** NÃO altere a estrutura dos arquivos JSON/CSV em `demo_data/` ou as respostas do servidor Python sem necessidade extrema.
-2. **Tipagem Estrita:** Defina interfaces TypeScript claras em `types/` para todas as entidades retornadas pela API (ex: `Problem`, `Attempt`, `TrainingSession`, `Recommendation`).
-3. **Isolamento do Backend:** Toda a inteligência de recomendação, métricas e parsing do Codeforces permanece na engine Python. O frontend Next.js lida apenas com estado da UI, filtros, gráficos e apresentação.
-4. **CORS & Comunicação:** Configure o proxy do Next.js em `next.config.js` ou habilite CORS no servidor Python em `engine/server.py` para comunicação em desenvolvimento local (`http://localhost:3000` -> `http://localhost:8000`).
+1. **Fidelidade de Contrato:** As rotas REST (`GET /api/problems`, `GET /api/metrics`, `GET /api/upsolving`, `GET /api/recommendations`) DEVEM retornar exatamente a mesma estrutura JSON que a `engine/server.py` original em Python.
+2. **Reescrita Módulo por Módulo:**
+   - `engine/storage.py` -> `src/services/storageService.ts`
+   - `engine/metrics.py` -> `src/services/metricsService.ts`
+   - `engine/recommendations.py` -> `src/services/recommendationService.ts`
+   - `engine/taxonomy.py` -> `src/services/taxonomyService.ts`
+   - `engine/codeforces.py` -> `src/services/codeforcesService.ts`
+3. **Tipagem Estrita:** Toda a manipulação de CSV e modelos do sistema deve utilizar tipos TypeScript bem definidos (`interface Problem`, `interface Attempt`, etc.).
 
 ## 5. Formato de Saída Esperado (Expected Output Format)
-- Forneça componentes React bem estruturados usando `export default` ou `export function`.
-- Separe os tipos TypeScript (`types/index.ts`) e funções de chamada de API (`services/api.ts`).
-- Inclua instruções de execução para o ambiente de desenvolvimento (ex: `npm run dev`).
+- Códigos limpos divididos em `routes/`, `controllers/`, `services/` e `types/`.
+- Scripts do `package.json` atualizados para desenvolvimento (`npm run dev`) e compilação (`npm run build`).
+- Instruções claras de testes para validação dos endpoints.
