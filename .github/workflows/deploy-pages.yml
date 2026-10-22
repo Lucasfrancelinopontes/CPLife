@@ -3,7 +3,7 @@ name: Deploy frontend to GitHub Pages
 on:
   push:
     branches:
-      - develop
+      - main
   workflow_dispatch:
 
 permissions:
@@ -62,6 +62,19 @@ jobs:
       - name: Build static frontend
         working-directory: frontend
         run: npm run build
+
+      - name: Verify static export
+        working-directory: frontend
+        run: |
+          test -f out/index.html || {
+            echo "::error::O export não gerou frontend/out/index.html."
+            exit 1
+          }
+          test -f out/question-bank.html || {
+            echo "::error::O export não gerou frontend/out/question-bank.html."
+            exit 1
+          }
+          echo "Export estático verificado: frontend/out/index.html e frontend/out/question-bank.html"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
