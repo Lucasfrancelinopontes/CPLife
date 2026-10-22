@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next dev",
-    "build": "next build",
+    "prepare-public-catalog": "node scripts/prepare-public-catalog.mjs",
+    "validate-public-catalog": "node scripts/prepare-public-catalog.mjs",
+    "test": "tsx --test test/*.test.ts",
+    "dev": "npm run prepare-public-catalog && next dev",
+    "build": "npm run prepare-public-catalog && next build",
     "start": "next start"
   },
   "keywords": [],
@@ -23,6 +25,7 @@
     "@types/react-dom": "^19.3.0",
     "postcss": "^8.5.31",
     "tailwindcss": "^4.3.3",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "tsx": "^4.23.15"
   }
 }

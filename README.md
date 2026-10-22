@@ -154,6 +154,63 @@ parsing e cache Codeforces, sugestões, adição ao catálogo, APIs principais,
 primeiro acesso demo/pessoal, isolamento entre modos, restauração, feedback e
 ausência de alteração dos dados reais.
 
+## Frontend estático e GitHub Pages
+
+O frontend Next.js fica em [frontend](./frontend) e pode ser exportado como
+site estático. A busca pública do Codeforces lê somente o snapshot validado em
+`frontend/public/data/`; ela não consulta o backend local nem grava dados
+pessoais.
+
+Para desenvolver localmente:
+
+```bash
+cd frontend
+npm ci
+npm run dev
+```
+
+Para validar o catálogo, testar e gerar o export:
+
+```bash
+cd frontend
+npm run validate-public-catalog
+npm test
+npm run build
+```
+
+O comando `build` sempre executa a preparação do catálogo antes de chamar o
+Next.js. O snapshot é copiado de
+`backend/.cplife-data/codeforces-problemset.json` e
+`backend/.cplife-data/codeforces-tags.json`; se algum arquivo estiver ausente
+ou inválido, o comando falha. O diretório gerado é `frontend/out`.
+
+Por padrão, a publicação em um repositório de projeto usa:
+
+```text
+NEXT_PUBLIC_BASE_PATH=/<nome-do-repositorio>
+```
+
+Para testar outro caminho localmente:
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/CPLife npm run build
+```
+
+O workflow [deploy-pages.yml](./.github/workflows/deploy-pages.yml) é
+executado em pushes para `develop` e também pode ser iniciado manualmente.
+Ele instala com `npm ci`, valida os dados, executa os testes, gera
+`frontend/out` e publica usando GitHub Pages. O caminho padrão é derivado
+automaticamente do nome real do repositório; para domínio personalizado ou
+hospedagem na raiz, crie a variável de repositório `PAGES_BASE_PATH` com valor
+`/` (o Next.js o normaliza para caminho vazio). Para outro subdiretório, use o
+valor completo, como `/cplife`.
+
+No GitHub, habilite Pages em **Settings > Pages > Build and deployment**,
+selecionando **GitHub Actions** como fonte. A publicação contém somente os
+arquivos estáticos públicos. Dashboard pessoal, tentativas, revisões,
+persistência e operações do backend continuam disponíveis apenas na arquitetura
+local ou mediante um backend hospedado separadamente.
+
 ## Limitações conhecidas
 
 - é uma aplicação local de usuário único; não há autenticação, sincronização

@@ -1,206 +1,167 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import Navbar from "../../components/Navbar";
 import ProblemCard from "../../components/ProblemCard";
 import {
-  addQuestionToCatalog,
-  fetchQuestionBank,
-  fetchQuestionBankTags,
-  refreshQuestionBank,
-  type QuestionBankCatalog,
-  type QuestionBankTag,
-  type QuestionBankTopic,
-} from "../../services/api";
-import type { Recommendation } from "../../types";
+  filterAndSortProblems,
+  loadPublicCatalog,
+  paginateProblems,
+  type PublicProblem,
+  type SearchFilters,
+} from "../../services/questionBankSearch";
+
+interface PublicTag {
+  id: string;
+  name: string;
+  is_official?: boolean;
+}
+
+const PAGE_SIZE = 24;
+const initialFilters: SearchFilters = {
+  query: "",
+  ratingMin: "",
+  ratingMax: "",
+  selectedTags: [],
+  tagMode: "or",
+  sort: "rating",
+};
 
 type LoadState = "loading" | "ready" | "error";
 
-const initialCatalog: QuestionBankCatalog = {
-  source: "unavailable",
-  stale: false,
-  fetched_at: null,
-  error: null,
-};
-
 export default function QuestionBankPage() {
-  const [items, setItems] = useState<Recommendation[]>([]);
-  const [topics, setTopics] = useState<QuestionBankTopic[]>([]);
-  const [tags, setTags] = useState<QuestionBankTag[]>([]);
-  const [catalog, setCatalog] = useState(initialCatalog);
+  const [problems, setProblems] = useState<PublicProblem[]>([]);
+  const [tags, setTags] = useState<PublicTag[]>([]);
+  const [filters, setFilters] = useState(initialFilters);
+  const [draftFilters, setDraftFilters] = useState(initialFilters);
+  const [tagSearch, setTagSearch] = useState("");
+  const [page, setPage] = useState(1);
   const [state, setState] = useState<LoadState>("loading");
   const [error, setError] = useState<string | null>(null);
-  const [topicId, setTopicId] = useState("");
-  const [tagSearch, setTagSearch] = useState("");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [tagMode, setTagMode] = useState<"or" | "and">("or");
-  const [ratingMin, setRatingMin] = useState("");
-  const [ratingMax, setRatingMax] = useState("");
-  const [sort, setSort] = useState<"rating" | "solved_count">("rating");
-  const [refreshing, setRefreshing] = useState(false);
-  const [added, setAdded] = useState<Record<string, boolean>>({});
 
-  async function loadSearch() {
+  async function loadCatalog() {
     setState("loading");
     setError(null);
     try {
-      const result = await fetchQuestionBank({
-        topic_id: topicId,
-        tags: selectedTags,
-        tag_mode: tagMode,
-        rating_min: ratingMin ? Number(ratingMin) : undefined,
-        rating_max: ratingMax ? Number(ratingMax) : undefined,
-        sort,
-        attempted: "all",
-        limit: 100,
-      });
-      setItems(result.items);
-      setTopics(result.topics);
-      setCatalog(result.catalog);
+      const catalog = await loadPublicCatalog(process.env.NEXT_PUBLIC_BASE_PATH ?? "");
+      setProblems(catalog.problems);
+      setTags(catalog.tags);
       setState("ready");
     } catch (loadError) {
       setState("error");
-      setError(loadError instanceof Error ? loadError.message : "Não foi possível consultar o catálogo.");
+      setError(loadError instanceof Error ? loadError.message : "Não foi possível carregar o catálogo público.");
     }
   }
 
   useEffect(() => {
-    void loadSearch();
+    void loadCatalog();
   }, []);
 
-  useEffect(() => {
-    void fetchQuestionBankTags().then(setTags).catch((loadError) => {
-      setError(loadError instanceof Error ? loadError.message : "Não foi possível carregar as tags oficiais.");
-    });
-  }, []);
+  const filteredProblems = useMemo(
+    () => filterAndSortProblems(problems, filters),
+    [filters, problems],
+  );
+  const result = useMemo(
+    () => paginateProblems(filteredProblems, page, PAGE_SIZE),
+    [filteredProblems, page],
+  );
+  const visibleTags = tags.filter((tag) => tag.name.toLocaleLowerCase().includes(tagSearch.trim().toLocaleLowerCase()));
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  function applyFilters(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    void loadSearch();
+    setFilters({ ...draftFilters, selectedTags: [...draftFilters.selectedTags] });
+    setPage(1);
   }
 
-  async function updateCatalog() {
-    setRefreshing(true);
-    setError(null);
-    try {
-      const result = await refreshQuestionBank();
-      setCatalog({
-        source: result.source,
-        stale: result.stale,
-        fetched_at: result.fetched_at,
-        error: result.error ?? null,
-      });
-      await loadSearch();
-    } catch (refreshError) {
-      setError(refreshError instanceof Error ? refreshError.message : "Não foi possível atualizar o catálogo.");
-    } finally {
-      setRefreshing(false);
-    }
+  function updateDraft<K extends keyof SearchFilters>(key: K, value: SearchFilters[K]) {
+    setDraftFilters((current) => ({ ...current, [key]: value }));
   }
 
-  async function addProblem(problem: Recommendation) {
-    try {
-      const result = await addQuestionToCatalog(problem.external_id);
-      setAdded((current) => ({ ...current, [problem.external_id]: true }));
-      if (!result.created) setError("Essa questão já estava no catálogo pessoal.");
-    } catch (addError) {
-      setError(addError instanceof Error ? addError.message : "Não foi possível adicionar a questão.");
-    }
+  function clearFilters() {
+    setDraftFilters(initialFilters);
+    setFilters(initialFilters);
+    setTagSearch("");
+    setPage(1);
   }
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       <Navbar title="Banco de Questões" />
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
-        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold">Busca Codeforces</h1>
-            <p className="mt-1 text-sm text-slate-400">Questões externas ficam no cache até você adicioná-las ao catálogo pessoal.</p>
-          </div>
-          <CatalogStatus catalog={catalog} />
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold">Busca pública do Codeforces</h1>
+          <p className="mt-1 text-sm text-slate-400">Catálogo estático para consulta. Nenhum dado pessoal é gravado nesta página.</p>
         </div>
 
-        <form onSubmit={submit} className="mb-6 grid gap-4 rounded-xl border border-slate-800 bg-slate-900 p-4 md:grid-cols-6">
+        <form onSubmit={applyFilters} className="mb-6 grid gap-4 rounded-xl border border-slate-800 bg-slate-900 p-4 md:grid-cols-6">
           <label className="md:col-span-2">
-            <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Tópico</span>
-            <select value={topicId} onChange={(event) => setTopicId(event.target.value)} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm">
-              <option value="">Todos os tópicos</option>
-              {topics.filter((topic) => topic.parent_id === "root").map((topic) => (
-                <option key={topic.topic_id} value={topic.topic_id}>{topic.name}</option>
-              ))}
-              {topics.filter((topic) => topic.parent_id !== "root").map((topic) => (
-                <option key={topic.topic_id} value={topic.topic_id}>↳ {topic.name}</option>
-              ))}
-            </select>
+            <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Título ou identificador</span>
+            <input value={draftFilters.query} onChange={(event) => updateDraft("query", event.target.value)} placeholder="Ex.: 2276-G ou graph" className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400" />
           </label>
           <label>
             <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Rating mínimo</span>
-            <input type="number" min="0" step="100" value={ratingMin} onChange={(event) => setRatingMin(event.target.value)} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm" />
+            <input type="number" min="0" step="100" value={draftFilters.ratingMin} onChange={(event) => updateDraft("ratingMin", event.target.value)} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400" />
           </label>
           <label>
             <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Rating máximo</span>
-            <input type="number" min="0" step="100" value={ratingMax} onChange={(event) => setRatingMax(event.target.value)} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm" />
+            <input type="number" min="0" step="100" value={draftFilters.ratingMax} onChange={(event) => updateDraft("ratingMax", event.target.value)} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400" />
           </label>
-          <div className="md:col-span-2">
-            <label>
-              <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Tags Codeforces</span>
-              <input value={tagSearch} onChange={(event) => setTagSearch(event.target.value)} placeholder="Buscar tag oficial" className="mb-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm" />
-            </label>
-            <select multiple value={selectedTags} onChange={(event) => setSelectedTags(Array.from(event.target.selectedOptions, (option) => option.value))} className="h-24 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm">
-              {tags.filter((item) => item.name.includes(tagSearch.trim().toLowerCase())).map((item) => (
-                <option key={item.id} value={item.name}>{item.name}</option>
-              ))}
-            </select>
-            <div className="mt-2 flex items-center justify-between gap-2">
-              <span className="truncate text-xs text-slate-500">{selectedTags.length ? `Ativas: ${selectedTags.join(", ")}` : "Nenhuma tag selecionada"}</span>
-              <button type="button" onClick={() => setSelectedTags([])} disabled={!selectedTags.length} className="text-xs font-semibold text-sky-400 disabled:text-slate-600">Limpar tags</button>
-            </div>
-          </div>
           <label>
             <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Combinação</span>
-            <select value={tagMode} onChange={(event) => setTagMode(event.target.value as "or" | "and")} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm">
+            <select value={draftFilters.tagMode} onChange={(event) => updateDraft("tagMode", event.target.value as "or" | "and")} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400">
               <option value="or">Qualquer tag (OR)</option>
               <option value="and">Todas as tags (AND)</option>
             </select>
           </label>
           <label>
             <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Ordenar por</span>
-            <select value={sort} onChange={(event) => setSort(event.target.value as "rating" | "solved_count")} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm">
+            <select value={draftFilters.sort} onChange={(event) => updateDraft("sort", event.target.value as "rating" | "solved_count")} className="w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400">
               <option value="rating">Rating</option>
               <option value="solved_count">Mais resolvidas</option>
             </select>
           </label>
-          <div className="flex flex-wrap items-end gap-2 md:col-span-6">
-            <button type="submit" className="rounded-md bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500">Buscar</button>
-            <button type="button" onClick={() => void updateCatalog()} disabled={refreshing} className="rounded-md border border-slate-600 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-sky-400 disabled:cursor-wait disabled:opacity-60">
-              {refreshing ? "Atualizando..." : "Atualizar Codeforces"}
-            </button>
+          <label className="md:col-span-3">
+            <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">Tags oficiais do Codeforces</span>
+            <input value={tagSearch} onChange={(event) => setTagSearch(event.target.value)} placeholder="Filtrar lista de tags" className="mb-2 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400" />
+            <select multiple value={draftFilters.selectedTags} onChange={(event) => updateDraft("selectedTags", Array.from(event.target.selectedOptions, (option) => option.value))} className="h-28 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400">
+              {visibleTags.map((tag) => <option key={tag.id} value={tag.name}>{tag.name}</option>)}
+            </select>
+            <span className="mt-2 block truncate text-xs text-slate-500">{draftFilters.selectedTags.length ? `Selecionadas: ${draftFilters.selectedTags.join(", ")}` : "Nenhuma tag selecionada"}</span>
+          </label>
+          <div className="flex flex-wrap items-end gap-2 md:col-span-3">
+            <button type="submit" className="rounded-md bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300">Buscar</button>
+            <button type="button" onClick={clearFilters} className="rounded-md border border-slate-600 px-4 py-2 text-sm font-semibold text-slate-200 hover:border-sky-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300">Limpar filtros</button>
           </div>
         </form>
 
-        {error ? <div role="alert" className="mb-5 rounded-md border border-red-400/40 bg-red-950/30 px-4 py-3 text-sm text-red-200">{error}</div> : null}
-        {state === "loading" ? <p role="status" className="py-10 text-center text-sm text-slate-400">Carregando catálogo...</p> : null}
-        {state === "error" ? <p className="py-10 text-center text-sm text-slate-400">A busca não pôde ser concluída.</p> : null}
-        {state === "ready" ? <p className="mb-4 text-sm text-slate-400">{items.length} questão(ões) encontrada(s)</p> : null}
-        {state === "ready" && !items.length ? <p className="rounded-xl border border-dashed border-slate-700 p-10 text-center text-sm text-slate-400">Nenhuma questão corresponde aos filtros. Tente ampliar o rating ou remover uma tag.</p> : null}
-        {state === "ready" && items.length ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((problem) => (
-              <ProblemCard key={problem.external_id} problem={problem} action={
-                <button type="button" onClick={() => void addProblem(problem)} disabled={added[problem.external_id]} className="rounded-md border border-emerald-500/60 px-2.5 py-1.5 text-xs font-semibold text-emerald-300 hover:bg-emerald-500/10 disabled:cursor-default disabled:border-slate-700 disabled:text-slate-500">
-                  {added[problem.external_id] ? "Adicionada" : "Adicionar"}
-                </button>
-              } />
-            ))}
+        {state === "loading" ? <p role="status" className="py-10 text-center text-sm text-slate-400">Carregando catálogo público...</p> : null}
+        {state === "error" ? (
+          <div role="alert" className="rounded-xl border border-red-400/40 bg-red-950/30 p-6 text-center">
+            <p className="text-sm text-red-200">{error}</p>
+            <button type="button" onClick={() => void loadCatalog()} className="mt-4 rounded-md border border-red-300/50 px-4 py-2 text-sm font-semibold text-red-100 hover:bg-red-900/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300">Tentar novamente</button>
           </div>
+        ) : null}
+        {state === "ready" ? (
+          <>
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-400">
+              <p>{result.totalResults} {result.totalResults === 1 ? "questão encontrada" : "questões encontradas"}</p>
+              <p>Página {result.page} de {result.totalPages}</p>
+            </div>
+            {result.items.length ? (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {result.items.map((problem) => <ProblemCard key={problem.external_id} problem={{ ...problem, attempted: false, reason: "" }} />)}
+              </div>
+            ) : (
+              <p className="rounded-xl border border-dashed border-slate-700 p-10 text-center text-sm text-slate-400">Nenhuma questão corresponde aos filtros. Tente ampliar o rating ou remover uma tag.</p>
+            )}
+            <div className="mt-6 flex items-center justify-center gap-4">
+              <button type="button" disabled={result.page === 1} onClick={() => setPage((current) => Math.max(1, current - 1))} className="rounded-md border border-slate-700 px-3 py-2 text-sm font-semibold text-slate-200 hover:border-sky-400 disabled:cursor-not-allowed disabled:opacity-40">Anterior</button>
+              <span className="text-sm text-slate-400">Página {result.page} de {result.totalPages}</span>
+              <button type="button" disabled={result.page === result.totalPages} onClick={() => setPage((current) => Math.min(result.totalPages, current + 1))} className="rounded-md border border-slate-700 px-3 py-2 text-sm font-semibold text-slate-200 hover:border-sky-400 disabled:cursor-not-allowed disabled:opacity-40">Próxima</button>
+            </div>
+          </>
         ) : null}
       </main>
     </div>
   );
-}
-
-function CatalogStatus({ catalog }: { catalog: QuestionBankCatalog }) {
-  const label = catalog.source === "fresh" ? "Atualizado" : catalog.source === "cache" ? (catalog.stale ? "Cache desatualizado" : "Cache local") : catalog.source === "demo" ? "Demonstração" : "Indisponível";
-  const color = catalog.source === "unavailable" ? "text-red-300" : catalog.stale ? "text-amber-300" : "text-emerald-300";
-  return <p className={`text-xs font-semibold ${color}`}>Catálogo: {label}{catalog.fetched_at ? ` · ${new Date(catalog.fetched_at).toLocaleString("pt-BR")}` : ""}{catalog.error ? ` · ${catalog.error}` : ""}</p>;
 }

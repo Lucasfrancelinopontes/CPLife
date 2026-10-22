@@ -46,6 +46,9 @@ test("filters combine rating, parent topic and exact external tags", () => {
 test("supports OR and AND tag combinations and ignores missing tags", () => {
   const problems = codeforces.parseProblemset(payload);
   assert.deepEqual(recommendations.suggest(problems, [], {
+    tags: [], tag_mode: "and", attempted: "all", limit: 100,
+  }).map((problem) => problem.external_id), ["cf-1-A", "cf-1-B", "cf-1-C"]);
+  assert.deepEqual(recommendations.suggest(problems, [], {
     tags: ["dfs and similar", "dp"], tag_mode: "or", attempted: "all", limit: 100,
   }).map((problem) => problem.external_id), ["cf-1-A", "cf-1-C"]);
   assert.deepEqual(recommendations.suggest(problems, [], {

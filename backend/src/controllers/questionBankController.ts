@@ -39,7 +39,11 @@ function filtersFromQuery(query: Request["query"]): RecommendationFilters {
     if (!resolved) throw new Error(`Filtro tag desconhecida: ${value}.`);
     return resolved.name;
   }))];
-  const tagMode = query.tag_mode === "and" ? "and" : "or";
+  const tagMode = query.tag_mode === undefined || query.tag_mode === "or"
+    ? "or"
+    : query.tag_mode === "and"
+      ? "and"
+      : (() => { throw new Error("Filtro tag_mode inválido."); })();
   return {
     topic_id: typeof query.topic_id === "string" ? query.topic_id : undefined,
     rating_min: ratingMin,

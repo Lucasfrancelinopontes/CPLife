@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CPLife",
-  description: "Painel pessoal de treino de programação competitiva",
+  title: "CPLife | Sua próxima questão começa aqui",
+  description: "Explore e filtre questões do Codeforces para treinar programação competitiva.",
 };
 
 export default function RootLayout({
